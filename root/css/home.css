@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    /* border: 1px solid black; */
+}
+
+header {
+    /* background-color: rgb(162, 199, 87); */
+    /* background-color: rgb(64, 118, 143); */
+    /* background: linear-gradient(to right,#f5dacd, #f56623); */
+    /* background-color: rgb(182, 32, 187); */
+    /* background: linear-gradient(to right,rgb(228, 240, 204), rgb(162, 199, 87)); */
+    background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
+    /* background-image: linear-gradient(to right,rgba(228, 240, 204, 0.4),rgba(162, 199, 87, 2.5)),url(tea-cake.jpg); */
+    border-color: black;
+}
+
+.left-item {
+    display: flex;
+    justify-content: center;
+    background-color: peru;
+    border: solid 3px black;
+    border-radius: 20px;
+    cursor: pointer; 
+}
+
+.active{
+    background-color: yellowgreen;
+}
+
+header a{
+     text-decoration: none;
+     font-weight: bold;
+     color: black;
+     font-size: 18px;
+}
+
+.link_nav{
+    position: relative;
+}
+
+.search-box{
+   
+    border-radius: 20px;
+    background-color: white;
+}
+
+.input-field{
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+}
+
+.icon{
+    color: rgb(94, 205, 50);
+}
+
+.right-item {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(243, 187, 131);
+    font-size: 18px;
+    border: solid 3px black;
+    right: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 30%;
+}
+
+button {
+    background-color: none;
+}
