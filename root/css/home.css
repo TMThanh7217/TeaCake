@@ -6,7 +6,17 @@
     /* border: 1px solid black; */
 }
 
-header {
+html {
+    min-width: 980px;
+    width: 100%;
+}
+
+body {
+    min-width: 980px;
+    width: 100%;
+}
+
+header, footer{
     /* background-color: rgb(162, 199, 87); */
     /* background-color: rgb(64, 118, 143); */
     /* background: linear-gradient(to right,#f5dacd, #f56623); */
@@ -35,6 +45,16 @@ header a{
      font-weight: bold;
      color: black;
      font-size: 18px;
+}
+
+.left-item:hover , .right-item:hover, #rp-btn:hover{
+    color: black;
+    background-color: yellow;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
 }
 
 .link_nav{
@@ -71,4 +91,20 @@ header a{
 
 button {
     background-color: none;
+}
+
+footer a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 11px;
+}
+
+#rp-btn {
+    border-radius:20px;
+    height: 90%;
+    font-weight: bold;
+    background-color: rgb(243, 187, 131);
+    font-size: 11px;
+    border: solid 3px black;
 }
