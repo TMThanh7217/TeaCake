@@ -17,13 +17,7 @@ body {
 }
 
 header, footer{
-    /* background-color: rgb(162, 199, 87); */
-    /* background-color: rgb(64, 118, 143); */
-    /* background: linear-gradient(to right,#f5dacd, #f56623); */
-    /* background-color: rgb(182, 32, 187); */
-    /* background: linear-gradient(to right,rgb(228, 240, 204), rgb(162, 199, 87)); */
     background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
-    /* background-image: linear-gradient(to right,rgba(228, 240, 204, 0.4),rgba(162, 199, 87, 2.5)),url(tea-cake.jpg); */
     border-color: black;
 }
 
@@ -107,4 +101,8 @@ footer a{
     background-color: rgb(243, 187, 131);
     font-size: 11px;
     border: solid 3px black;
+}
+
+.title-bseller{
+    background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
 }

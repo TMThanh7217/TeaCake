@@ -55,6 +55,7 @@ body{
 .btn-order {
     border-radius:20px;
     height: 90%;
+    width: 260px;
     font-weight: bold;
     background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
     font-size: 20px;
