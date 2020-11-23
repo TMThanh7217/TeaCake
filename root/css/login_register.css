@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#background{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(38, 207, 212, 0.4),rgba(214, 141, 30, 0.2)),url(../images/tea_cake_bg.jpg);
+    background-position: center;    
+    background-size: cover; 
+    position: absolute;
+}
+
+#form-box{
+    width: 380px;
+    height: 440px;
+    position: relative;
+    margin: 6% auto;
+    background: white;
+    padding: 5px;
+    border-radius: 25px;
+    border: 3px solid;
+    border-color: #8093fc;
+    overflow: hidden;
+}
+
+#button-box{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 30px 20px #3623631f;
+    border-radius: 30px;
+}
+
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    font-weight: bold;
+}
+
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 120px;
+    height: 100%;
+    background: linear-gradient(to right, #4a64f7, #dae3e4);
+    border-radius: 30px;
+    transition: .5s; 
+}
+
+#TnK_img{
+    width: 180px;
+    height: 180px;
+    float: left;
+    left: 90px;
+    top: 75px;
+    position: absolute;
+}
+
+#input-login{
+    top: 220px;
+    left: 50px;
+    position: absolute;
+    width: 280px;
+}
+
+.input-login-field{
+    width: 100%;
+    padding: 10px;
+    margin: 5px auto;
+    border: 1px solid;
+    border-color: rgb(126, 124, 124);
+    border-radius: 5px;
+    outline: none;
+}
+
+.check-box{
+    padding: 20px;
+}
+
+.submit-btn{
+    width: 85%;
+    padding: 20px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #4a64f7, #dae3e4);
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+.check-box{
+    margin: 20px 10px 20px;
+}
+
+#input-register{
+    top: 100px;
+    left: 450px;
+    position: absolute;
+    width: 280px;
+}
+
+.label{
+    font-size: 12px;
+    position: relative;
+    left: 10px;
+}
+
+#firstname{
+    width: 41%;
+}
+
+#lastname{
+    width: 41%;
+    left: 23px;
+    position: relative;
+}
+
+.DoB_N_Gender{
+    display: grid;
+    grid-template-columns: 70% 26%;
+}
+
+.DoB{
+    margin: 5px auto;
+    display: grid;
+    grid-template-columns: 25% 25% 48%;
+}
+
+.Gender{
+    position: relative;
+    left: 19px;
+}
+
+#DoB_Border{
+    outline: none;
+    margin: 5px auto;
+    border: 1px solid;
+    border-color: rgb(126, 124, 124);
+    border-radius: 5px;
+    cursor: pointer;
+    color: gray;
+}
+
+#register_submit_btn{
+    position: relative;
+    top: 25px;
+    background: linear-gradient(to right,#f5dacd, #f56623);
+}
+
