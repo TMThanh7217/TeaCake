@@ -1,5 +1,26 @@
+TASK
+Register account
+Login 
+Log out 
+Browse product in cart 
+Search 
+Add a product to cart 
+Remove a product from cart 
+Confirm payment 
+Delivery observation
+Notification 
+Recommend discount product 
+Chatbox 
+Feedback/Rating 
+Statistic on sold product
+Add/Remove/Change products
+Delete account 
+Advertise 
+--------------------------------------------------------------------------------------------------------------
 13/11/2020
 nhân: làm trang home
 phước: đọc + viết PA03
 minh: đọc + viết PA05
 --------------------------------------------------------------------------------------------------------------
+21/11/2020
+minh: credit

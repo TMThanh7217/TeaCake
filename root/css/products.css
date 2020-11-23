@@ -61,3 +61,11 @@ body{
     font-size: 20px;
     border: solid 3px black;
 }
+
+.btn-order:hover {
+    background: linear-gradient(to right,rgb(235, 35, 28),rgb(236, 189, 128), rgb(217, 238, 123), rgb(180, 236, 143))
+}
+
+.btn-order:active {
+    background: linear-gradient(to right,rgb(131, 20, 16),rgb(138, 94, 36), rgb(107, 121, 48), rgb(57, 112, 21))
+}
