@@ -80,13 +80,15 @@ a:hover {
 .right-item {
     display: flex;
     justify-content: center;
+    align-items: center;
+    justify-content: space-around;
     background-color: rgb(243, 187, 131);
     font-size: 18px;
+    font-weight: bold;
     border: solid 3px black;
     right: 10px;
     border-radius: 50px;
     cursor: pointer;
-    width: 30%;
 }
 
 button {
