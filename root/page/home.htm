@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/products.css">
   </head>
-  <body>
+  <body onload="userUI()">
     <header class="mb-2">
         <nav class="navbar navbar-expand-md">
             <div class="navbar-collapse collapse w-50 order-1 order-md-0 dual-collapse2">
@@ -31,22 +31,23 @@
                 <input type="text" class="input-field w-75 h-75" placeholder="Search...">
                 <a href="#"><i class="fa fa-search icon"></i></a>
             </div>
-            <div class="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-between justify-content-center" style="width: 15%">
-                <ul class="navbar-nav mx-auto w-100 d-flex justify-content-center">
-                    <!-- <li class="nav-item p-1 right-item">
-                        <i class="fa fa-shopping-cart"></i>
-                    </li>
-                    <li class="nav-item p-1 right-item">
-                        <i class="fa fa-history"></i>
-                    </li> -->
-                    <li class="nav-item p-1 right-item w-75">
-                        Account <i class="fa fa-user" style="font-size: 40px"></i>          
-                    </li>
-                </ul>
+            <div id="login-area" class="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-center" style="width: 15%">
+                <!-- <div class="dropdown nav-item acc-drop p-1 w-75">
+                    <button type="button" class="btn dropdown-toggle right-item" data-toggle="dropdown">
+                        Account <i class="fa fa-user ml-3" style="font-size: 40px"></i>
+                    </button>
+                    <div class="dropdown-menu" style="background: linear-gradient(rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">                      
+                        <a class="dropdown-item" href="#"><i class='fas fa-address-card'></i> Profile</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-bell"></i> Notification</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> Shopping cart</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-history"></i> History</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-door-open"></i> Logout</a>
+                    </div>
+                </div> -->
             </div>
         </nav>
     </header>
-    <div class="card my-4 mx-5 border-dark">
+    <div class="card u-shadow-v18 g-bg-white my-4 mx-5">
         <div class="card-header text-center title-bseller">
             <h3>Best Seller</h3>
         </div>
@@ -88,7 +89,7 @@
             <button type="button" onclick="location.href='./MenuCategory.html'" class="btn btn-lg btn-block btn-order mt-3">See our Menu</button>
         </div>
     </div>
-        <div id="carouselId" class="carousel slide my-3 mx-5" data-ride="carousel">
+        <div id="carouselId" class="carousel u-shadow-v18 g-bg-white slide my-3 mx-5" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselId" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselId" data-slide-to="1"></li>
@@ -156,7 +157,7 @@
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                         <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center w-100"  style="width: calc(100% - 100px)">
                             <li class="nav-item p-1 active left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
-                            <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> About </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./credit.html" style="text-align: center;"> About </a></li>
                             <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./MenuCategory.html" style="text-align: center;"> Menu </a></li>
                             <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Blog </a></li>
                             <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Contact </a></li>
@@ -181,6 +182,8 @@
         </div>
     </footer>
     <!-- Optional JavaScript -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="../js/login_register.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

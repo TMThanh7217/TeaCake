@@ -114,3 +114,24 @@ footer a{
 .title-bseller{
     background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
 }
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+ .dropdown-item {
+    font-weight: bold;
+ }
+
+ .dropdown-item:hover {
+    background: linear-gradient(to right,rgb(235, 35, 28),rgb(236, 189, 128), rgb(217, 238, 123), rgb(180, 236, 143))
+ }
+
+ .dropdown-item:active {
+    background: linear-gradient(to right,rgb(131, 20, 16),rgb(138, 94, 36), rgb(107, 121, 48), rgb(57, 112, 21))
+ }
+
+ i {
+     font-size: 20px;
+ }
