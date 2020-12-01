@@ -1,0 +1,98 @@
+/* .item, .item-info{
+    border: 1px solid black;
+} */
+
+.item-info_name {
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.item-img>img {
+    height: 150px;
+}
+
+.item-info_name:hover {
+    color: rgb(61, 96, 137);
+}
+
+.item-info_del, .item-info_buy-later {
+    color: rgb(61, 96, 137);
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.item-info_del:hover, .item-info_buy-later:hover {
+    text-decoration: underline;
+}
+
+.item-info_real-price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.item_qty {
+    height: 30px;
+}
+
+.price {
+    font-size: 3rem;
+    color: yellowgreen;
+    font-weight: bold;
+}
+
+td.col-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* 
+.confirm-payment_zone, #confirm, .col-4 {
+    border: 1px solid black;
+} */
+
+.confirm-payment_zone {
+    margin-bottom: calc(100px + 10px);
+}
+
+.confirm-payment_option-code_btn, .confirm-payment_option-confirm_btn {
+    background-color: peru;
+    border: solid 3px black;
+    border-radius: 20px;
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+
+.confirm-payment_option-code_btn:hover, .confirm-payment_option-confirm_btn:hover {
+    background-color: yellowgreen;
+}
+
+.dropdown-menu {
+    background: linear-gradient(rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
+}
+
+.confirm-payment_header * {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.confirm-payment_data * {
+    font-size: 20px;
+}
+
+.bg-container {
+    background-color: wheat;
+}

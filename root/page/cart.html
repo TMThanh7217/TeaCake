@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>TeaCake</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+<body onload="userUI()">
+    <header class="mb-2">
+        <nav class="navbar navbar-expand-md">
+            <div class="navbar-collapse collapse w-50 order-1 order-md-0 dual-collapse2">
+                <a href="#" class="navbar-brand mx-1" style="width: 100px">
+                    <img src="../images/logo.png" height="50" alt="CoolBrand">
+                </a>
+                <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center"  style="width: calc(100% - 100px)">
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="./home.htm" style="text-align: center;"> Home </a></li>
+                    <li class="nav-item active p-1 left-item" style="width: 24%"> <a class="w-100" href="#" style="text-align: center;"> Menu </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="#" style="text-align: center;"> Blog </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="#" style="text-align: center;"> Contact </a></li>
+                </ul>
+            </div>
+            <div class="mx-2 order-0 search-box d-flex align-items-center justify-content-center" style="width: 30%">
+                <input type="text" class="input-field w-75 h-75" placeholder="Search...">
+                <a href="#"><i class="fa fa-search icon"></i></a>
+            </div>
+            <div id="login-area" class="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-center" style="width: 15%">
+        </nav>
+    </header>
+
+
+    <div class="container-fluid d-flex flex-column align-items-center mt-3">
+        <h1>Your Cart</h1>
+        <div class="container d-flex flex-column align-items-center my-3">
+            <div id="cart" class="container-fluid mb-2 p-3 bg-container">
+                <div class="row item my-2">
+                    <div class="col-3 item-img">
+                        <img src="../images/drink/cappuccino.jpg" alt="" class="img-fluid img-thumbnail">
+                    </div>
+                    <div class="col-5 item-info">
+                        <p class="item-info_name">Cappuccino</p>
+                        <p class="item-info_detail">Yum yum cappuccino. Best for working time.</p>
+                        <p class="item-info_action">
+                            <span class="item-info_del">Remove</span>
+                            <span class="item-info_buy-later ml-2">Buy later</span></p>
+                    </div>
+                    <div class="col-2 item_pricess">
+                        <p class="item-pricess_real-price">$5</p>
+                        <p class="item-pricess_discount-price">
+                            <del>$8</del>
+                            <span>|</span>
+                            <span>-x%</span>
+                        </p>
+                    </div>
+                    <div class="col-2 item_qty input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary btn-secondary text-white" type="button"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <input type="number" class="form-control text-center" value="1">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary btn-secondary text-white" type="button"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row item my-2">
+                    <div class="col-3 item-img">
+                        <img src="../images/drink/cold-coffee-americano-with-ice-cube.jpg" alt="" class="img-fluid img-thumbnail">
+                    </div>
+                    <div class="col-5 item-info">
+                        <p class="item-info_name">Americano</p>
+                        <p class="item-info_detail">cold-coffee-americano-with-ice-cube.</p>
+                        <p class="item-info_action">
+                            <span class="item-info_del">Remove</span>
+                            <span class="item-info_buy-later ml-2">Buy later</span></p>
+                    </div>
+                    <div class="col-2 item_pricess">
+                        <p class="item-pricess_real-price">$5</p>
+                        <p class="item-pricess_discount-price">
+                            <del>$8</del>
+                            <span>|</span>
+                            <span>-x%</span>
+                        </p>
+                    </div>
+                    <div class="col-2 item_qty input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary btn-secondary text-white" type="button"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <input type="number" class="form-control text-center" value="1">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary btn-secondary text-white" type="button"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container-fluid mt-5 p-3 confirm-payment_zone d-flex justify-content-center bg-container">
+                <div id="confirm" class="container-fluid row w-100">
+                    <div class="col-4  confirm-payment_header">
+                        <p class="row">Total</p>
+                        <p class="row">Discount</p>
+                        <p class="row">After discount</p>
+                    </div>
+                    <div class="col-4 confirm-payment_data">
+                        <p class="row confirm-payment_data-total">$10</p>
+                        <p class="row confirm-payment_data-discount">20% max $1.5</p>
+                        <p class="row confirm-payment_data-after">$8.5</p>
+                    </div>
+                    <div class="col-4 confirm-payment_option d-flex flex-column justify-content-between align-items-end">
+                        <div class="row">
+                            <div class="dropdown confirm-payment_option-code">
+                                <button type="button" class="btn confirm-payment_option-code_btn dropdown-toggle" data-toggle="dropdown">
+                                  Code 1
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Code 1</a>
+                                  <a class="dropdown-item" href="#">Code 2</a>
+                                  <a class="dropdown-item" href="#">Code 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="confirm-payment_option-confirm row">
+                            <button class="btn confirm-payment_option-confirm_btn">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="mt-2 navbar fixed-bottom">
+        <div class="row w-100">
+            <div class="col-4 d-flex justify-content-center align-items-center w-75">
+                <div class="container" style="width: 80%;">
+                    <div class="row my-1">
+                        <div class="col-12">
+                            Email: Lorem@Lo.re.m
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-12">
+                            Phone: 0123456789    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 d-flex align-items-center">
+                <nav class="navbar navbar-expand-md w-100">
+                    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                        <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center w-100"  style="width: calc(100% - 100px)">
+                            <li class="nav-item p-1  left-item" style="width: 19%"> <a href="#"> Home </a></li>
+                            <li class="nav-item p-1 active left-item" style="width: 19%"> <a href="#"> About </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a href="./MenuCategory.html"> Menu </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a href="#"> Blog </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a href="#"> Contact </a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center w-75">
+                <div class="container" style="width: 80%;">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            Address: abc, xyz, tvu
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-4 d-flex justify-content-center align-items-center my-1">
+                            <button id="rp-btn" type="button" class="btn d-flex justify-content-center align-items-center">Report Error</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/script.js"></script>
+    <script src="../js/login_register.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
