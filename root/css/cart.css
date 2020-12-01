@@ -18,7 +18,7 @@
 .item-info_del, .item-info_buy-later {
     color: rgb(61, 96, 137);
     display: inline-block;
-    font-size: 13px;
+    font-size: 18px;
     cursor: pointer;
 }
 
@@ -67,16 +67,19 @@ input[type=number] {
     margin-bottom: calc(100px + 10px);
 }
 
-.confirm-payment_option-code_btn, .confirm-payment_option-confirm_btn {
+.confirm-payment_option-code_btn, .confirm-payment_option-confirm_OK, .confirm-payment_option-confirm_Ccl {
     background-color: peru;
     border: solid 3px black;
     border-radius: 20px;
     font-weight: bold;
     color: black;
     font-size: 18px;
+    margin: 5px 0;
 }
-
-.confirm-payment_option-code_btn:hover, .confirm-payment_option-confirm_btn:hover {
+.confirm-payment_option-confirm_Ccl {
+    background-color:rgb(235, 35, 28);
+}
+.confirm-payment_option-code_btn:hover, .confirm-payment_option-confirm_OK:hover, .confirm-payment_option-confirm_Ccl:hover {
     background-color: yellowgreen;
 }
 
