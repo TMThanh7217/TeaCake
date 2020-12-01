@@ -22,6 +22,3 @@ for(var i = 0; i < ca.length; i++) {
 return "";
 }
 
-function userUI() {
-    
-}
