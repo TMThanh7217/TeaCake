@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>TeaCake</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--Our Style-->
+        <link rel="stylesheet" href="../css/home.css">
+        <link rel="stylesheet" href="../css/profile.css">
+    </head>
+    <body onload="userUI()">
+          <header class="mb-2">
+              <nav class="navbar navbar-expand-md">
+                  <div class="navbar-collapse collapse w-50 order-1 order-md-0 dual-collapse2">
+                      <a href="#" class="navbar-brand mx-1" style="width: 100px">
+                          <img src="../images/logo.png" height="50" alt="CoolBrand">
+                      </a>
+                      <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center"  style="width: calc(100% - 100px)">
+                          <li class="active nav-item p-1 left-item" style="width: 24%"> <a href="#" style="text-align: center;"> Home </a></li>
+                          <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="./MenuCategory.html" style="text-align: center;"> Menu </a></li>
+                          <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="#" style="text-align: center;"> Blog </a></li>
+                          <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="#" style="text-align: center;"> Contact </a></li>
+                      </ul>
+                  </div>
+                  <div class="mx-2 order-0 search-box d-flex align-items-center justify-content-center" style="width: 30%">
+                      <input type="text" class="input-field w-75 h-75" placeholder="Search...">
+                      <a href="#"><i class="fa fa-search icon"></i></a>
+                  </div>
+                  <div id="login-area" class="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-center" style="width: 15%">
+                  </div>
+              </nav>
+          </header>
+          <body>
+              <div class="container">
+                  <div class="text-center">
+                      <img src= "../images/background.jpg" class="img-thumbnail background" alt="background">
+                  </div>
+                  <div class="text-center">
+                        <img src="../images/user.png" class="img-thumbnail rounded-circle avatar" alt="avatar">
+                        <h1 class="username"> User Name </h1>
+                  </div>
+                    <div class="info">
+                        <div class="card">
+                            <div class="card-header mainColor">
+                                <h2 class="text-center">Public Profile</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="row m-2">
+                                    <div class="col-3 inputRow">
+                                        <h5>First Name</h5>
+                                    </div>
+                                    <div class="col inputRow">
+                                        <div class="form-row">
+                                            <input type="text" class="form-control p-4" name="first name" value="User">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-3 inputRow">
+                                        <h5>Last Name</h5>
+                                    </div>
+                                    <div class="col inputRow">
+                                        <div class="form-row">
+                                            <input type="text" class="form-control p-4" name="last name" value="Name">
+                                        </div>       
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-3 inputRow">
+                                        <h5>Email Address</h5>
+                                    </div>
+                                    <div class="col inputRow">
+                                        <div class="form-row">
+                                            <input type="text" class="form-control p-4" name="email" value="user.name@gmail.com">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-3 inputRow">
+                                        <h5>Phone number</h5>
+                                    </div>
+                                    <div class="col inputRow">
+                                        <div class="form-row">
+                                            <input type="text" class="form-control p-4" name="phone" value="0969327639">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                  <div class="col-3 inputRow">
+                                      <h5>Favorite food</h5>
+                                  </div>
+                                  <div class="col inputRow">
+                                      <div class="form-row">
+                                          <input type="text" class="form-control p-4" name="favoriteFood" value="Lemon ice cream, lemon lemongrass kumquat tea, lemon juice">
+                                      </div>
+                                  </div>
+                              </div>
+                                <div class="row m-2">
+                                    <div class="col-3 inputRow">
+                                        <h5>Nationality</h5>
+                                    </div>
+                                    <div class="col inputRow">
+                                        <div class="form-row">
+                                            <input type="text" class="form-control p-4" name="nation" value="Campuchia">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-3 inputRow">
+                                        <h5>Bio</h5>
+                                    </div>
+                                    <div class="col inputRow">
+                                        <div class="form-row">
+                                          <input type="text" class="form-control p-4" name="phone" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quod!">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+          <footer class="mt-4">
+              <div class="row w-100">
+                  <div class="col-4 d-flex justify-content-center align-items-center w-75">
+                      <div class="container" style="width: 80%;">
+                          <div class="row my-1">
+                              <div class="col-12">
+                                  Email: Lorem@Lo.re.m
+                              </div>
+                          </div>
+                          <div class="row my-1">
+                              <div class="col-12">
+                                  Phone: 0123456789    
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-4 d-flex align-items-center">
+                      <nav class="navbar navbar-expand-md w-100">
+                          <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                              <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center w-100"  style="width: calc(100% - 100px)">
+                                  <li class="nav-item p-1 active left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                                  <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./credit.html" style="text-align: center;"> About </a></li>
+                                  <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./MenuCategory.html" style="text-align: center;"> Menu </a></li>
+                                  <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Blog </a></li>
+                                  <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Contact </a></li>
+                              </ul>
+                          </div>
+                      </nav>
+                  </div>  
+                  <div class="col-4 d-flex justify-content-center align-items-center w-75">
+                      <div class="container" style="width: 80%;">
+                          <div class="row">
+                              <div class="col-12 d-flex justify-content-center">
+                                  Address: abc, xyz, tvu
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12 col-4 d-flex justify-content-center align-items-center my-1">
+                                  <button id="rp-btn" type="button" class="btn d-flex justify-content-center align-items-center">Report Error</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </footer>
+          <!-- Optional JavaScript -->
+          <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+          <script src="../js/login_register.js"></script>
+          <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
