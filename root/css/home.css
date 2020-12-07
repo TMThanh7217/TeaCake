@@ -6,6 +6,10 @@
     /* border: 1px solid black; */
 }
 
+.bgColor{
+    background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
+}
+
 html {
     min-width: 980px;
     width: 100%;
@@ -135,3 +139,5 @@ footer a{
  i {
      font-size: 20px;
  }
+
+ 

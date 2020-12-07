@@ -1,0 +1,33 @@
+.btn-sendMess{
+    border-radius:20px;
+    height: 90%;
+    width: 200px;
+    font-weight: bold;
+    font-size: 20px;
+    border: solid 3px black;
+}
+
+input[type="text"]:disabled {
+    background: #f7ffe9;
+}
+
+.inputRow{
+    padding: 5px;
+    margin: 0px 10px;
+}
+
+.contact{
+    margin: 14px;
+}
+
+.inputField{
+    padding: 15px;
+}
+
+.formColor{
+    background: rgb(252, 241, 241);
+}
+
+input{
+    border: 3px;
+}

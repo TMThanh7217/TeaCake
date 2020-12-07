@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!--Our Style-->
         <link rel="stylesheet" href="../css/home.css">
-        <link rel="stylesheet" href="../css/profile.css">
+        <link rel="stylesheet" href="../css/contact.css">
     </head>
     <body onload="userUI()">
         <header class="mb-2">
@@ -35,89 +35,73 @@
                 </div>
             </nav>
         </header>
-        <div class="container">
-            <div class="text-center">
-                <img src= "../images/background.jpg" class="img-thumbnail background" alt="background">
-            </div>
-            <div class="text-center">
-                <img src="../images/user.png" class="img-thumbnail rounded-circle avatar" alt="avatar">
-                <h1 class="username"> User Name </h1>
-            </div>
+        <div class="container text-center my-5">
+            <iframe width="900" height="400" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ3eH0BhwvdTERPZpT1PEAOQQ&key=AIzaSyAeapyL9rv94yP5PggjGIAuAcEMlJc3Dcs" allowfullscreen></iframe>
+        </div>
+        <div class="container my-5">
             <div class="info">
                 <div class="card">
-                    <div class="card-header bgColor">
-                        <h2 class="text-center">Public Profile</h2>
+                    <div class="card-header bgColor ">
+                        <h2 class="text-center">Our information</h2>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body formColor">
                         <div class="row m-2">
-                            <div class="col-3 inputRow">
-                                <h5>First Name</h5>
+                            <div class="col-2 inputRow">
+                                <h5>Email</h5>
                             </div>
                             <div class="col inputRow">
                                 <div class="form-row">
-                                    <input type="text" class="form-control p-4" name="first name" value="User" disabled>
+                                    <input type="text" class="form-control p-4" name="first name" value="TeaCake@gmail.com" disabled>
                                 </div>
                             </div>
                         </div>
                         <div class="row m-2">
-                            <div class="col-3 inputRow">
-                                <h5>Last Name</h5>
+                            <div class="col-2 inputRow">
+                                <h5>Address</h5>
                             </div>
                             <div class="col inputRow">
                                 <div class="form-row">
-                                    <input type="text" class="form-control p-4" name="last name" value="Name" disabled>
+                                    <input type="text" class="form-control p-4" name="last name" value="227 Nguyen Van Cu stress, 4 ward, 5 district, Ho Chi Minh City, Viet Nam" disabled>
                                 </div>       
                             </div>
                         </div>
                         <div class="row m-2">
-                            <div class="col-3 inputRow">
-                                <h5>Email Address</h5>
-                            </div>
-                            <div class="col inputRow">
-                                <div class="form-row">
-                                    <input type="text" class="form-control p-4" name="email" value="user.name@gmail.com" disabled> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-2">
-                            <div class="col-3 inputRow">
+                            <div class="col-2 inputRow">
                                 <h5>Phone number</h5>
                             </div>
                             <div class="col inputRow">
                                 <div class="form-row">
-                                    <input type="text" class="form-control p-4" name="phone" value="0969327639" disabled>
+                                    <input type="text" class="form-control p-4" name="phone" value="0123456789" disabled>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class="info">
+                <div class="card">
+                    <div class="card-header bgColor">
+                        <h2 class="text-center">Contact Form</h2>
+                    </div>
+                    <div class="card-body formColor">
                         <div class="row m-2">
-                            <div class="col-3 inputRow">
-                                <h5>Favorite food</h5>
+                            <div class="col-3 inputRow contact inputField">
+                                <input type="text" class="form-control p-4" name="first name" placeholder="Name">
                             </div>
-                            <div class="col inputRow">
-                                <div class="form-row">
-                                    <input type="text" class="form-control p-4" name="favoriteFood" value="Lemon ice cream, lemon lemongrass kumquat tea, lemon juice" disabled>
-                                </div>
+                            <div class="col-4 inputRow contact inputField">
+                                <input type="text" class="form-control p-4" name="first name" placeholder="Email">
+                            </div>
+                            <div class="col-4 inputRow contact inputField">
+                                <input type="text" class="form-control p-4" name="first name" placeholder="Subject">
                             </div>
                         </div>
-                        <div class="row m-2">
-                            <div class="col-3 inputRow">
-                                <h5>Nationality</h5>
-                            </div>
-                            <div class="col inputRow">
-                                <div class="form-row">
-                                    <input type="text" class="form-control p-4" name="nation" value="Campuchia" disabled>
-                                </div>
-                            </div>
+                        <div class="row m-3 p-2">
+                            <input type="text" class="form-control p-4" name="first name" placeholder="Your messenger>">
                         </div>
-                        <div class="row m-2">
-                            <div class="col-3 inputRow">
-                                <h5>Bio</h5>
-                            </div>
-                            <div class="col inputRow">
-                                <div class="form-row">
-                                    <input type="text" class="form-control p-4" name="phone" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quod!" disabled>
-                                </div>
-                            </div>
+                        <div class="row m-2 justify-content-center">
+                            <button type="button" onclick="location.href='./MenuCategory.html'" class="btn bgColor btn-block btn-sendMess mt-3">Send</button>
                         </div>
                     </div>
                 </div>

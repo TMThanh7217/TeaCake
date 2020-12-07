@@ -17,10 +17,6 @@
     font-size: 50px;
 }
 
-.mainColor{
-    background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
-}
-
 .inputRow{
     padding: 5px;
 }
@@ -29,3 +25,6 @@
     padding: 15px;
 }
 
+input[type="text"]:disabled {
+    background: white;
+}
