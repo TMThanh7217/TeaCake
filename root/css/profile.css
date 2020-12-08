@@ -26,5 +26,5 @@
 }
 
 input[type="text"]:disabled {
-    background: white;
+    background: rgb(247, 255, 224);
 }

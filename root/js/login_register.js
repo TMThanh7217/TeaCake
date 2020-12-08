@@ -73,7 +73,7 @@ function userUI() {
         la_html += "<button type='button' class='btn dropdown-toggle right-item' data-toggle='dropdown'>"
         la_html += "Account <i class='fa fa-user ml-3' style='font-size: 40px'></i></button>"
         la_html += "<div class='dropdown-menu' style='background: linear-gradient(rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));'>"                      
-        la_html += "<a class='dropdown-item' href='#'><i class='fas fa-address-card'></i> Profile</a>"
+        la_html += "<a class='dropdown-item' href='../page/profile.html'><i class='fas fa-address-card'></i> Profile</a>"
         la_html += "<a class='dropdown-item' href='#'><i class='fa fa-bell'></i> Notification</a>"
         la_html += "<a class='dropdown-item' href='#'><i class='fa fa-shopping-cart'></i> Shopping cart</a>"
         la_html += "<a class='dropdown-item' href='#'><i class='fa fa-history'></i> History</a>"

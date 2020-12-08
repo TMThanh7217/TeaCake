@@ -24,9 +24,6 @@ input[type="text"]:disabled {
     padding: 15px;
 }
 
-.formColor{
-    background: rgb(252, 241, 241);
-}
 
 input{
     border: 3px;
