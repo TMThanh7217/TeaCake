@@ -47,3 +47,64 @@ input[type=number] {
 #content {
     min-height: 500px;
 }
+
+.setTableDefault{
+    padding: 0px;
+    margin: 0px;
+}
+
+.setBorderDefault{
+    padding: 20px 40px;
+    margin: 30px 10px;
+    border: 1px solid lightgrey;
+}
+
+.tableColor{
+    background-color: rgb(228, 226, 226);
+}
+
+.star-rating{
+    width: 600px;
+    height: 460px;
+    padding: 20px 40px;
+    margin: 30px 10px;
+    border: 1px solid lightgrey;
+}
+
+.rotateStar{
+    transform: rotateY(180deg);
+    margin: 50px 60px 0px 0px;
+}
+
+.star-rating input{
+    display: none;
+}
+
+.star-rating label{
+    font-size: 80px;
+    color: lightgray;
+    transition: all 0.4s ease;
+}
+
+.starLightColor{
+    color: rgb(250, 250, 92);
+    text-shadow: 0 0 5px rgb(172, 42, 19);
+    font-size: 45px;
+}
+
+.starUnlightColor{
+    color: lightgray;
+    text-shadow: 0 0 5px black;
+    font-size: 45px;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+    color: rgb(250, 250, 92);
+    text-shadow: 0 0 15px rgb(177, 125, 85);
+}
+
+input:checked ~ label{
+    color: rgb(250, 250, 92);
+    text-shadow: 0 0 15px rgb(172, 42, 19);
+}
