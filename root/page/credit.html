@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Our Style-->
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/noti.css">
   </head>
-  <body">
+  <body>
     <header class="mb-2">
         <nav class="navbar navbar-expand-md">
             <div class="navbar-collapse collapse w-50 order-1 order-md-0 dual-collapse2">
@@ -20,38 +21,89 @@
                     <img src="../images/logo.png" height="50" alt="CoolBrand">
                 </a>
                 <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center"  style="width: calc(100% - 100px)">
-                    <li class="active nav-item p-1 left-item" style="width: 24%"> <a href="#"> Home </a></li>
-                    <li class="nav-item p-1 left-item" style="width: 24%"> <a href="./MenuCategory.html"> Menu </a></li>
-                    <li class="nav-item p-1 left-item" style="width: 24%"> <a href="#"> Blog </a></li>
-                    <li class="nav-item p-1 left-item" style="width: 24%"> <a href="#"> Contact </a></li>
+                    <li class="active nav-item p-1 left-item" style="width: 24%"> <a href="./home.htm" style="text-align: center;"> Home </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="./MenuCategory.html" style="text-align: center;"> Menu </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="#" style="text-align: center;"> Blog </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="./contact.html" style="text-align: center;"> Contact </a></li>
                 </ul>
             </div>
             <div class="mx-2 order-0 search-box d-flex align-items-center justify-content-center" style="width: 30%">
                 <input type="text" class="input-field w-75 h-75" placeholder="Search...">
                 <a href="#"><i class="fa fa-search icon"></i></a>
             </div>
-            <div class="navbar-collapse collapse order-3 dual-collapse2" style="width: 15%">
-                <ul class="navbar-nav mx-auto w-100 d-flex justify-content-between">
-                    <li class="nav-item p-1 right-item">
-                        <i class="fa fa-shopping-cart"></i>
-                    </li>
-                    <li class="nav-item p-1 right-item">
-                        <i class="fa fa-history"></i>
-                    </li>
-                    <li class="nav-item p-1 right-item">
-                        <i class="fa fa-user"></i>          
-                    </li>
-                </ul>
+            <div id="login-area" class="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-center" style="width: 15%">
+            </div>
+            <div id ="notification" class="noti">
+                 
+                <div class="nav-item dropdown">
+                    <a class="nav-link text-light" href="#" id="notiDropdown" role="button" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                      <ul class="dropdown-menu">
+                        <li class="head text-dark" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
+                          <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                              <span>Notifications (3)</span>
+                              <a href="" class="float-right text-dark">Mark all as read</a>
+                            </div>
+                        </li>
+                        <li class="notification-box">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-3 col-3 text-center">
+                              <img src="../images/TeaCake.png" class="w-50 rounded-circle">
+                            </div>    
+                            <div class="col-lg-8 col-sm-8 col-8">
+                              <strong class="text-info">Tea Cake</strong>
+                              <div>
+                                Lorem ipsum dolor sit amet, consectetur
+                              </div>
+                              <small class="text-warning">06.12.2020, 15:00</small>
+                            </div>    
+                          </div>
+                        </li>
+                        <li class="notification-box bg-gray">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-3 col-3 text-center">
+                              <img src="../images/TeaCake.png" class="w-50 rounded-circle">
+                            </div>    
+                            <div class="col-lg-8 col-sm-8 col-8">
+                              <strong class="text-info">Tea Cake</strong>
+                              <div>
+                                Lorem ipsum dolor sit amet, consectetur
+                              </div>
+                              <small class="text-warning">06.12.2020, 15:00</small>
+                            </div>    
+                          </div>
+                        </li>
+                        <li class="notification-box">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-3 col-3 text-center">
+                              <img src="../images/TeaCake.png" class="w-50 rounded-circle">
+                            </div>    
+                            <div class="col-lg-8 col-sm-8 col-8">
+                              <strong class="text-info">Tea Cake</strong>
+                              <div>
+                                Lorem ipsum dolor sit amet, consectetur
+                              </div>
+                              <small class="text-warning">06.12.2020, 15:00</small>
+                            </div>    
+                          </div>
+                        </li>
+                        <li class="footer text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
+                          <a href="" class="text-dark">View All</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
 
    <div class="container">
        <div class = "card m-4">
-           <div class="card-header bg-info text-center">
+           <div class="card-header bg-info text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
                 CHEF
            </div>
-           <div class="card-body bg-info">
+           <div class="card-body formColor">
                <div class="row">
                    <div class="col-2">
                         <img src="../images/man.jpg" alt="" class="img-thumbnail">
@@ -65,10 +117,10 @@
            </div>
         </div>
         <div class = "card m-4">
-            <div class="card-header bg-info text-center">
+            <div class="card-header text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
                  CHEF
             </div>
-            <div class="card-body bg-info">
+            <div class="card-body formColor">
                 <div class="row">
                     <div class="col-2">
                          <img src="../images/man.jpg" alt="" class="img-thumbnail">
@@ -82,10 +134,10 @@
             </div>
          </div>
          <div class = "card m-4">
-            <div class="card-header bg-info text-center">
+            <div class="card-header text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
                  CHEF
             </div>
-            <div class="card-body bg-info">
+            <div class="card-body formColor">
                 <div class="row">
                     <div class="col-2">
                          <img src="../images/man.jpg" alt="" class="img-thumbnail">
@@ -99,9 +151,10 @@
             </div>
          </div>
          <div class = "card m-4">
+            <div class="card-header text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
                  CHEF
             </div>
-            <div class="card-body bg-info">
+            <div class="card-body formColor">
                 <div class="row">
                     <div class="col-2">
                          <img src="../images/man.jpg" alt="" class="img-thumbnail">
@@ -115,10 +168,10 @@
             </div>
          </div>
          <div class = "card m-4">
-            <div class="card-header bg-info text-center">
+            <div class="card-header text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
                  CHEF
             </div>
-            <div class="card-body bg-info">
+            <div class="card-body formColor">
                 <div class="row">
                     <div class="col-2">
                          <img src="../images/man.jpg" alt="" class="img-thumbnail">
@@ -154,10 +207,10 @@
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                         <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center w-100"  style="width: calc(100% - 100px)">
                             <li class="nav-item p-1  left-item" style="width: 19%"> <a href="#"> Home </a></li>
-                            <li class="nav-item p-1 active left-item" style="width: 19%"> <a href="#"> About </a></li>
+                            <li class="nav-item p-1 active left-item" style="width: 19%"> <a href="#"> About us</a></li>
                             <li class="nav-item p-1 left-item" style="width: 19%"> <a href="./MenuCategory.html"> Menu </a></li>
                             <li class="nav-item p-1 left-item" style="width: 19%"> <a href="#"> Blog </a></li>
-                            <li class="nav-item p-1 left-item" style="width: 19%"> <a href="#"> Contact </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a href="./contact.html"> Contact </a></li>
                         </ul>
                     </div>
                 </nav>
