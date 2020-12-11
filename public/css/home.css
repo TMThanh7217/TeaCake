@@ -129,11 +129,13 @@ footer a{
  }
 
  .dropdown-item:hover {
-    background: linear-gradient(to right,rgb(235, 35, 28),rgb(236, 189, 128), rgb(217, 238, 123), rgb(180, 236, 143))
+    background: linear-gradient(to right,rgb(235, 35, 28),rgb(236, 189, 128), rgb(217, 238, 123), rgb(180, 236, 143));
+    color : white;
  }
 
  .dropdown-item:active {
-    background: linear-gradient(to right,rgb(131, 20, 16),rgb(138, 94, 36), rgb(107, 121, 48), rgb(57, 112, 21))
+    background: linear-gradient(to right,rgb(131, 20, 16),rgb(138, 94, 36), rgb(107, 121, 48), rgb(57, 112, 21));
+    color:white;
  }
 
  i {

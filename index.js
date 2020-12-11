@@ -94,9 +94,23 @@ app.get('/', (req, res) => { // root-index page
     res.render('index', page_data);
 })
 
-app.get('/login', (req, res) => { // root-index page
+app.get('/login', (req, res) => { // login page
+    current_user = COMMON_USER;
     res.locals.user = current_user;
     res.render('login_register');
+})
+
+app.get('/logout', (req, res) => { // logout page
+    let _cakes = _getNElements(products.cakes, 5); // get 5 recommend cakes
+    let _drinks = _getNElements(products.teas, 3).concat(_getNElements(products.drinks, 2)); // get recommend drinks (3 teas + 2 drinks)
+    var page_data = {
+      title: "TeaCake - Home",
+      rec_cakes: _cakes,
+      rec_drinks: _drinks,
+    }
+    current_user = ANONYMOUS_USER;
+    res.locals.user = current_user;
+    res.render('index', page_data);
 })
 
 // listen log
