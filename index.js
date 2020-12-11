@@ -94,6 +94,11 @@ app.get('/', (req, res) => { // root-index page
     res.render('index', page_data);
 })
 
+app.get('/login', (req, res) => { // root-index page
+    res.locals.user = current_user;
+    res.render('login_register');
+})
+
 // listen log
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
