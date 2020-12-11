@@ -1,0 +1,317 @@
+{
+"cakes":[{
+            "id":0,
+            "name":"Cake #1",
+            "type":"cake",
+            "src":"images/cake/cake1.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":1,
+            "name":"Cake #2",
+            "type":"cake",
+            "src":"images/cake/cake2.jpg",
+            "price":13.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":2,
+            "name":"Cake #3",
+            "type":"cake",
+            "src":"images/cake/cake3.jpg",
+            "price":10.79,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":3,
+            "name":"Cake #4",
+            "type":"cake",
+            "src":"images/cake/cake4.jpg",
+            "price":15.19,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":4,
+            "name":"Cake #5",
+            "type":"cake",
+            "src":"images/cake/cake5.png",
+            "price":12.29,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":5,
+            "name":"Cake #6",
+            "type":"cake",
+            "src":"images/cake/cake6.jpeg",
+            "price":9.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":6,
+            "name":"Cake #7",
+            "type":"cake",
+            "src":"images/cake/cake7.jpeg",
+            "price":8.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":7,
+            "name":"Cake #8",
+            "type":"cake",
+            "src":"images/cake/cake8.jpg",
+            "price":12.79,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":8,
+            "name":"Cake #9",
+            "type":"cake",
+            "src":"images/cake/cake9.jpg",
+            "price":10.89,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":9,
+            "name":"Cake #10",
+            "type":"cake",
+            "src":"images/cake/cake10.jpg",
+            "price":12.39,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":10,
+            "name":"Cake #11",
+            "type":"cake",
+            "src":"images/cake/cake11.jpg",
+            "price":9.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":11,
+            "name":"Cake #12",
+            "type":"cake",
+            "src":"images/cake/cake12.jpg",
+            "price":12.19,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":12,
+            "name":"Cake #13",
+            "type":"cake",
+            "src":"images/cake/cake13.jpg",
+            "price":12.39,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":13,
+            "name":"Cake #14",
+            "type":"cake",
+            "src":"images/cake/cake14.jpg",
+            "price":14.69,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":14,
+            "name":"Cake #15",
+            "type":"cake",
+            "src":"images/cake/cake15.jpg",
+            "price":11.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":15,
+            "name":"Cake #16",
+            "type":"cake",
+            "src":"images/cake/cake16.jpg",
+            "price":13.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":16,
+            "name":"Cake #17",
+            "type":"cake",
+            "src":"images/cake/cake17.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        }],
+"drinks":[{
+            "id":17,
+            "name":"Drink #1",
+            "type":"drink",
+            "src":"images/drink/drink1.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":18,
+            "name":"Drink #2",
+            "type":"drink",
+            "src":"images/drink/drink2.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":19,
+            "name":"Drink #3",
+            "type":"drink",
+            "src":"images/drink/drink3.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":20,
+            "name":"Drink #4",
+            "type":"drink",
+            "src":"images/drink/drink4.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":21,
+            "name":"Drink #5",
+            "type":"drink",
+            "src":"images/drink/drink5.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":22,
+            "name":"Drink #6",
+            "type":"drink",
+            "src":"images/drink/drink6.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":23,
+            "name":"Drink #7",
+            "type":"drink",
+            "src":"images/drink/drink7.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":24,
+            "name":"Drink #8",
+            "type":"drink",
+            "src":"images/drink/drink8.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        }],
+"teas":[{
+            "id":25,
+            "name":"Tea #1",
+            "type":"drink",
+            "src":"images/drink/tea1.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":26,
+            "name":"Tea #2",
+            "type":"drink",
+            "src":"images/drink/tea2.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":27,
+            "name":"Tea #3",
+            "type":"drink",
+            "src":"images/drink/tea3.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":28,
+            "name":"Tea #4",
+            "type":"drink",
+            "src":"images/drink/tea4.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":29,
+            "name":"Tea #5",
+            "type":"drink",
+            "src":"images/drink/tea5.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":30,
+            "name":"Tea #6",
+            "type":"drink",
+            "src":"images/drink/tea6.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":31,
+            "name":"Tea #7",
+            "type":"drink",
+            "src":"images/drink/tea7.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":32,
+            "name":"Tea #8",
+            "type":"drink",
+            "src":"images/drink/tea8.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":33,
+            "name":"Tea #9",
+            "type":"drink",
+            "src":"images/drink/tea9.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        },
+        {
+            "id":34,
+            "name":"Tea #10",
+            "type":"drink",
+            "src":"images/drink/tea10.jpg",
+            "price":12.99,
+            "status":"stocking",
+            "description":""
+        }]
+}
