@@ -1,0 +1,22 @@
+<div class="container">
+    {{#each members}}
+    <div class = "card m-4">
+        <div class="card-header bg-info text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
+            {{this.position}}
+        </div>
+        <div class="card-body formColor">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/man.jpg" alt="" class="img-thumbnail">
+                    
+                </div>
+                <div class="col">
+                    <p class="card-text">ID: {{this.id}}</p>
+                    <p class="card-text">Name: {{this.name}}</p>
+                    <p class="card-text">Quote: "{{this.quote}}"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
