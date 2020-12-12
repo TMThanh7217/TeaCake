@@ -24,6 +24,7 @@ const corsOptions = {
     teas : [...]
 }*/
 var products = JSON.parse(fs.readFileSync(__dirname + '/public/json/products.json')); // object of products
+
 /*members = {
     "id": ...,
     "name": ...,
@@ -33,6 +34,25 @@ var products = JSON.parse(fs.readFileSync(__dirname + '/public/json/products.jso
 }
  */
 var members = JSON.parse(fs.readFileSync(__dirname + "/public/json/members.json"));
+
+/*UserInfor = {
+    "fname": ...,
+    "lname": ...,
+    "account": ...,
+    "password": ...,
+    "avtImage": ...,
+    "bgImage": ...,
+    "email": ...,
+    "pNumber": ...,
+    "Bday": ...,
+    "Bmonth": ...,
+    "Byear": ...,
+    "gender": ..., 
+    "nation": ...,
+    "bio": ...
+}*/
+var accountFile = JSON.parse(fs.readFileSync(__dirname + "/public/json/account.json"));
+
 
 var current_user = ANONYMOUS_USER; // identify user
 
@@ -141,6 +161,57 @@ app.get('/', (req, res) => { // root-index page
 app.get('/login', (req, res) => { // login page
     current_user = COMMON_USER;
     res.locals.user = current_user;
+
+    res.render('login_register');
+})
+
+function checkExist(ArrAcc, newAcc){
+
+    ArrAcc.forEach(ele => {
+        if (String(ele.account) === String(newAcc))
+            return false;
+    })
+    return true;
+}
+
+app.get('/get_infor_login', (req, res) => {
+    current_user = COMMON_USER;
+    res.locals.user = current_user;
+
+    if (checkExist(accountFile.userInfor, req.query.account) == false){
+        var user = {};
+        user.fname = req.query.fname;
+        user.lname = req.query.lname;
+        user.account = req.query.account;
+        user.password = req.query.password;
+        user.avtImage = "";
+        user.bgImage = "";
+        user.email = "";
+        user.pNumber = "";
+        user.Bday = req.query.Bday;
+        user.Bmonth = req.query.Bmonth;
+        user.Byear = req.query.Byear;
+        user.gender = req.query.gender;
+        user.nation = "";
+        user.bio = "";
+
+        accountFile.userInfor.push(user);
+        fs.writeFileSync(__dirname + "/public/json/account.json", JSON.stringify(accountFile));
+    }
+    else
+        {
+            // alert("Account exist!\nPleese choose other one!");
+        }
+    
+    res.redirect("http://localhost:8000/");
+});
+
+
+
+app.get('/saa', (req, res) => { // login page
+    current_user = COMMON_USER;
+    res.locals.user = current_user;
+    
     res.render('login_register');
 })
 
@@ -181,8 +252,7 @@ app.get('/menu', (req, res) => { // menu page
     res.render('menu', page_data);
 })
 
-app.get('/product', (req, res) => { // product page
-    
+app.get('/product', (req, res) => { // product pages
     // ---- get user
     res.locals.user = current_user;
 
@@ -202,7 +272,6 @@ app.get('/product', (req, res) => { // product page
 
 
 app.get('/credit', (req, res) => { // credit page
-    
     // ---- get user
     res.locals.user = current_user;
 
@@ -217,7 +286,6 @@ app.get('/credit', (req, res) => { // credit page
 })
 
 app.get('/cart', (req, res) => { // cart page
-    
     // ---- get user
     res.locals.user = current_user;
 
@@ -263,4 +331,3 @@ app.get('/contact', (req, res) => { // contact page
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
-

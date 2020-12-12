@@ -13,21 +13,20 @@
             <input type="checkbox" class="check-box"><span> Remember Password</span>
             <button type="Submit" class="submit-btn">Log In</button>
         </form>
-        <form id="input-register">
+        <form id="input-register" action="/get_infor_login">
             <label class="label">User Name</label><br>
-            <input type="text" class="input-login-field" id="firstname" placeholder="Fist name" required>
-            <input type="text" class="input-login-field" id="lastname" placeholder="Surname" required>
+            <input type="text" class="input-login-field" id="firstname" name="fname" placeholder="First name" required>
+            <input type="text" class="input-login-field" id="lastname" name="lname" placeholder="Surname" required>
             <label class="label">User Account</label><br>
-            <input type="text" class="input-login-field" placeholder="Phone number or email address" required>
-            <intput type="birthday" required>
+            <input type="text" class="input-login-field" name="account" placeholder="Account" required>
             <label class="label">New Password</label><br>
-            <input type="password" class="input-login-field" placeholder="Password" required> 
+            <input type="password" class="input-login-field" name="password" placeholder="Password" required> 
 
             <div class="row">
                 <div class="DoB col-8">
                     <label class="label">Date Of Birth</label><br>
                     <div class="row" style="margin: 0;">
-                        <select id="DoB_Border" class="col-2">
+                        <select name="Bday" id="DoB_Border" class="col-2">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -60,7 +59,7 @@
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
-                        <select id="DoB_Border" class="col-5">
+                        <select name="Bmonth" id="DoB_Border" class="col-5">
                             <option value="1">January</option>
                             <option value="2">February</option>
                             <option value="3">March</option>
@@ -74,7 +73,7 @@
                             <option value="11">November</option>
                             <option value="12">December</option>
                         </select>
-                        <select id="DoB_Border" class="col-4">
+                        <select name="Byear" id="DoB_Border" class="col-4">
                             <option value="2020" class="">2020</option>
                             <option value="2019" class="">2019</option>
                             <option value="2018" class="">2018</option>
@@ -121,7 +120,7 @@
                 </div>
                 <div class="Gender col">
                     <label class="label">Gender</label><br>
-                    <select id="DoB_Border">
+                    <select name="gender" id="DoB_Border">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
