@@ -201,7 +201,7 @@ app.get('/product', (req, res) => { // product page
 })
 
 
-app.get('/credit', (req, res) => { // product page
+app.get('/credit', (req, res) => { // credit page
     
     // ---- get user
     res.locals.user = current_user;
@@ -216,7 +216,7 @@ app.get('/credit', (req, res) => { // product page
     res.render('credit', page_data);
 })
 
-app.get('/cart', (req, res) => { // product page
+app.get('/cart', (req, res) => { // cart page
     
     // ---- get user
     res.locals.user = current_user;
@@ -232,7 +232,7 @@ app.get('/cart', (req, res) => { // product page
     res.render('cart', page_data);
 })
 
-app.get('/profile', (req, res) => { // product page
+app.get('/profile', (req, res) => { // profile page
     // ---- get user
     res.locals.user = current_user;
 
@@ -244,6 +244,20 @@ app.get('/profile', (req, res) => { // product page
     // ---- Render home page
     res.render('profile', page_data);
 })
+
+app.get('/contact', (req, res) => { // contact page
+    // ---- get user
+    res.locals.user = current_user;
+
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Contact",
+    }
+
+    // ---- Render home page
+    res.render('contact', page_data);
+})
+
 
 // listen log
 app.listen(port, () => {
