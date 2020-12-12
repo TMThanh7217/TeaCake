@@ -9,8 +9,8 @@ var bg = document.getElementById("background");
 var login_btn = document.getElementById("login-btn");
 login_btn.onclick = 
 function login(){
-    loginform.style.left = "50px";
-    registerform.style.left = "450px";
+    loginform.style.left = "90px";
+    registerform.style.left = "550px";
     button.style.left = "0px";
     button.style.background = "linear-gradient(to right, #4a64f7, #dae3e4)";
     formbox.style.borderColor = "#8093fc";
@@ -21,7 +21,7 @@ function login(){
 
 var register_btn = document.getElementById("register-btn");
 register_btn.onclick = function register(){
-    loginform.style.left = "-400px";
+    loginform.style.left = "-500px";
     registerform.style.left = "50px";
     button.style.left = "100px";
     button.style.background = "linear-gradient(to right, #f5dacd, #f56623)";
