@@ -1,0 +1,190 @@
+<div class="container-fluid p-5">
+    <div id="content" class="row">
+        <div class="col-5">
+            <img src="{{product.src}}" class="img-fluid img-thumbnail" alt="">
+        </div>
+        <div class="col-7 product-info d-flex flex-column justify-content-between">
+            <h1 class="h1">{{product.name}}</h1>
+            <p>{{product.description}}</p>
+            <h2><i class="fa fa-heart mr-2" style="color: palevioletred;"></i><span>{{product.like}}</span></h2>
+            <div class="container-fluid m-bg-white product-infor_prices">
+                <span class="product-infor_prices-real">${{product.price}}</span>
+                <del class="product-infor_prices-org">${{product.price}}</del>
+                <span class="product-infor_prices-discount">-20%</span>
+            </div>
+            
+            <div class="container-fluid size-checkbox">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">S</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">M</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">L</label>
+                </div>
+            </div>
+
+            <div class="container-fluid addr-info">
+                <span class="mesg">Ship to: </span>
+                <span class="addr-info_addr">NVC, Q5, TP.HCM, VN, Earth</span>
+                <span class="addr-info_change">Change</span>
+            </div>
+
+            <div class="container-fluid add-cart">
+                <p>Quantity:</p>
+                <div class="item_qty input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary btn-secondary text-white" type="button" onclick="increaseQty()"><i class="fa fa-minus"></i></button>
+                    </div>
+                    <input id="qty-input" type="number" class="form-control text-center col-1" value="1">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary btn-secondary text-white" type="button"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-order">Add to cart</button>
+        </div>
+    </div>
+    
+    <!--Change the code below-->
+    <div class="container p-5">
+        <h2>Product information</h2>
+        <div class="setBorderDefault"> 
+            <div class="row">
+                <div class="col-4 setTableDefault">
+                    <table class="table tableColor table-borderless">
+                        <tr><td>adipisicing elit. Neque, modi!</td></tr>
+                        <tr><td>wrzzadipg elit. Neque, modi!</td></tr>
+                        <tr><td> nzdipisicing eeque, modi!</td></tr>
+                        <tr><td> pisicilit. Nequdi!</td></tr>
+                        <tr><td> pisicilit. Nequdi!</td></tr>
+                    </table>
+                </div>
+                <div class="col setTableDefault">
+                    <table class="table table-striped table-borderless">
+                        <tr><td>Lorem elit. Corrupti, tempora!</td></tr>
+                        <tr><td>Lorem elit. Corrupti, tempora!</td></tr>
+                        <tr><td>Lorem elit. Corrupti, tempora!</td></tr>
+                        <tr><td>Lorem elit. Corrupti, tempora!</td></tr>
+                        <tr><td>Lorem elit. Corrupti, tempora!</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- <div class="container p-5"> 
+        <h2>Description</h2>
+        <div class="setBorderDefault">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa molestias maxime quos consectetur asperiores, quisquam dicta voluptas ad consequatur dignissimos natus vitae accusamus nemo in voluptatibus porro labore officiis unde veritatis commodi voluptates quidem maiores perspiciatis voluptatum. Officia, beatae deserunt omnis vel, aut, dicta quod quas asperiores at distinctio corporis?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus mollitia repellendus fugiat quae, odit quo distinctio deleniti a quas, exercitationem eum esse praesentium non! Necessitatibus repellendus qui ipsum animi ipsam.</p>
+        </div>
+    </div>
+
+    <div class="container p-5">
+        <h2>Ratings and comments</h2>
+        <div class="star-rating">
+            <div class="rotateStar">
+                <input type="radio" name="rate" id="5">
+                <label for="5" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="4">
+                <label for="4" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="3">
+                <label for="3" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="2">
+                <label for="2" class="fa fa-star"></label>
+                <input type="radio" name="rate" id="1">
+                <label for="1" class="fa fa-star"></label>
+            </div>
+            <div class="my-5 text-center">
+                <textarea class="form-control p-4 text-dark" id="w3review" name="first name" placeholder="Your messenger" rows="4"></textarea>
+                <button class="btn btn-order mt-4"> Comment</button>
+            </div>
+        </div>     
+    </div> --}}
+
+    <div class="container p-5">
+        <h2>Comment section</h2>
+        <div class="setBorderDefault">
+            <div>
+                <h4>Rating 
+                    <div class="chart">
+                        <ul class="chartBackground">
+                            <li>
+                                <div class="columns" data-percentage="50"></div>
+                                <span> 1x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                            </li>
+                            <li>
+                                <div class="columns" data-percentage="50"></div>
+                                <span> 2x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                            </li>
+                            <li>
+                                <div class="columns" data-percentage="50"></div>
+                                <span> 3x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                            </li>
+                            <li>
+                                <div class="columns" data-percentage="50"></div>
+                                <span> 4x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                            </li>
+                            <li>
+                                <div class="columns" data-percentage="50"></div>
+                                <span> 5x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2> Total: <i class="fa fa-star mr-2 starLightColor mt-5"></i><span>95/100</span></h2>
+                    <h5><p>123 comments</p></h5>
+                </h4>
+            </div>
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-2">
+                    <img src="../images/user.png" class="imgUser" alt="">
+                </div>
+                <div class="col">
+                    <h3>Customer 1</h3>
+                    <h2><i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starUnlightColor"></i>
+                        <i class="fa fa-star mr-2 starUnlightColor"></i>
+                        <i class="fa fa-star mr-2 starUnlightColor"></i>
+                        <i class="fa fa-star mr-2 starUnlightColor"></i></h2>
+                    <p>Some bad stuff Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis amet ipsa in nesciunt sapiente doloribus perferendis nulla quisquam voluptates. Vitae.</p>
+                </div>
+            </div>
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-2">
+                    <img src="../images/user.png" class="imgUser" alt="">
+                </div>
+                <div class="col">
+                    <h3>Customer 2</h3>
+                    <h2><i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i></h2>
+                    <p>Some bad stuff Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis amet ipsa in nesciunt sapiente doloribus perferendis nulla quisquam voluptates. Vitae.</p>
+                </div>
+            </div>
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-2">
+                    <img src="../images/user.png" class="imgUser" alt="">
+                </div>
+                <div class="col">
+                    <h3>Customer 3</h3>
+                    <h2><i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i>
+                        <i class="fa fa-star mr-2 starLightColor"></i></h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis amet ipsa in nesciunt sapiente doloribus perferendis nulla quisquam voluptates. Vitae.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
