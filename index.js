@@ -216,6 +216,21 @@ app.get('/credit', (req, res) => { // product page
     res.render('credit', page_data);
 })
 
+app.get('/cart', (req, res) => { // product page
+    
+    // ---- get user
+    res.locals.user = current_user;
+
+    let cart_items = _getNElements(products.cakes, 2).concat(_getNElements(products.teas, 1)).concat(_getNElements(products.drinks, 1));
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Cart",
+      products: cart_items
+    }
+
+    // ---- Render home page
+    res.render('cart', page_data);
+})
 
 // listen log
 app.listen(port, () => {
