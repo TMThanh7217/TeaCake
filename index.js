@@ -93,7 +93,7 @@ function _isCommon(user) { // return true if user is common user
     return user == COMMON_USER;
 }
 
-function _isAdmin(user) { // return true if user isd admin
+function _isAdmin(user) { // return true if user is admin
     return user == ADMIN_USER;
 }
 

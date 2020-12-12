@@ -15,6 +15,9 @@ function login(){
     TnK_img.style.display = "inline";
     buttonbox.style.boxShadow = "0 0 30px 20px #3623631f";
     bg.style.backgroundImage = "linear-gradient(rgba(38, 207, 212, 0.4),rgba(214, 141, 30, 0.2)),url(../images/tea_cake_bg.jpg)";
+    var tmp = document.getElementById("login-btn");
+    tmp.style.outline = "none";
+    tmp.style.border = "0";
 }
 
 function register(){
@@ -26,6 +29,9 @@ function register(){
     TnK_img.style.display = "none";
     buttonbox.style.boxShadow = "0 0 30px 20px #ff24241f";
     bg.style.backgroundImage = "linear-gradient(rgba(214, 141, 30, 0.2), rgba(38, 207, 212, 0.4)),url(../images/tea_cake_bg.jpg)";
+    var tmp = document.getElementById("register-btn");
+    tmp.style.outline = "none";
+    tmp.style.border = "0";
 }
 
 // Source: https://www.w3schools.com/js/tryit.asp?filename=tryjs_cookie_username
