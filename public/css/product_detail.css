@@ -64,7 +64,7 @@ input[type=number] {
 }
 
 .star-rating{
-    width: 600px;
+    width: 100%;
     height: 460px;
     padding: 20px 40px;
     margin: 30px 10px;
@@ -160,4 +160,8 @@ input:checked ~ label{
     position: absolute;
     bottom: 70px;
     left: 23px;
+}
+
+#w3review {
+    width: 80%;
 }

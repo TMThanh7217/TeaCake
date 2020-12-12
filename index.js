@@ -13,8 +13,9 @@ const ANONYMOUS_USER = 0;
 const COMMON_USER = 1;
 const ADMIN_USER = 2;
 const corsOptions = {
-    origin: `http://localhost:8000`,
-  }
+    origin: 'http://localhost:8000',
+    optionsSuccessStatus: 200
+}
 
 // ------------------Some local vars----------------
 /*products = {
@@ -28,19 +29,28 @@ var current_user = ANONYMOUS_USER; // identify user
 
 
 // -------Use here------------------
+// Add headers
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
 app.use(express.static(__dirname + "/public")); // Public files
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use(function(req, res, next) {
-
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    next();
-});
 
 // -------------doing stuff script here-------------
 function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = cap 
@@ -162,7 +172,8 @@ app.get('/menu', (req, res) => { // menu page
     res.render('menu', page_data);
 })
 
-app.get('/product', cors(corsOptions), (req, res) => { // product page
+app.get('/product', (req, res) => { // product page
+    
     // ---- get user
     res.locals.user = current_user;
 
@@ -183,4 +194,5 @@ app.get('/product', cors(corsOptions), (req, res) => { // product page
 // listen log
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
-  })
+})
+
