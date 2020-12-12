@@ -232,6 +232,19 @@ app.get('/cart', (req, res) => { // product page
     res.render('cart', page_data);
 })
 
+app.get('/profile', (req, res) => { // product page
+    // ---- get user
+    res.locals.user = current_user;
+
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Profile",
+    }
+
+    // ---- Render home page
+    res.render('profile', page_data);
+})
+
 // listen log
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
