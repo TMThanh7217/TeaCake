@@ -24,6 +24,15 @@ const corsOptions = {
     teas : [...]
 }*/
 var products = JSON.parse(fs.readFileSync(__dirname + '/public/json/products.json')); // object of products
+/*members = {
+    "id": ...,
+    "name": ...,
+    "avt":"",
+    "position": ...,
+    "quote": ...
+}
+ */
+var members = JSON.parse(fs.readFileSync(__dirname + "/public/json/members.json"));
 
 var current_user = ANONYMOUS_USER; // identify user
 
@@ -180,6 +189,7 @@ app.get('/product', (req, res) => { // product page
     // ---- get rows with each row have 3 products
     var all_product = _getAllProducts(products);
     var product = all_product.find(elem => elem.id.toString() == req.query.id);
+    
     // ---- Prepare data for page
     var page_data = {
       title: "TeaCake - Product #" + (Number(req.query.id) + 1),
@@ -190,6 +200,50 @@ app.get('/product', (req, res) => { // product page
     res.render('product', page_data);
 })
 
+
+app.get('/credit', (req, res) => { // product page
+    
+    // ---- get user
+    res.locals.user = current_user;
+
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Credit",
+      members: members
+    }
+
+    // ---- Render home page
+    res.render('credit', page_data);
+})
+
+app.get('/cart', (req, res) => { // product page
+    
+    // ---- get user
+    res.locals.user = current_user;
+
+    let cart_items = _getNElements(products.cakes, 2).concat(_getNElements(products.teas, 1)).concat(_getNElements(products.drinks, 1));
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Cart",
+      products: cart_items
+    }
+
+    // ---- Render home page
+    res.render('cart', page_data);
+})
+
+app.get('/profile', (req, res) => { // product page
+    // ---- get user
+    res.locals.user = current_user;
+
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Profile",
+    }
+
+    // ---- Render home page
+    res.render('profile', page_data);
+})
 
 // listen log
 app.listen(port, () => {
