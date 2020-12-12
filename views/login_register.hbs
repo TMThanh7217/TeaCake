@@ -1,10 +1,9 @@
-<link rel="stylesheet" href="css/login_register.css">
 <div id="background">
     <div id="form-box">
         <div id="button-box">
             <div id="btn"></div>
-            <button type="button" id="login-btn" class="toggle-btn" onclick="login()">Login</button>
-            <button type="button" id="register-btn" class="toggle-btn" onclick="register()">Register</button>
+            <button type="button" id="login-btn" class="toggle-btn">Login</button>
+            <button type="button" id="register-btn" class="toggle-btn">Register</button>
         </div>
         <img src="images/TeaCake.png" id="TnK_img" alt="Tea and Cake">
         <form id="input-login" >
@@ -22,10 +21,13 @@
             <intput type="birthday" required>
             <label class="label">New Password</label><br>
             <input type="password" class="input-login-field" placeholder="Password" required> 
-            <div class="DoB_N_Gender">
-                <div>
-                    <label class="label">Date Of Birth</label><br>
-                    <select id="DoB_Border">
+            {{!-- <div class="DoB_N_Gender r">
+                
+            </div>  --}}
+            <div class="DoB">
+                <label class="label">Date Of Birth</label><br>
+                <div class="row" style="margin: 0;">
+                    <select id="DoB_Border" class="col-2">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -58,7 +60,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
-                    <select id="DoB_Border">
+                    <select id="DoB_Border" class="col-5">
                         <option value="1">January</option>
                         <option value="2">February</option>
                         <option value="3">March</option>
@@ -72,7 +74,7 @@
                         <option value="11">November</option>
                         <option value="12">December</option>
                     </select>
-                    <select id="DoB_Border">
+                    <select id="DoB_Border" class="col-4">
                         <option value="2020" class="">2020</option>
                         <option value="2019" class="">2019</option>
                         <option value="2018" class="">2018</option>
@@ -116,14 +118,14 @@
                         <option value="1980" class="">1980</option>
                     </select>
                 </div>
-                <div class="Gender">
-                    <label class="label">Gender</label><br>
-                    <select id="DoB_Border">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-            </div> 
+            </div>
+            <div class="Gender">
+                <label class="label">Gender</label><br>
+                <select id="DoB_Border">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
             <button type="Submit" id="register_submit_btn" class="submit-btn">Sign Up</button>
         </form>
     </div> 

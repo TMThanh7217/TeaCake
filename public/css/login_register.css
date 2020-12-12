@@ -7,13 +7,24 @@ body{
     height: 700px;
     width: 100%;
     background-position: center;    
-    background-size: cover; 
+    background-size: cover;
+    background-image: linear-gradient(rgba(38, 207, 212, 0.4),rgba(214, 141, 30, 0.2)),url(../images/tea_cake_bg.jpg);
     position: absolute;
     margin-top: -20px !important;
 }
 
+#login-btn {
+    outline: none;
+    border: 0;
+}
+
+#register-btn {
+    outline: none;
+    border: 0;
+}
+
 #form-box{
-    width: 380px;
+    width: 420px;
     height: 100%;
     max-height: 600px;
     position: relative;
@@ -106,7 +117,7 @@ body{
     top: 100px;
     left: 450px;
     position: absolute;
-    width: 280px;
+    width: 80%;
 }
 
 .label{
@@ -125,25 +136,12 @@ body{
     position: relative;
 }
 
-.DoB_N_Gender{
-    display: grid;
-    grid-template-columns: 70% 26%;
-}
-
-.DoB{
-    margin: 5px auto;
-    display: grid;
-    grid-template-columns: 25% 25% 48%;
-}
-
-.Gender{
-    position: relative;
-    left: 19px;
-}
-
 #DoB_Border{
     outline: none;
-    margin: 5px auto;
+    padding: 0;
+    margin: 0px;
+    margin-right: 2px;
+    padding: 0;
     border: 1px solid;
     border-color: rgb(126, 124, 124);
     border-radius: 5px;
