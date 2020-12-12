@@ -7,13 +7,14 @@ const bodyParser = require("body-parser"); // For post method
 const port = process.env.PORT || 8000; // Port
 let exprHbs = require("express-handlebars"); // express handlebars
 const { helpers } = require('handlebars');
-
-
+const cors = require('cors');
 // -------- Some const var
 const ANONYMOUS_USER = 0;
 const COMMON_USER = 1;
 const ADMIN_USER = 2;
-
+const corsOptions = {
+    origin: `http://localhost:8000`,
+  }
 
 // ------------------Some local vars----------------
 /*products = {
@@ -31,6 +32,15 @@ app.use(express.static(__dirname + "/public")); // Public files
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    next();
+});
 
 // -------------doing stuff script here-------------
 function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = cap 
@@ -151,6 +161,24 @@ app.get('/menu', (req, res) => { // menu page
     // ---- Render home page
     res.render('menu', page_data);
 })
+
+app.get('/product', cors(corsOptions), (req, res) => { // product page
+    // ---- get user
+    res.locals.user = current_user;
+
+    // ---- get rows with each row have 3 products
+    var all_product = _getAllProducts(products);
+    var product = all_product.find(elem => elem.id.toString() == req.query.id);
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Product #" + (Number(req.query.id) + 1),
+      product: product
+    }
+
+    // ---- Render home page
+    res.render('product', page_data);
+})
+
 
 // listen log
 app.listen(port, () => {

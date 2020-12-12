@@ -145,3 +145,7 @@ footer a{
  .formColor{
     background: rgb(252, 246, 246);
 }
+
+.btn-menu {
+    width: 200px !important;
+}
