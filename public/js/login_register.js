@@ -6,8 +6,6 @@ var formbox = document.getElementById("form-box");
 var buttonbox = document.getElementById("button-box");
 var bg = document.getElementById("background");
 
-var login_btn = document.getElementById("login-btn");
-login_btn.onclick = 
 function login(){
     loginform.style.left = "90px";
     registerform.style.left = "550px";
@@ -19,8 +17,7 @@ function login(){
     bg.style.backgroundImage = "linear-gradient(rgba(38, 207, 212, 0.4),rgba(214, 141, 30, 0.2)),url(../images/tea_cake_bg.jpg)";
 };
 
-var register_btn = document.getElementById("register-btn");
-register_btn.onclick = function register(){
+function register(){
     loginform.style.left = "-500px";
     registerform.style.left = "50px";
     button.style.left = "100px";

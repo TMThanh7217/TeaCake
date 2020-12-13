@@ -3,22 +3,23 @@
     <div id="form-box">
         <div id="button-box">
             <div id="btn"></div>
-            <button type="button" id="login-btn" class="toggle-btn">Login</button>
-            <button type="button" id="register-btn" class="toggle-btn">Register</button>
+            <button type="button" id="login-btn" onclick="login()" class="toggle-btn">Login</button>
+            <button type="button" id="register-btn" onclick="register()" class="toggle-btn">Register</button>
         </div>
         <img src="images/TeaCake.png" id="TnK_img" alt="Tea and Cake">
-        <form id="input-login" >
-            <input type="text" class="input-login-field" placeholder="User ID" required>
-            <input type="password" class="input-login-field" placeholder="Password" required>
-            <input type="checkbox" class="check-box"><span> Remember Password</span>
+        <form id="input-login" action="/get_infor_login">
+            <label class="announ">{{logAnnoun}}</label><br>
+            <input type="text" name="logAcc" class="input-login-field" placeholder="User Account" required>
+            <input type="password" name="logPass" class="input-login-field" placeholder="Password" required>
+            <input type="checkbox" name="remember" value="yes" class="check-box"><span> Remember Password</span>
             <button type="Submit" class="submit-btn">Log In</button>
         </form>
-        <form id="input-register" action="/get_infor_login">
+        <form id="input-register" action="/get_infor_register">
             <label class="label">User Name</label><br>
-            <input type="text" class="input-login-field" id="firstname" name="fname" placeholder="First name" required>
-            <input type="text" class="input-login-field" id="lastname" name="lname" placeholder="Surname" required>
-            <label class="label">User Account</label><br>
-            <input type="text" class="input-login-field" name="account" placeholder="Account" required>
+            <input type="text" class="input-login-field firstname" name="fname" placeholder="First name" required>
+            <input type="text" class="input-login-field lastname" name="lname" placeholder="Surname" required>
+            <label class="label">User Account <span class="announ">{{resAnnoun}}</span> </label><br>
+            <input type="text" class="input-login-field" id="resAcc" name="account" placeholder="Account" required>
             <label class="label">New Password</label><br>
             <input type="password" class="input-login-field" name="password" placeholder="Password" required> 
 
@@ -26,7 +27,7 @@
                 <div class="DoB col-8">
                     <label class="label">Date Of Birth</label><br>
                     <div class="row" style="margin: 0;">
-                        <select name="Bday" id="DoB_Border" class="col-2">
+                        <select name="Bday" class="col-2 DoB_Border">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -59,7 +60,7 @@
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
-                        <select name="Bmonth" id="DoB_Border" class="col-5">
+                        <select name="Bmonth" class="col-5 DoB_Border">
                             <option value="1">January</option>
                             <option value="2">February</option>
                             <option value="3">March</option>
@@ -73,7 +74,7 @@
                             <option value="11">November</option>
                             <option value="12">December</option>
                         </select>
-                        <select name="Byear" id="DoB_Border" class="col-4">
+                        <select name="Byear" class="col-4 DoB_Border">
                             <option value="2020" class="">2020</option>
                             <option value="2019" class="">2019</option>
                             <option value="2018" class="">2018</option>
@@ -126,13 +127,11 @@
                     </select>
                 </div>
             </div>
-            <button type="Submit" id="register_submit_btn" class="submit-btn">Sign Up</button>
+            <button type="Submit" class="submit-btn register_submit_btn">Sign Up</button>
         </form>
     </div> 
 </div>
 <script src="js/login_register.js"></script>
-    
 <script>
-    login();
-    register();
+    {{func}}
 </script>

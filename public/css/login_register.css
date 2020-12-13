@@ -126,17 +126,17 @@ body{
     left: 10px;
 }
 
-#firstname{
+.firstname{
     width: 46%;
 }
 
-#lastname{
+.lastname{
     width: 46%;
     left: 23px;
     position: relative;
 }
 
-#DoB_Border{
+.DoB_Border{
     outline: none;
     padding: 0;
     margin: 0px;
@@ -149,10 +149,16 @@ body{
     color: gray;
 }
 
-#register_submit_btn{
+.register_submit_btn{
     position: relative;
     top: 25px;
     background: linear-gradient(to right,#f5dacd, #f56623);
+}
+
+.announ{
+    font-size: 15px;
+    color: #ff3300;
+    margin-left: 20px;
 }
 
 #footer {

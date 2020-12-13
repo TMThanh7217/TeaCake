@@ -55,8 +55,6 @@ var accountFile = JSON.parse(fs.readFileSync(__dirname + "/public/json/account.j
 
 
 var current_user = ANONYMOUS_USER; // identify user
-
-
 // -------Use here------------------
 // Add headers
 app.use(function (req, res, next) {
@@ -167,53 +165,75 @@ app.get('/login', (req, res) => { // login page
 
 function checkExist(ArrAcc, newAcc){
 
+    var check = false;
     ArrAcc.forEach(ele => {
         if (String(ele.account) === String(newAcc))
-            return false;
+            check = true;
+        }
+    )
+    return check;
+}
+
+app.get('/get_infor_register', (req, res) => {
+    current_user = ADMIN_USER;
+    res.locals.user = current_user;
+
+    if (req.query.account.includes(" ")){
+        res.render('login_register', {resAnnoun: '*Account cannot contain space', func: "register()"});
+    }
+    else {
+        if (checkExist(accountFile.userInfor, req.query.account) == false){
+            var user = {};
+            user.fname = req.query.fname;
+            user.lname = req.query.lname;
+            user.account = req.query.account;
+            user.password = req.query.password;
+            user.avtImage = "";
+            user.bgImage = "";
+            user.email = "";
+            user.pNumber = "";
+            user.Bday = req.query.Bday;
+            user.Bmonth = req.query.Bmonth;
+            user.Byear = req.query.Byear;
+            user.gender = req.query.gender;
+            user.nation = "";
+            user.bio = "";
+
+            accountFile.userInfor.push(user);
+            fs.writeFileSync(__dirname + "/public/json/account.json", JSON.stringify(accountFile));
+
+            res.redirect("/");
+        }
+        else {
+            res.render('login_register', {resAnnoun: '*Account ' + req.query.account + ' has already exists', func: "register()"});
+        }
+    }
+});
+
+function checkLogin(ArrAcc, Acc, Pass){
+
+    var check = false;
+    ArrAcc.forEach(ele => {
+        if (String(ele.account) == String(Acc))
+            if (String(ele.password) == String(Pass))
+                check = true;
     })
-    return true;
+
+    return check;
 }
 
 app.get('/get_infor_login', (req, res) => {
-    current_user = COMMON_USER;
+    current_user = ADMIN_USER;
     res.locals.user = current_user;
 
-    if (checkExist(accountFile.userInfor, req.query.account) == false){
-        var user = {};
-        user.fname = req.query.fname;
-        user.lname = req.query.lname;
-        user.account = req.query.account;
-        user.password = req.query.password;
-        user.avtImage = "";
-        user.bgImage = "";
-        user.email = "";
-        user.pNumber = "";
-        user.Bday = req.query.Bday;
-        user.Bmonth = req.query.Bmonth;
-        user.Byear = req.query.Byear;
-        user.gender = req.query.gender;
-        user.nation = "";
-        user.bio = "";
-
-        accountFile.userInfor.push(user);
-        fs.writeFileSync(__dirname + "/public/json/account.json", JSON.stringify(accountFile));
+    if (checkLogin(accountFile.userInfor, req.query.logAcc, req.query.logPass)){
+        res.redirect("/");
     }
-    else
-        {
-            // alert("Account exist!\nPleese choose other one!");
-        }
-    
-    res.redirect("http://localhost:8000/");
+    else{
+        res.render('login_register', {logAnnoun: 'Invalid Username or Password'});
+    }
+
 });
-
-
-
-app.get('/saa', (req, res) => { // login page
-    current_user = COMMON_USER;
-    res.locals.user = current_user;
-    
-    res.render('login_register');
-})
 
 app.get('/logout', (req, res) => { // logout page
     // ---- Change user to anonymous
