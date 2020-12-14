@@ -53,6 +53,9 @@ var members = JSON.parse(fs.readFileSync(__dirname + "/public/json/members.json"
 }*/
 var accountFile = JSON.parse(fs.readFileSync(__dirname + "/public/json/account.json"));
 
+/*
+*/
+var blogs = JSON.parse(fs.readFileSync(__dirname + "/public/json/blogs.json"));
 
 var current_user = ANONYMOUS_USER; // identify user
 // -------Use here------------------
@@ -344,6 +347,20 @@ app.get('/contact', (req, res) => { // contact page
 
     // ---- Render home page
     res.render('contact', page_data);
+})
+
+app.get('/blog', (req, res) => { // blog page
+    // ---- get user
+    res.locals.user = current_user;
+    var rows = _getRows(blogs, 3);
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - Blog",
+      rows: rows
+    }
+
+    // ---- Render home page
+    res.render('blog', page_data);
 })
 
 

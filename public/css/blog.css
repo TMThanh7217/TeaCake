@@ -1,0 +1,27 @@
+
+.blog-header {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.blog-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.blog-postDate {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.blog-author {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+} 
