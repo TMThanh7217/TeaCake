@@ -1,0 +1,62 @@
+.posOption{
+    border: 1px solid rgba(128, 128, 128, 0.445);
+    margin-left: 30px;
+    padding: 30px;
+    padding-left: 50px;
+    width: 300px;
+}
+
+.posOption input{
+    margin: 15px;
+}
+
+.imgOption {
+    border: 1px solid rgba(128, 128, 128, 0.445);
+    padding: 10px;
+}
+
+.control{
+    padding: 3px;
+}
+
+.inputAds{
+    width: 90%;
+    border: 1px solid rgba(128, 128, 128, 0.445);
+    padding: 10px;
+}
+
+.day{
+    width: 15%;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.month{
+    width: 15%;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.year{
+    width: 30%;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.btnAds{
+    border-radius:20px;
+    height: 90%;
+    width: 20%;
+    margin: 20px;
+    font-weight: bold;
+    background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
+    font-size: 20px;
+    border: solid 3px black;
+}
+
+.imgArea{
+    height: 400px;
+}

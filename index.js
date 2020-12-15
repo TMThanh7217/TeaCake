@@ -263,6 +263,13 @@ app.get('/logout', (req, res) => { // logout page
     res.render('index', page_data);
 })
 
+app.get('/add_ads', (req, res) => {
+    current_user = ADMIN_USER;
+    res.locals.user = current_user;
+
+    res.render('add_ads');
+});
+
 app.get('/menu', (req, res) => { // menu page
     // ---- get user
     res.locals.user = current_user;

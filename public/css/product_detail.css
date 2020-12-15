@@ -98,13 +98,13 @@ input[type=number] {
     font-size: 45px;
 }
 
-input:not(:checked) ~ label:hover,
-input:not(:checked) ~ label:hover ~ label{
+.star-rating input:not(:checked) ~ label:hover,
+.star-rating input:not(:checked) ~ label:hover ~ label{
     color: rgb(250, 250, 92);
     text-shadow: 0 0 15px rgb(177, 125, 85);
 }
 
-input:checked ~ label{
+.star-rating input:checked ~ label{
     color: rgb(250, 250, 92);
     text-shadow: 0 0 15px rgb(172, 42, 19);
 }
