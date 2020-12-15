@@ -8,6 +8,8 @@ const port = process.env.PORT || 8000; // Port
 let exprHbs = require("express-handlebars"); // express handlebars
 const { helpers } = require('handlebars');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
+
 // -------- Some const var
 const ANONYMOUS_USER = 0;
 const COMMON_USER = 1;
@@ -174,30 +176,33 @@ function checkExist(ArrAcc, newAcc){
     return check;
 }
 
-app.get('/get_infor_register', (req, res) => {
+app.post('/get_infor_register', (req, res) => {
     current_user = ADMIN_USER;
     res.locals.user = current_user;
 
-    if (req.query.account.includes(" ")){
+    if (req.body.account.includes(" ")){
         res.render('login_register', {resAnnoun: '*Account cannot contain space', func: "register()"});
     }
     else {
-        if (checkExist(accountFile.userInfor, req.query.account) == false){
+        if (checkExist(accountFile.userInfor, req.body.account) == false){
             var user = {};
-            user.fname = req.query.fname;
-            user.lname = req.query.lname;
-            user.account = req.query.account;
-            user.password = req.query.password;
+            user.fname = req.body.fname;
+            user.lname = req.body.lname;
+            user.account = req.body.account;
+            user.password = req.body.password;
             user.avtImage = "";
             user.bgImage = "";
             user.email = "";
             user.pNumber = "";
-            user.Bday = req.query.Bday;
-            user.Bmonth = req.query.Bmonth;
-            user.Byear = req.query.Byear;
-            user.gender = req.query.gender;
+            user.Bday = req.body.Bday;
+            user.Bmonth = req.body.Bmonth;
+            user.Byear = req.body.Byear;
+            user.gender = req.body.gender;
             user.nation = "";
             user.bio = "";
+            
+            var salt = bcrypt.genSaltSync(10);
+            user.password = bcrypt.hashSync(user.password, salt);
 
             accountFile.userInfor.push(user);
             fs.writeFileSync(__dirname + "/public/json/account.json", JSON.stringify(accountFile));
@@ -205,28 +210,28 @@ app.get('/get_infor_register', (req, res) => {
             res.redirect("/");
         }
         else {
-            res.render('login_register', {resAnnoun: '*Account ' + req.query.account + ' has already exists', func: "register()"});
+            res.render('login_register', {resAnnoun: '*Account ' + req.body.account + ' has already exists', func: "register()"});
         }
     }
 });
 
 function checkLogin(ArrAcc, Acc, Pass){
-
     var check = false;
+    
     ArrAcc.forEach(ele => {
         if (String(ele.account) == String(Acc))
-            if (String(ele.password) == String(Pass))
+            if (bcrypt.compareSync(Pass, ele.password))
                 check = true;
     })
 
     return check;
 }
 
-app.get('/get_infor_login', (req, res) => {
+app.post('/get_infor_login', (req, res) => {
     current_user = ADMIN_USER;
     res.locals.user = current_user;
 
-    if (checkLogin(accountFile.userInfor, req.query.logAcc, req.query.logPass)){
+    if (checkLogin(accountFile.userInfor, req.body.logAcc, req.body.logPass)){
         res.redirect("/");
     }
     else{

@@ -7,14 +7,14 @@
             <button type="button" id="register-btn" onclick="register()" class="toggle-btn">Register</button>
         </div>
         <img src="images/TeaCake.png" id="TnK_img" alt="Tea and Cake">
-        <form id="input-login" action="/get_infor_login">
+        <form id="input-login" action="/get_infor_login" method="post">
             <label class="announ">{{logAnnoun}}</label><br>
             <input type="text" name="logAcc" class="input-login-field" placeholder="User Account" required>
             <input type="password" name="logPass" class="input-login-field" placeholder="Password" required>
             <input type="checkbox" name="remember" value="yes" class="check-box"><span> Remember Password</span>
             <button type="Submit" class="submit-btn">Log In</button>
         </form>
-        <form id="input-register" action="/get_infor_register">
+        <form id="input-register" action="/get_infor_register" method="post">
             <label class="label">User Name</label><br>
             <input type="text" class="input-login-field firstname" name="fname" placeholder="First name" required>
             <input type="text" class="input-login-field lastname" name="lname" placeholder="Surname" required>
