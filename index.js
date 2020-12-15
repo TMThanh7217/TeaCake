@@ -335,6 +335,21 @@ app.get('/cart', (req, res) => { // cart page
     res.render('cart', page_data);
 })
 
+app.get('/history', (req, res) => { // cart page
+    // ---- get user
+    res.locals.user = current_user;
+
+    let cart_items = _getNElements(products.cakes, 2).concat(_getNElements(products.teas, 1)).concat(_getNElements(products.drinks, 1));
+    // ---- Prepare data for page
+    var page_data = {
+      title: "TeaCake - History",
+      products: cart_items
+    }
+
+    // ---- Render home page
+    res.render('history', page_data);
+})
+
 app.get('/profile', (req, res) => { // profile page
     // ---- get user
     res.locals.user = current_user;
