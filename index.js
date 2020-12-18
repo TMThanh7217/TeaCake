@@ -7,8 +7,6 @@ const bodyParser = require("body-parser"); // For post method
 const port = process.env.PORT || 8000; // Port
 let exprHbs = require("express-handlebars"); // express handlebars
 const { helpers } = require('handlebars');
-const cors = require('cors');
-const bcrypt = require('bcrypt');
 const models = require('./models');
 // -------- Some const var
 const ANONYMOUS_USER = 0;
@@ -18,7 +16,6 @@ const corsOptions = {
     origin: 'http://localhost:8000',
     optionsSuccessStatus: 200
 }
-
 // ------------------Some local vars----------------
 /*products = {
     cakes : [...],
@@ -53,13 +50,12 @@ var members = JSON.parse(fs.readFileSync(__dirname + "/public/json/members.json"
     "nation": ...,
     "bio": ...
 }*/
-var accountFile = JSON.parse(fs.readFileSync(__dirname + "/public/json/account.json"));
 
 /*
 */
 var blogs = JSON.parse(fs.readFileSync(__dirname + "/public/json/blogs.json"));
 
-var current_user = ANONYMOUS_USER; // identify user
+app.set('current_user', ANONYMOUS_USER); // identify user
 // -------Use here------------------
 // Add headers
 app.use(function (req, res, next) {
@@ -139,197 +135,28 @@ let hbs = exprHbs.create({
     }
 });
 
-app.use((req, res, next) => { // use local variable for handlebars dynamic pages
-    res.locals.user = current_user;
-    next();
- });
-
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 
 // ------------------Routing here-------------------
-app.get('/', (req, res) => { // root-index page
-    // ---- get user
-    res.locals.user = current_user;
+app.use('/', require('./routes/index')); // home page
 
-    // ---- Prepare data for home page
-    let _cakes = _getNElements(_getCakes(products), 5); // get 5 recommend cakes
-    let _drinks = _getNElements(_getTeas(products), 3).concat(_getNElements(_getDrinks(products), 2)); // get recommend drinks (3 teas + 2 drinks)
-    var page_data = {
-      title: "TeaCake - Home",
-      rec_cakes: _cakes,
-      rec_drinks: _drinks,
-    }
+app.use('/products', require('./routes/products')); // menu + product
 
-    // ---- Render home page
-    res.render('index', page_data);
-})
-
-app.get('/login', (req, res) => { // login page
-    current_user = COMMON_USER;
-    res.locals.user = current_user;
-
-    res.render('login_register');
-})
-
-function checkExist(ArrAcc, newAcc){
-
-    var check = false;
-    ArrAcc.forEach(ele => {
-        if (String(ele.account) === String(newAcc))
-            check = true;
-        }
-    )
-    return check;
-}
-
-app.post('/get_infor_register', (req, res) => {
-    current_user = ADMIN_USER;
-    res.locals.user = current_user;
-
-    if (req.body.account.includes(" ")){
-        res.render('login_register', {resAnnoun: '*Account cannot contain space', func: "register()"});
-    }
-    else {
-        if (checkExist(accountFile.userInfor, req.body.account) == false){
-            var user = {};
-            user.fname = req.body.fname;
-            user.lname = req.body.lname;
-            user.account = req.body.account;
-            user.password = req.body.password;
-            user.avtImage = "";
-            user.bgImage = "";
-            user.email = "";
-            user.pNumber = "";
-            user.Bday = req.body.Bday;
-            user.Bmonth = req.body.Bmonth;
-            user.Byear = req.body.Byear;
-            user.gender = req.body.gender;
-            user.nation = "";
-            user.bio = "";
-            
-            var salt = bcrypt.genSaltSync(10);
-            user.password = bcrypt.hashSync(user.password, salt);
-
-            accountFile.userInfor.push(user);
-            fs.writeFileSync(__dirname + "/public/json/account.json", JSON.stringify(accountFile));
-
-            res.redirect("/");
-        }
-        else {
-            res.render('login_register', {resAnnoun: '*Account ' + req.body.account + ' has already exists', func: "register()"});
-        }
-    }
-});
-
-function checkLogin(ArrAcc, Acc, Pass){
-    var check = false;
-    
-    ArrAcc.forEach(ele => {
-        if (String(ele.account) == String(Acc))
-            if (bcrypt.compareSync(Pass, ele.password))
-                check = true;
-    })
-
-    return check;
-}
-
-app.post('/get_infor_login', (req, res) => {
-    current_user = ADMIN_USER;
-    res.locals.user = current_user;
-
-    if (checkLogin(accountFile.userInfor, req.body.logAcc, req.body.logPass)){
-        res.redirect("/");
-    }
-    else{
-        res.render('login_register', {logAnnoun: 'Invalid Username or Password'});
-    }
-
-});
-
-app.get('/logout', (req, res) => { // logout page
-    // ---- Change user to anonymous
-    current_user = ANONYMOUS_USER;
-    
-     // ---- get user
-     res.locals.user = current_user;
-
-    // ---- Prepare data for home page
-    let _cakes = _getNElements(products.cakes, 5); // get 5 recommend cakes
-    let _drinks = _getNElements(products.teas, 3).concat(_getNElements(products.drinks, 2)); // get recommend drinks (3 teas + 2 drinks)
-    var page_data = {
-      title: "TeaCake - Home",
-      rec_cakes: _cakes,
-      rec_drinks: _drinks,
-    }
-
-    // ---- Render home page
-    res.render('index', page_data);
-})
+app.use('/', require('./routes/login')); // login/register/logout
 
 app.get('/add_ads', (req, res) => {
-    current_user = ADMIN_USER;
-    res.locals.user = current_user;
-
+    res.locals.user = app.get('current_user');
     res.render('add_ads');
 });
 
-app.get('/menu', (req, res) => { // menu page
-    models.Product
-    .findAll({
-        raw : true
-    })
-    .then(products => {
-        // ---- get user
-        res.locals.user = current_user;
 
-        // ---- get rows with each row have 3 products
-        var rows_data = _getRows(products, 3);
-        
-        // ---- Prepare data for page
-        var page_data = {
-        title: "TeaCake - Menu",
-        rows: rows_data
-        }
-
-        // ---- Render home page
-        res.render('menu', page_data);
-    })
-    .catch(err => {
-        res.json(err);
-    })
-})
-
-app.get('/product', (req, res) => { // product pages
-    models.Product
-    .findByPk(Number(req.query.id), {raw : true})
-    .then(product => {
-        if (product === null) {
-            res.send("Error 404: File not found!!");
-        }
-        else {
-            // ---- Prepare data for page
-            var page_data = {
-                title: `TeaCake - ${product.name}`,
-                product: product
-            }
-
-            // ---- Render home page
-            res.render('product', page_data);
-
-        }
-    })
-    .catch(err => {
-        res.json(err);
-    })
-})
 
 
 app.get('/credit', (req, res) => { // credit page
     // ---- get user
-    res.locals.user = current_user;
-
+    res.locals.user = app.get('current_user');
     // ---- Prepare data for page
     var page_data = {
       title: "TeaCake - Credit",
@@ -342,7 +169,7 @@ app.get('/credit', (req, res) => { // credit page
 
 app.get('/cart', (req, res) => { // cart page
     // ---- get user
-    res.locals.user = current_user;
+    res.locals.user = app.get('current_user');
 
     let cart_items = _getNElements(_getCakes(products), 2).concat(_getNElements(_getTeas(products), 1)).concat(_getNElements(_getDrinks(products).drinks, 1));
     // ---- Prepare data for page
@@ -357,7 +184,7 @@ app.get('/cart', (req, res) => { // cart page
 
 app.get('/history', (req, res) => { // cart page
     // ---- get user
-    res.locals.user = current_user;
+    res.locals.user = app.get('current_user');
 
     let cart_items = _getNElements(products.cakes, 2).concat(_getNElements(products.teas, 1)).concat(_getNElements(products.drinks, 1));
     // ---- Prepare data for page
@@ -372,7 +199,7 @@ app.get('/history', (req, res) => { // cart page
 
 app.get('/profile', (req, res) => { // profile page
     // ---- get user
-    res.locals.user = current_user;
+    res.locals.user = app.get('current_user');
 
     // ---- Prepare data for page
     var page_data = {
@@ -385,8 +212,7 @@ app.get('/profile', (req, res) => { // profile page
 
 app.get('/contact', (req, res) => { // contact page
     // ---- get user
-    res.locals.user = current_user;
-
+    res.locals.user = app.get('current_user');
     // ---- Prepare data for page
     var page_data = {
       title: "TeaCake - Contact",
@@ -397,8 +223,8 @@ app.get('/contact', (req, res) => { // contact page
 })
 
 app.get('/blog', (req, res) => { // blog page
+    res.locals.user = app.get('current_user')
     // ---- get user
-    res.locals.user = current_user;
     var rows = _getRows(blogs, 3);
     // ---- Prepare data for page
     var page_data = {
