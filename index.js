@@ -9,7 +9,7 @@ let exprHbs = require("express-handlebars"); // express handlebars
 const { helpers } = require('handlebars');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-
+const models = require('./models');
 // -------- Some const var
 const ANONYMOUS_USER = 0;
 const COMMON_USER = 1;
@@ -95,13 +95,18 @@ function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = c
     return rows;
 }
 
-function _getAllProducts(pds) { // convert products object to array
-    /*products = pds = {
-    cakes : [...],
-    drinks : [...],
-    teas : [...]
-    }*/
-    return pds.teas.concat(pds.cakes).concat(pds.drinks);
+function _getCakes(products) { // return products that have prop type = cake
+    return products.filter(product => product.type == 'cake');
+}
+
+
+function _getTeas(products) { // return products that have prop type = tea
+    return products.filter(product => product.type == 'tea');
+}
+
+
+function _getDrinks(products) { // return products that have prop type = drink
+    return products.filter(product => product.type == 'drink');
 }
 
 function _getNElements(data, n) { // get n first element of data array
@@ -149,8 +154,8 @@ app.get('/', (req, res) => { // root-index page
     res.locals.user = current_user;
 
     // ---- Prepare data for home page
-    let _cakes = _getNElements(products.cakes, 5); // get 5 recommend cakes
-    let _drinks = _getNElements(products.teas, 3).concat(_getNElements(products.drinks, 2)); // get recommend drinks (3 teas + 2 drinks)
+    let _cakes = _getNElements(_getCakes(products), 5); // get 5 recommend cakes
+    let _drinks = _getNElements(_getTeas(products), 3).concat(_getNElements(_getDrinks(products), 2)); // get recommend drinks (3 teas + 2 drinks)
     var page_data = {
       title: "TeaCake - Home",
       rec_cakes: _cakes,
@@ -275,7 +280,7 @@ app.get('/menu', (req, res) => { // menu page
     res.locals.user = current_user;
 
     // ---- get rows with each row have 3 products
-    var rows_data = _getRows(_getAllProducts(products), 3);
+    var rows_data = _getRows(products, 3);
     
     // ---- Prepare data for page
     var page_data = {
@@ -292,8 +297,7 @@ app.get('/product', (req, res) => { // product pages
     res.locals.user = current_user;
 
     // ---- get rows with each row have 3 products
-    var all_product = _getAllProducts(products);
-    var product = all_product.find(elem => elem.id.toString() == req.query.id);
+    var product = products.find(elem => elem.id.toString() == req.query.id);
     
     // ---- Prepare data for page
     var page_data = {
@@ -324,7 +328,7 @@ app.get('/cart', (req, res) => { // cart page
     // ---- get user
     res.locals.user = current_user;
 
-    let cart_items = _getNElements(products.cakes, 2).concat(_getNElements(products.teas, 1)).concat(_getNElements(products.drinks, 1));
+    let cart_items = _getNElements(_getCakes(products), 2).concat(_getNElements(_getTeas(products), 1)).concat(_getNElements(_getDrinks(products).drinks, 1));
     // ---- Prepare data for page
     var page_data = {
       title: "TeaCake - Cart",
@@ -388,6 +392,13 @@ app.get('/blog', (req, res) => { // blog page
 
     // ---- Render home page
     res.render('blog', page_data);
+})
+
+// Sync to db
+app.get('/sync', (req, res) => {
+    models.sequelize.sync().then(()=>{
+        res.send("TeaCakeDB sync successfully!!!");
+    })
 })
 
 
