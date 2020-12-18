@@ -165,3 +165,8 @@ input[type=number] {
 #w3review {
     width: 80%;
 }
+
+.product-infor__btn-order {
+    margin-top: 5px;
+    max-width: 170px;
+}

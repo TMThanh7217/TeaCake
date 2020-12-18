@@ -276,37 +276,53 @@ app.get('/add_ads', (req, res) => {
 });
 
 app.get('/menu', (req, res) => { // menu page
-    // ---- get user
-    res.locals.user = current_user;
+    models.Product
+    .findAll({
+        raw : true
+    })
+    .then(products => {
+        // ---- get user
+        res.locals.user = current_user;
 
-    // ---- get rows with each row have 3 products
-    var rows_data = _getRows(products, 3);
-    
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Menu",
-      rows: rows_data
-    }
+        // ---- get rows with each row have 3 products
+        var rows_data = _getRows(products, 3);
+        
+        // ---- Prepare data for page
+        var page_data = {
+        title: "TeaCake - Menu",
+        rows: rows_data
+        }
 
-    // ---- Render home page
-    res.render('menu', page_data);
+        // ---- Render home page
+        res.render('menu', page_data);
+    })
+    .catch(err => {
+        res.json(err);
+    })
 })
 
 app.get('/product', (req, res) => { // product pages
-    // ---- get user
-    res.locals.user = current_user;
+    models.Product
+    .findByPk(Number(req.query.id), {raw : true})
+    .then(product => {
+        if (product === null) {
+            res.send("Error 404: File not found!!");
+        }
+        else {
+            // ---- Prepare data for page
+            var page_data = {
+                title: `TeaCake - ${product.name}`,
+                product: product
+            }
 
-    // ---- get rows with each row have 3 products
-    var product = products.find(elem => elem.id.toString() == req.query.id);
-    
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Product #" + (Number(req.query.id) + 1),
-      product: product
-    }
+            // ---- Render home page
+            res.render('product', page_data);
 
-    // ---- Render home page
-    res.render('product', page_data);
+        }
+    })
+    .catch(err => {
+        res.json(err);
+    })
 })
 
 
