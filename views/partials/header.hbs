@@ -22,7 +22,7 @@
                     <a href='/login'>Login</a> <i class='fa fa-user' style='font-size: 40px'></i>
                 </li>
             </ul>
-            {{else}}
+            {{else if (isCommon user)}}
             <div class='dropdown nav-item acc-drop p-1 w-75'>
                 <button type='button' class='btn right-item' data-toggle='dropdown'>
                     Account <i class='fa fa-user ml-3' style='font-size: 40px'></i>
@@ -30,6 +30,18 @@
                 <div class='dropdown-menu mt-2' style='background: linear-gradient(rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));'>
                     <a class='dropdown-item' href='/profile'><i class='fas fa-address-card'></i> Profile</a>
                     <a class='dropdown-item' href='/cart?user={{user}}'><i class='fa fa-shopping-cart'></i> Shopping cart</a>
+                    <a class='dropdown-item' href='/history'><i class='fa fa-history'></i> History</a>
+                    <a class='dropdown-item' href='#' onclick='document.location.href="/logout"'><i class='fas fa-door-open'></i> Logout</a>
+                </div>
+            </div>
+            {{else}}
+            <div class='dropdown nav-item acc-drop p-1 w-75'>
+                <button type='button' class='btn right-item' data-toggle='dropdown'>
+                    Account <i class='fa fa-user ml-3' style='font-size: 40px'></i>
+                </button>
+                <div class='dropdown-menu mt-2' style='background: linear-gradient(rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));'>
+                    <a class='dropdown-item' href='/profile'><i class='fas fa-address-card'></i> Profile</a>
+                    <a class='dropdown-item' href='/admin/products'><i class='fa'></i> Manage products</a>
                     <a class='dropdown-item' href='/history'><i class='fa fa-history'></i> History</a>
                     <a class='dropdown-item' href='#' onclick='document.location.href="/logout"'><i class='fas fa-door-open'></i> Logout</a>
                 </div>

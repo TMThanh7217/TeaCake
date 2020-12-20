@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TeaCake</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Our Style-->
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/noti.css">
+    <link rel="stylesheet" href="../css/admin-pages.css">
+  </head>
+  <body onload="userUI()">
+    <header class="mb-2">
+        <nav class="navbar navbar-expand-md">
+            <div class="navbar-collapse collapse w-50 order-1 order-md-0 dual-collapse2">
+                <a href="#" class="navbar-brand mx-1" style="width: 100px">
+                    <img src="../images/logo.png" height="50" alt="CoolBrand">
+                </a>
+                <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center"  style="width: calc(100% - 100px)">
+                    <li class="active nav-item p-1 left-item" style="width: 24%"> <a href="./home.htm" style="text-align: center;"> Home </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="./MenuCategory.html" style="text-align: center;"> Menu </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="#" style="text-align: center;"> Blog </a></li>
+                    <li class="nav-item p-1 left-item" style="width: 24%"> <a class="w-100" href="./contact.html" style="text-align: center;"> Contact </a></li>
+                </ul>
+            </div>
+            <div class="mx-2 order-0 search-box d-flex align-items-center justify-content-center" style="width: 30%">
+                <input type="text" class="input-field w-75 h-75" placeholder="Search...">
+                <a href="#"><i class="fa fa-search icon"></i></a>
+            </div>
+            <div id="login-area" class="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-center" style="width: 15%">
+            </div>
+            <div id ="notification" class="noti">
+                 
+                <div class="nav-item dropdown">
+                    <a class="nav-link text-light" href="#" id="notiDropdown" role="button" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                      <ul class="dropdown-menu">
+                        <li class="head text-dark" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
+                          <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                              <span>Notifications (3)</span>
+                              <a href="" class="float-right text-dark">Mark all as read</a>
+                            </div>
+                        </li>
+                        <li class="notification-box">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-3 col-3 text-center">
+                              <img src="../images/TeaCake.png" class="w-50 rounded-circle">
+                            </div>    
+                            <div class="col-lg-8 col-sm-8 col-8">
+                              <strong class="text-info">Tea Cake</strong>
+                              <div>
+                                Lorem ipsum dolor sit amet, consectetur
+                              </div>
+                              <small class="text-warning">06.12.2020, 15:00</small>
+                            </div>    
+                          </div>
+                        </li>
+                        <li class="notification-box bg-gray">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-3 col-3 text-center">
+                              <img src="../images/TeaCake.png" class="w-50 rounded-circle">
+                            </div>    
+                            <div class="col-lg-8 col-sm-8 col-8">
+                              <strong class="text-info">Tea Cake</strong>
+                              <div>
+                                Lorem ipsum dolor sit amet, consectetur
+                              </div>
+                              <small class="text-warning">06.12.2020, 15:00</small>
+                            </div>    
+                          </div>
+                        </li>
+                        <li class="notification-box">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-3 col-3 text-center">
+                              <img src="../images/TeaCake.png" class="w-50 rounded-circle">
+                            </div>    
+                            <div class="col-lg-8 col-sm-8 col-8">
+                              <strong class="text-info">Tea Cake</strong>
+                              <div>
+                                Lorem ipsum dolor sit amet, consectetur
+                              </div>
+                              <small class="text-warning">06.12.2020, 15:00</small>
+                            </div>    
+                          </div>
+                        </li>
+                        <li class="footer text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
+                          <a href="" class="text-dark">View All</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid row mx-auto px-5 my-auto py-3">
+        <div class="col-2 side-bar p-2">
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/admin/manage/all-products'">
+                    <a href="/admin/manage/all-products" class="side-bar__menu__item__link">All products</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/admin/manage/manage-products'">
+                    <a href="/admin/manage/manage-products" class="side-bar__menu__item__link">Manage products</a>
+                </li>
+            </ul>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search ...">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-10 p-2 product-list">
+            <div class="container w-100 product-list__header bg-main px-2 py-1">
+                <h1 class="product-list__header__content text-white">All products</h1>
+            </div>
+            <div class="card card--product">
+                <div class="row card--product__row">
+                    <div class="col-4 m-auto">
+                        <div class="container p-2">
+                            <img src="/public/images/cake/cake1.jpg" alt="" class="img-fluid img-thumbnail card--product__img">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="card-header">
+                            <p class="card-title h2">Cake #1</p>
+                        </div>
+                        <div class="container p-2 card-body card--product__info">
+                            <p class="card-text card--product__info__text"><strong>ID: </strong>1</p>
+                            <p class="card-text card--product__info__text">
+                                <i class="fa fa-heart" style="color: palevioletred;">: </i>
+                                <span class="card--product__info__text">100</span>
+                            </p>
+                            <p class="card-text card--product__info__text"><strong>Description: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur culpa fuga veritatis nam repudiandae commodi molestiae reprehenderit laborum amet odit.</p>    
+                        </div>
+                        <div class="card-footer card--product__footer d-flex justify-content-end">
+                            <button class="btn card--product__footer__btn bg-main">Edit</button>
+                            <button class="btn card--product__footer__btn bg-danger">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="mt-4">
+        <div class="row w-100">
+            <div class="col-4 d-flex justify-content-center align-items-center w-75">
+                <div class="container" style="width: 80%;">
+                    <div class="row my-1">
+                        <div class="col-12">
+                            Email: Lorem@Lo.re.m
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-12">
+                            Phone: 0123456789    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 d-flex align-items-center">
+                <nav class="navbar navbar-expand-md w-100">
+                    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                        <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center w-100"  style="width: calc(100% - 100px)">
+                            <li class="nav-item p-1 active left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./credit.html" style="text-align: center;"> About Us </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./MenuCategory.html" style="text-align: center;"> Menu </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Blog </a></li>
+                            <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./contact.html" style="text-align: center;"> Contact </a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center w-75">
+                <div class="container" style="width: 80%;">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            Address: abc, xyz, tvu
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-4 d-flex justify-content-center align-items-center my-1">
+                            <button id="rp-btn" type="button" class="btn d-flex justify-content-center align-items-center">Report Error</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="../js/login_register.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

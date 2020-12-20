@@ -1,0 +1,39 @@
+<div class="container-fluid row mx-auto px-5 my-auto py-3">
+    <div class="col-2 side-bar p-2">
+        {{> admin-sidebar-menu}}
+    </div>
+    <div class="col-10 p-2 product-list">
+        <div class="container w-100 product-list__header bg-main px-2 py-1">
+            <h1 class="product-list__header__content text-white">All products</h1>
+        </div>
+        {{#each products}}
+        <div class="card card--product">
+            <div class="row card--product__row">
+                <div class="col-4 m-auto">
+                    <div class="container p-2">
+                        <img src="/{{this.src}}" alt="" class="img-fluid img-thumbnail card--product__img">
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="card-header">
+                        <p class="card-title h2">{{this.name}}</p>
+                    </div>
+                    <div class="container p-2 card-body card--product__info">
+                        <p class="card-text card--product__info__text"><strong>ID: </strong>{{this.ID}}</p>
+                        <p class="card-text card--product__info__text">
+                            <i class="fa fa-heart" style="color: palevioletred;">: </i>
+                            <span class="card--product__info__text">{{this.like}}</span>
+                        </p>
+                        <p class="card-text card--product__info__text"><strong>Price: $</strong>{{this.price}}</p>
+                        <p class="card-text card--product__info__text"><strong>Description: </strong>{{this.description}}</p>    
+                    </div>
+                    <div class="card-footer card--product__footer d-flex justify-content-end">
+                        <button class="btn card--product__footer__btn bg-main">Edit</button>
+                        <button class="btn card--product__footer__btn bg-danger">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
