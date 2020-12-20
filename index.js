@@ -146,95 +146,19 @@ app.use('/products', require('./routes/products')); // menu + product
 
 app.use('/', require('./routes/login')); // login/register/logout
 
-app.get('/add_ads', (req, res) => {
-    res.locals.user = app.get('current_user');
-    res.render('add_ads');
-});
+app.use('/add_ads', require('./routes/add_ads')); // Add_ads page
 
+app.use('/credit', require('./routes/credit')); // Credit page
 
+app.use('/cart', require('./routes/cart')); // cart 
 
+app.use('/history', require('./routes/history')); // history pages
 
-app.get('/credit', (req, res) => { // credit page
-    // ---- get user
-    res.locals.user = app.get('current_user');
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Credit",
-      members: members
-    }
+app.use('/profile', require('./routes/profile')); // profile page
 
-    // ---- Render home page
-    res.render('credit', page_data);
-})
+app.use('/contact', require('./routes/contact')); // contact page
 
-app.get('/cart', (req, res) => { // cart page
-    // ---- get user
-    res.locals.user = app.get('current_user');
-
-    let cart_items = _getNElements(_getCakes(products), 2).concat(_getNElements(_getTeas(products), 1)).concat(_getNElements(_getDrinks(products).drinks, 1));
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Cart",
-      products: cart_items
-    }
-
-    // ---- Render home page
-    res.render('cart', page_data);
-})
-
-app.get('/history', (req, res) => { // cart page
-    // ---- get user
-    res.locals.user = app.get('current_user');
-
-    let cart_items = _getNElements(products.cakes, 2).concat(_getNElements(products.teas, 1)).concat(_getNElements(products.drinks, 1));
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - History",
-      products: cart_items
-    }
-
-    // ---- Render home page
-    res.render('history', page_data);
-})
-
-app.get('/profile', (req, res) => { // profile page
-    // ---- get user
-    res.locals.user = app.get('current_user');
-
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Profile",
-    }
-
-    // ---- Render home page
-    res.render('profile', page_data);
-})
-
-app.get('/contact', (req, res) => { // contact page
-    // ---- get user
-    res.locals.user = app.get('current_user');
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Contact",
-    }
-
-    // ---- Render home page
-    res.render('contact', page_data);
-})
-
-app.get('/blog', (req, res) => { // blog page
-    res.locals.user = app.get('current_user')
-    // ---- get user
-    var rows = _getRows(blogs, 3);
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Blog",
-      rows: rows
-    }
-
-    // ---- Render home page
-    res.render('blog', page_data);
-})
+app.use('/blog', require('./routes/blog')); // blogs page
 
 // Sync to db
 app.get('/sync', (req, res) => {
