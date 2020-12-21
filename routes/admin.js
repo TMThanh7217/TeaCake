@@ -24,4 +24,12 @@ router.get('/products', (req, res) => {
     })
 })
 
+router.get('/products/add', (req, res) => {
+    res.locals.user = req.app.get('current user');
+    let page_data = {
+        title: "TeaCake - Admin"
+    }
+    res.render('admin-add', page_data);
+})
+
 module.exports = router;

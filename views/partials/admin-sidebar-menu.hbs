@@ -1,10 +1,19 @@
 <ul class="menu side-bar__menu bg-main">
+    {{#if isAdd}}
+    <li class="item side-bar__menu__item" onclick="document.location.href='/admin/products'">
+        <a href="/admin/products" class="side-bar__menu__item__link">All products</a>
+    </li>
+    <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/admin/products/add'">
+        <a href="/admin/products/add" class="side-bar__menu__item__link">Add product</a>
+    </li>
+    {{else}}
     <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/admin/products'">
         <a href="/admin/products" class="side-bar__menu__item__link">All products</a>
     </li>
     <li class="item side-bar__menu__item" onclick="document.location.href='/admin/products/add'">
         <a href="/admin/products/add" class="side-bar__menu__item__link">Add product</a>
     </li>
+    {{/if}}
 </ul>
 <div class="input-group mb-3">
     <input type="text" class="form-control" placeholder="Search ...">
