@@ -19,9 +19,11 @@
                 <p class="card-text card--product__info__text"><strong>Description: </strong>{{product.description}}</p>    
             </div>
             <div class="card-footer card--product__footer d-flex justify-content-end">
-                <button class="btn card--product__footer__btn bg-main">Edit</button>
-                <button class="btn card--product__footer__btn bg-danger">Remove</button>
+                <button class="btn card--product__footer__btn bg-main" data-toggle="modal" data-target="#editModal">Edit</button>
+                <button class="btn card--product__footer__btn bg-danger" data-toggle="modal" data-target="#deleteModal">Remove</button>
             </div>
         </div>
     </div>
 </div>
+{{> modal-delete-warn}}
+{{> modal-edit-product}}
