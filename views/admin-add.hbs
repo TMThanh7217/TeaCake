@@ -1,0 +1,74 @@
+<div class="container-fluid row mx-auto px-5 my-auto py-3">
+    <div class="col-2 side-bar p-2">
+        {{> admin-sidebar-menu isAdd=true}}
+    </div>
+    <div class="col-10 p-2">
+        <div class="container w-100 bg-main px-2 py-1">
+            <h1 class="product-list__header__content text-white">Add product</h1>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3">
+                <img src="/images/no_image.jpg" alt="" class="img img-fluid img-thumbnail">
+            </div>
+            <div class="col-9">
+                <form action="/products/add" method="post" class="mt-2">
+                    <div class="form-group row">
+                        <label for="inputName" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Name</label>
+                        <div class="col-sm-9 col-lg-10 col-md-10">
+                            <input type="text" class="form-control" id="inputName" name="productName" placeholder="Product's name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputID" class="col-sm-3 col-lg-2 col-md-2 col-form-label">ID</label>
+                        <div class="col-sm-3 col-lg-4 col-md-4">
+                            <input type="text" class="form-control" id="inputID" name="productID" placeholder="Product's ID">
+                        </div>
+                        <label for="inputPrice" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Price</label>
+                        <div class="col-sm-3 col-lg-4 col-md-4 input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="number" class="form-control" id="inputPrice" name="productPrice" placeholder="Product's price">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="selectStatus" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Status</label>
+                        <div class="col-sm-3 col-lg-4 col-md-4">
+                            <select name="productStatus" id="selectStatus" class="custom-select">
+                                <option value="1" selected>Stocking</option>
+                                <option value="0">Out of Stock</option>
+                            </select>
+                        </div>
+                        <label for="selectType" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Type</label>
+                        <div class="col-sm-3 col-lg-4 col-md-4 input-group">
+                            <select name="productStatus" id="selectStatus" class="custom-select">
+                                <option value="1" selected>Tea</option>
+                                <option value="0">Cake</option>
+                                <option value="0">Drink</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputDesc" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Description</label>
+                        <div class="col-sm-9 col-lg-10 col-md-10">
+                            <textarea class="form-control" id="inputDesc" name="productDesc" rows="3" placeholder="Product's description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputDesc" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Image</label>
+                        <div class="input-group col-sm-9 col-lg-10 col-md-10">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputImg" name="productImg">
+                                <label class="custom-file-label" for="inputImg">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-md">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>  
+</div>
