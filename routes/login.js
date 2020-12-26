@@ -55,13 +55,17 @@ router.post('/get_infor_register', (req, res) => {
     }
 });
 
-
 router.post('/get_infor_login', (req, res) => {
 
     controller.searchUser(req.body.logAcc, function(this_user) {
         if (this_user != null){
             if (bcrypt.compareSync(req.body.logPass, this_user.password)){
-                req.app.set('current_user', COMMON_USER);
+                if (this_user.type == "ADMIN"){
+                    req.app.set('current_user', ADMIN_USER);  
+                }
+                else {
+                    req.app.set('current_user', COMMON_USER);
+                }
                 
                 res.redirect("/");
             }
