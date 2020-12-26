@@ -60,18 +60,23 @@ a:hover {
     text-decoration: none;
 }
 
-
 .link_nav{
     position: relative;
 }
 
 .search-box{
-   
     border-radius: 20px;
     background-color: white;
 }
 
-.input-field{
+.search-button{
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+.search-field{
+    outline: none;
     font-size: 18px;
     padding: 10px;
     border: none;

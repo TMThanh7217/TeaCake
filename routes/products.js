@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+const controller = require('../controllers/productController');
 
 function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = cap 
     let rows = []; // init 2D array
@@ -36,6 +37,25 @@ router.get('/', (req, res) => { // menu page
     })
 })
 
+router.get('/search', (req, res) => {
+    res.locals.user = req.app.get('current_user');
+
+    var keyword = req.query.keyword;
+    controller.searchProduct(keyword, function(products) {
+        // ---- get rows with each row have 3 products
+        var rows_data = _getRows(products, 3);
+
+        // ---- Prepare data for page
+        var page_data = {
+        title: "TeaCake - Menu",
+        rows: rows_data
+        }
+
+        // ---- Render home page
+        res.render('menu', page_data);
+    });
+})
+
 router.get('/:id', (req, res) => { // product pages
     res.locals.user = req.app.get('current_user');
     models.Product
@@ -52,12 +72,11 @@ router.get('/:id', (req, res) => { // product pages
 
         // ---- Render home page
         res.render('product', page_data);
-
-
     })
     .catch(err => {
         res.json(err);
     })
 })
+
 
 module.exports = router;

@@ -2,9 +2,8 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var fs = require('fs'); // File stream
-var bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const controller = require('../controllers/userController');
-var accountFile = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../public/json/account.json")));
 const ANONYMOUS_USER = 0;
 const COMMON_USER = 1;
 const ADMIN_USER = 2;
@@ -70,11 +69,11 @@ router.post('/get_infor_login', (req, res) => {
                 res.redirect("/");
             }
             else {
-                res.render('login_register', {resAnnoun: '*Invalid username or password'});
+                res.render('login_register', {logAnnoun: '*Invalid username or password'});
             }
         }
         else {
-            res.render('login_register', {resAnnoun: '*Invalid username or password'});
+            res.render('login_register', {logAnnoun: '*Invalid username or password'});
         }
     });
 });

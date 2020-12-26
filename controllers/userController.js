@@ -1,10 +1,10 @@
 var controller = {};
 
 var models = require('../models');
-var User = models.User;
+var Users = models.User;
 
 controller.searchUser = function(account, callback){
-	User.findOne({
+	Users.findOne({
 		where: { id: account },
 		raw: true
 	}).then(function(this_user) {
@@ -13,16 +13,14 @@ controller.searchUser = function(account, callback){
 };
 
 controller.createUser = function(user){
-	models.User
-	.create(user)
+	Users.create(user)
 	.catch(function(error) {
 		console.log(error)
 	});
 };
 
 controller.updateUser = function(user){
-	models.User
-	.update({
+	Users.update({
 		type: 'USER',
 	}, {
 		where: {id: user.account},
