@@ -70,11 +70,11 @@ router.post('/get_infor_login', (req, res) => {
                 res.redirect("/");
             }
             else {
-                res.render('login_register', {resAnnoun: '*Invalid username or password'});
+                res.render('login_register', {logAnnoun: '*Invalid username or password'});
             }
         }
         else {
-            res.render('login_register', {resAnnoun: '*Invalid username or password'});
+            res.render('login_register', {logAnnoun: '*Invalid username or password'});
         }
     });
 });
