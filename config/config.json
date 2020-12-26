@@ -1,10 +1,16 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "TeaCakeDB",
-    "host": "localhost",
-    "dialect": "postgres"
+    "username": "pjbmolprgpqddy",
+    "password": "e9b260b0fe10acd3512be34ae52af7bf39a9874f27ae727c858f58a3640eaba8",
+    "database": "d2jiqtt5sc014",
+    "host": "ec2-54-205-248-255.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
     "username": "postgres",
