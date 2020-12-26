@@ -140,7 +140,6 @@ app.get('/sync', (req, res) => {
     })
 })
 
-
 // listen log
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
