@@ -1,0 +1,58 @@
+<form action="">
+    <div class="card row mt-3 addAds-Box">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <div class="posOption">
+                        <input type="radio" name="pos" value="left">
+                        <label>On Left of Page</label><br>
+                        <input type="radio" name="pos" value="right">
+                        <label>On Right of Page</label><br>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="imgOption">
+                        <input class="form-control control" type="file" id="fileInput" onchange="loadFile(event)" accept="image/*">
+                    </div>
+                    <div class="text-center">
+                        <img id="fileDisplayArea">
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-4">
+                            <label>Form: </label>
+                            <div class="inputAds text-center">
+                                <input class="day text-center" type="text" placeholder="..">/
+                                <input class="month text-center" type="text" placeholder="..">/
+                                <input class="year text-center" type="text" placeholder=".....">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label>To: </label>
+                            <div class="inputAds text-center">
+                                <input class="day text-center" type="text" placeholder="..">/
+                                <input class="month text-center" type="text" placeholder="..">/
+                                <input class="year text-center" type="text" placeholder=".....">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label>Time(s): </label>
+                            <input class="inputAds" type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <button type="submit" class="btn btn-order btnAds"> Confirm</button>
+                        <a href="/add_ads"><button class="btn btn-order btnAds"> Cancel</button></a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('fileDisplayArea');
+	image.src = URL.createObjectURL(event.target.files[0]);
+    image.className = "img-thumbnail imgArea my-3";
+};
+</script>

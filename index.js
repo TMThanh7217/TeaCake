@@ -118,8 +118,6 @@ app.use('/products', require('./routes/products')); // menu + product
 
 app.use('/', require('./routes/login')); // login/register/logout
 
-app.use('/add_ads', require('./routes/add_ads')); // Add_ads page
-
 app.use('/credit', require('./routes/credit')); // Credit page
 
 app.use('/cart', require('./routes/cart')); // cart 

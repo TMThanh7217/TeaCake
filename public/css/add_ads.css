@@ -58,5 +58,11 @@
 }
 
 .imgArea{
+    width: 200px;   
     height: 400px;
+}
+
+.addAds-Box{
+    width: 1140px;
+    margin: 15px;
 }

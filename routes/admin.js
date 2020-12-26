@@ -32,4 +32,12 @@ router.get('/products/add', (req, res) => {
     res.render('admin-add', page_data);
 })
 
+router.get('/add_ads', (req, res) => {
+    res.locals.user = req.app.get('current_user');
+    let page_data = {
+        title: "TeaCake - Admin"
+    }
+    res.render('admin-add-ads', page_data);
+});
+
 module.exports = router;
