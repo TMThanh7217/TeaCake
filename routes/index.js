@@ -17,6 +17,7 @@ router.get('/', (req, res) => { // root-index page
             title: "TeaCake - Home",
             rec_cakes: _cakes,
             rec_drinks: _drinks,
+            pageCode : 0
         }
         // ---- Render home page
         res.render('index', page_data);

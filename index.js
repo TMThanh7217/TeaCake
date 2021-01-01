@@ -93,6 +93,21 @@ function _isAdmin(user) { // return true if user is admin
     return user == ADMIN_USER;
 }
 
+function _isHome(pageCode) {
+    return pageCode == 0;
+}
+
+function _isMenu(pageCode) {
+    return pageCode == 1;
+}
+
+function _isBlog(pageCode) {
+    return pageCode == 2;
+}
+
+function _isContact(pageCode) {
+    return pageCode == 3;
+}
 
 // ------Init some stuff
 let hbs = exprHbs.create({
@@ -103,7 +118,11 @@ let hbs = exprHbs.create({
     helpers : {
         isAnonymous : _isAnonymous,
         isCommon : _isCommon,
-        isAdmin : _isAdmin
+        isAdmin : _isAdmin,
+        isHome : _isHome,
+        isBlog : _isBlog,
+        isMenu : _isMenu,
+        isContact : _isContact
     }
 });
 

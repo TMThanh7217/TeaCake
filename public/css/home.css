@@ -94,7 +94,7 @@ a:hover {
     background-color: rgb(243, 187, 131);
     font-size: 18px;
     font-weight: bold;
-    border: solid 3px black;
+    border: solid 3px black !important;
     right: 10px;
     border-radius: 50px;
     cursor: pointer;

@@ -26,7 +26,8 @@ router.get('/', (req, res) => { // menu page
         // ---- Prepare data for page
         var page_data = {
         title: "TeaCake - Menu",
-        rows: rows_data
+        rows: rows_data,
+        pageCode : 1
         }
 
         // ---- Render home page
@@ -42,17 +43,22 @@ router.get('/search', (req, res) => {
 
     var keyword = req.query.keyword;
     controller.searchProduct(keyword, function(products) {
+
         // ---- get rows with each row have 3 products
         var rows_data = _getRows(products, 3);
 
         // ---- Prepare data for page
         var page_data = {
-        title: "TeaCake - Menu",
-        rows: rows_data
+            title: "TeaCake - Menu",
+            rows: rows_data,
+            pageCode : 1
         }
 
         // ---- Render home page
-        res.render('menu', page_data);
+        if (products.length != 0)
+            res.render('menu', page_data);
+        else
+            res.render('PNF', page_data)
     });
 })
 
@@ -67,7 +73,8 @@ router.get('/:id', (req, res) => { // product pages
 
         var page_data = {
             title: `TeaCake - ${product.name}`,
-            product: product
+            product: product,
+            pageCode : 1
         }
 
         // ---- Render home page

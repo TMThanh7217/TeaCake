@@ -13,7 +13,8 @@ router.get('/', (req, res) => { // credit page
     // ---- Prepare data for page
     var page_data = {
       title: "TeaCake - Blog",
-      rows: rows
+      rows: rows,
+      pageCode: 2
     }
 
     // ---- Render home page
