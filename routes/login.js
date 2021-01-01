@@ -22,7 +22,7 @@ router.post('/get_infor_register', (req, res) => {
     else {
         controller.searchUser(req.body.resAcc, function(this_user) {
             if (this_user != null){
-                res.render('rlogin_register',{resAnnoun: '*Account ' + req.body.account + ' has already exists', func: "register()"});
+                res.render('login_register',{resAnnoun: '*Account ' + req.body.account + ' has already exists', func: "register()"});
             }
             else {
                 var salt = bcrypt.genSaltSync(10);
