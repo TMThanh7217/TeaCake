@@ -15,19 +15,19 @@ function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = c
 
 router.get('/', (req, res) => { // menu page
     res.locals.user = req.app.get('current_user');
-    models.Product
-    .findAll({
-        raw : true
-    })
+    controller
+    .getAll()
     .then(products => {
         // ---- get rows with each row have 3 products
         var rows_data = _getRows(products, 3);
         
         // ---- Prepare data for page
         var page_data = {
-        title: "TeaCake - Menu",
-        rows: rows_data,
-        pageCode : 1
+            title: "TeaCake - Menu",
+            rows: rows_data,
+            pageCode : 1,
+            
+            cate : "Menu"
         }
 
         // ---- Render home page

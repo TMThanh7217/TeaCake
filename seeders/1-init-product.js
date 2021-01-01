@@ -15,10 +15,12 @@ module.exports = {
     */
     const path = require('path');
     const fs = require('fs');
+    const random = require('../API/random');
     let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/products.json')));
     for (let product of products) {
       product.createdAt = Sequelize.literal('NOW()');
       product.updatedAt = Sequelize.literal('NOW()');
+      product.like = random.randInt(1, 50);
     }
     return queryInterface.bulkInsert('Products', products);
   },
