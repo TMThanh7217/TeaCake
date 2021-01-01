@@ -109,6 +109,10 @@ function _isContact(pageCode) {
     return pageCode == 3;
 }
 
+function _isCredit(pageCode) {
+    return pageCode == 4;
+}
+
 function _isMenuCate(cate) {
     return cate.toLowerCase() == "menu";
 }
@@ -142,7 +146,8 @@ let hbs = exprHbs.create({
         isMenuCate : _isMenuCate,
         isDrinksCate : _isDrinksCate,
         isCakesCate : _isCakesCate,
-        isTeasCate : _isTeasCate
+        isTeasCate : _isTeasCate,
+        isCredit : _isCredit
     }
 });
 

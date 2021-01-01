@@ -18,11 +18,43 @@
             <nav class="navbar navbar-expand-md w-100">
                 <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                     <ul class="navbar-nav mx-auto d-flex justify-content-between justify-content-center w-100"  style="width: calc(100% - 100px)">
-                        <li class="nav-item p-1 active left-item" style="width: 19%"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
-                        <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./credit" style="text-align: center;"> About Us </a></li>
-                        <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./products" style="text-align: center;"> Menu </a></li>
-                        <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="/blog" style="text-align: center;"> Blog </a></li>
-                        <li class="nav-item p-1 left-item" style="width: 19%"> <a class="w-100" href="./contact" style="text-align: center;"> Contact </a></li>
+                        {{#if (isHome pageCode)}}
+                        <li class="nav-item p-1 active left-item" style="width: 19%" onclick="document.location.href='/'"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/credit'"> <a class="w-100" href="/credit" style="text-align: center;"> About Us </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/products'"> <a class="w-100" href="/products" style="text-align: center;"> Menu </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/blog'"> <a class="w-100" href="/blog" style="text-align: center;"> Blog </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/contact'"> <a class="w-100" href="/contact" style="text-align: center;"> Contact </a></li>
+                        {{else if (isCredit pageCode)}}
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/'"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                        <li class="nav-item p-1 active left-item" style="width: 19%" onclick="document.location.href='/credit'"> <a class="w-100" href="/credit" style="text-align: center;"> About Us </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/products'"> <a class="w-100" href="/products" style="text-align: center;"> Menu </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/blog'"> <a class="w-100" href="/blog" style="text-align: center;"> Blog </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/contact'"> <a class="w-100" href="/contact" style="text-align: center;"> Contact </a></li>
+                        {{else if (isMenu pageCode)}}
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/'"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/credit'"> <a class="w-100" href="/credit" style="text-align: center;"> About Us </a></li>
+                        <li class="nav-item p-1 active left-item" style="width: 19%" onclick="document.location.href='/products'"> <a class="w-100" href="/products" style="text-align: center;"> Menu </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/blog'"> <a class="w-100" href="/blog" style="text-align: center;"> Blog </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/contact'"> <a class="w-100" href="/contact" style="text-align: center;"> Contact </a></li>
+                        {{else if (isBlog pageCode)}}
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/'"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/credit'"> <a class="w-100" href="/credit" style="text-align: center;"> About Us </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/products'"> <a class="w-100" href="/products" style="text-align: center;"> Menu </a></li>
+                        <li class="nav-item p-1 active left-item" style="width: 19%" onclick="document.location.href='/blog'"> <a class="w-100" href="/blog" style="text-align: center;"> Blog </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/contact'"> <a class="w-100" href="/contact" style="text-align: center;"> Contact </a></li>
+                        {{else if (isContact pageCode)}}
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/'"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/credit'"> <a class="w-100" href="/credit" style="text-align: center;"> About Us </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/products'"> <a class="w-100" href="/products" style="text-align: center;"> Menu </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/blog'"> <a class="w-100" href="/blog" style="text-align: center;"> Blog </a></li>
+                        <li class="nav-item p-1 active left-item" style="width: 19%" onclick="document.location.href='/contact'"> <a class="w-100" href="/contact" style="text-align: center;"> Contact </a></li>
+                        {{else}}
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/'"> <a class="w-100" href="#" style="text-align: center;"> Home </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/credit'"> <a class="w-100" href="/credit" style="text-align: center;"> About Us </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/products'"> <a class="w-100" href="/products" style="text-align: center;"> Menu </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/blog'"> <a class="w-100" href="/blog" style="text-align: center;"> Blog </a></li>
+                        <li class="nav-item p-1 left-item" style="width: 19%" onclick="document.location.href='/contact'"> <a class="w-100" href="/contact" style="text-align: center;"> Contact </a></li>
+                        {{/if}}
                     </ul>
                 </div>
             </nav>
