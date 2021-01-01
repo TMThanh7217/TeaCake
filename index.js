@@ -109,6 +109,22 @@ function _isContact(pageCode) {
     return pageCode == 3;
 }
 
+function _isMenuCate(cate) {
+    return cate.toLowerCase() == "menu";
+}
+
+function _isCakesCate(cate) {
+    return cate.toLowerCase() == "cakes";
+}
+
+function _isDrinksCate(cate) {
+    return cate.toLowerCase() == "drinks";
+}
+
+function _isTeasCate(cate) {
+    return cate.toLowerCase() == "teas";
+}
+
 // ------Init some stuff
 let hbs = exprHbs.create({
     extname : "hbs",
@@ -122,7 +138,11 @@ let hbs = exprHbs.create({
         isHome : _isHome,
         isBlog : _isBlog,
         isMenu : _isMenu,
-        isContact : _isContact
+        isContact : _isContact,
+        isMenuCate : _isMenuCate,
+        isDrinksCate : _isDrinksCate,
+        isCakesCate : _isCakesCate,
+        isTeasCate : _isTeasCate
     }
 });
 

@@ -38,6 +38,69 @@ router.get('/', (req, res) => { // menu page
     })
 })
 
+router.get('/cakes', (req, res) => {
+    res.locals.user = req.app.get('current_user');
+    controller
+    .getCakes()
+    .then(products => {
+        var rows = _getRows(products, 3);
+        
+        var page_data = {
+            title : "TeaCake - Cakes",
+            pageCode : 1,
+            rows : rows,
+            cate : "Cakes"
+        }
+        
+        res.render("menu", page_data);
+    })
+    .catch(err => {
+        res.send("Error: " + err);
+    })
+})
+
+router.get('/teas', (req, res) => {
+    res.locals.user = req.app.get('current_user');
+    controller
+    .getTeas()
+    .then(products => {
+        var rows = _getRows(products, 3);
+        
+        var page_data = {
+            title : "TeaCake - Teas",
+            pageCode : 1,
+            rows : rows,
+            cate : "Teas"
+        }
+        
+        res.render("menu", page_data);
+    })
+    .catch(err => {
+        res.send("Error: " + err);
+    })
+})
+
+router.get('/drinks', (req, res) => {
+    res.locals.user = req.app.get('current_user');
+    controller
+    .getDrinks()
+    .then(products => {
+        var rows = _getRows(products, 3);
+        
+        var page_data = {
+            title : "TeaCake - Drinks",
+            pageCode : 1,
+            rows : rows,
+            cate : "Drinks"
+        }
+        
+        res.render("menu", page_data);
+    })
+    .catch(err => {
+        res.send("Error: " + err);
+    })
+})
+
 router.get('/search', (req, res) => {
     res.locals.user = req.app.get('current_user');
 

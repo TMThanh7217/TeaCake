@@ -46,7 +46,7 @@ controller.getTeas = () => {
         Product
             .findAll({
                 where: {
-                    type : "teas"
+                    type : "tea"
                 },
                 raw : true
             })

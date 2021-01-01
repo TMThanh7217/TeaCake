@@ -1,20 +1,82 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 p-3">
-                <ul class="menu side-bar__menu bg-main">
-                    <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/admin/products'">
-                        <a href="/products" class="side-bar__menu__item__link">Menu</a>
-                    </li>
-                    <li class="item side-bar__menu__item" onclick="document.location.href='/admin/products/add'">
-                        <a href="/products/teas" class="side-bar__menu__item__link">Teas</a>
-                    </li>
-                    <li class="item side-bar__menu__item" onclick="document.location.href='/admin/add_ads'">
-                        <a href="/products/cakes" class="side-bar__menu__item__link">Cakes</a>
-                    </li>
-                    <li class="item side-bar__menu__item" onclick="document.location.href='/admin/add_ads'">
-                        <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
-                    </li>
-                </ul>
+            {{#if (isMenuCate cate)}}
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/products'">
+                    <a href="/products" class="side-bar__menu__item__link">Menu</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas'">
+                    <a href="/products/teas" class="side-bar__menu__item__link">Teas</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes'">
+                    <a href="/products/cakes" class="side-bar__menu__item__link">Cakes</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks'">
+                    <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+            {{else if (isTeasCate cate)}}
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products'">
+                    <a href="/products" class="side-bar__menu__item__link">Menu</a>
+                </li>
+                <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/products/teas'">
+                    <a href="/products/teas" class="side-bar__menu__item__link">Teas</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes'">
+                    <a href="/products/cakes" class="side-bar__menu__item__link">Cakes</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks'">
+                    <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+            {{else if (isCakesCate cate)}}
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products'">
+                    <a href="/products" class="side-bar__menu__item__link">Menu</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas'">
+                    <a href="/products/teas" class="side-bar__menu__item__link">Teas</a>
+                </li>
+                <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/products/cakes'">
+                    <a href="/products/cakes" class="side-bar__menu__item__link">Cakes</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks'">
+                    <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+            {{else if (isDrinksCate cate)}}
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products'">
+                    <a href="/products" class="side-bar__menu__item__link">Menu</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas'">
+                    <a href="/products/teas" class="side-bar__menu__item__link">Teas</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes'">
+                    <a href="/products/cakes" class="side-bar__menu__item__link">Cakes</a>
+                </li>
+                <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/products/drinks'">
+                    <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+            {{else}}
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products'">
+                    <a href="/products" class="side-bar__menu__item__link">Menu</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas'">
+                    <a href="/products/teas" class="side-bar__menu__item__link">Teas</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes'">
+                    <a href="/products/cakes" class="side-bar__menu__item__link">Cakes</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks'">
+                    <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+            {{/if}}
         </div>
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
             <div class="row p-3">
