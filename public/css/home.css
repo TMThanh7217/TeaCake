@@ -154,3 +154,7 @@ footer a{
 .btn-menu {
     width: 200px !important;
 }
+
+.best_seller {
+    cursor: pointer;
+}
