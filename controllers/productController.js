@@ -55,21 +55,6 @@ controller.getTeas = () => {
     })
 }
 
-controller.getTrendingProducts = limit => {
-    return new Promise((resolve, reject) => {
-        Product
-            .findAll({
-                order: [
-                    ["like", "DESC"]
-                ],
-                limit: limit,
-                raw : true
-            })
-            .then(products => resolve(products))
-            .catch(error => reject(new Error(error))); 
-    })
-}
-
 controller.getByID = id => {
     return new Promise((resolve, reject) => {
         Product

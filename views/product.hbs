@@ -38,11 +38,22 @@
                 <p>Quantity:</p>
                 <div class="item_qty input-group">
                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary btn-secondary text-white" type="button" onclick="increaseQty()"><i class="fa fa-minus"></i></button>
+                        <button id="decBtn" class="btn btn-outline-secondary btn-secondary text-white" type="button" onclick="decreaseBtnClickedEvent()"><i class="fa fa-minus"></i></button>
                     </div>
-                    <input id="qty-input" type="number" class="form-control text-center col-1" value="1">
+                    <input id="qtyField" type="number" class="form-control text-center col-1" value="1">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary btn-secondary text-white" type="button"><i class="fa fa-plus"></i></button>
+                        <button id="incBtn" class="btn btn-outline-secondary btn-secondary text-white" type="button" onclick="increaseBtnClickedEvent()"><i class="fa fa-plus"></i></button>
+                        <script>
+                            function increaseBtnClickedEvent() {
+                                var qtyField = document.querySelector("#qtyField");
+                                qtyField.value = Number(qtyField.value) + 1; 
+                            }
+
+                            function decreaseBtnClickedEvent() {
+                                var qtyField = document.querySelector("#qtyField");
+                                qtyField.value = qtyField.value > 0 ? Number(qtyField.value) - 1 : 0;     
+                            }
+                        </script>
                     </div>
                 </div>
             </div>

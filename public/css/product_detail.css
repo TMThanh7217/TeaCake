@@ -170,3 +170,7 @@ input[type=number] {
     margin-top: 5px;
     max-width: 170px;
 }
+
+#qtyField {
+    min-width: 70px;
+}
