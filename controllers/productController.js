@@ -4,6 +4,16 @@ const sequelize = require('sequelize');
 var models = require('../models');
 var Products = models.Product;
 
+controller.allProducts = callback => {
+	Products.findAll({raw : true})
+	.then(products => {
+		callback(products);
+	})
+}
+
+controller.findDrinks = callback => {
+	
+}
 
 controller.searchProduct = function(keyword, callback){
 	Products.findAll({
