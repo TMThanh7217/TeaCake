@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center">
+    <div class="changing-background" id="cakes">
+        {{#each menu_cakes}}
+        <figure class="d-inline-block m-2">
+            <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+            <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+            <button type="button" class="btn btn-lg btn-block btn-order btn-menu mt-3">Choose</button>
+        </figure>
+        {{/each}}
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <div class="changing-background" id="drinks">
+        {{#each rcm_drinks}}
+        <figure class="d-inline-block m-2">
+            <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+            <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+            <button type="button" class="btn btn-lg btn-block btn-order btn-menu mt-3">Choose</button>
+        </figure>
+        {{/each}}
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    {{#each rcm_cakes}}
+    <figure class="d-inline-block m-2">
+        <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+        <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+        <button type="button" onclick="loadCakes(event)" class="btn btn-lg btn-block btn-order btn-menu mt-3">Change</button>
+    </figure>
+    {{/each}}
+</div>
+<div class="d-flex justify-content-center">
+    {{#each rcm_drinks}}
+    <figure class="d-inline-block m-2">
+        <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+        <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+        <button type="button" onclick="loadDrinks(event)" class="btn btn-lg btn-block btn-order btn-menu mt-3">Change</button>
+    </figure>
+    {{/each}}
+</div>
+<script>
+var loadCakes = function(event) {
+    var cakes = document.getElementById('cakes');
+	cakes.style.display = "flex";
+    cakes.style.alignItems = "center";
+};
+
+var loadDrinks = function(event) {
+    var drinks = document.getElementById('drinks');
+	drinks.style.display = "flex";
+    drinks.style.alignItems = "center";
+};
+</script>   

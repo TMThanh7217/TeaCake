@@ -9,6 +9,9 @@
         <li class="item side-bar__menu__item" onclick="document.location.href='/admin/add_ads'">
             <a href="/admin/add_ads" class="side-bar__menu__item__link">Add advertisement</a>
         </li>
+        <li class="item side-bar__menu__item" onclick="document.location.href='/admin/change_rcm_product'">
+            <a href="/admin/change_rcm_product" class="side-bar__menu__item__link">Change recomend product</a>
+        </li>
     {{else if isAddProduct}}
         <li class="item side-bar__menu__item" onclick="document.location.href='/admin/products'">
             <a href="/admin/products" class="side-bar__menu__item__link">All products</a>
@@ -19,6 +22,9 @@
         <li class="item side-bar__menu__item" onclick="document.location.href='/admin/add_ads'">
             <a href="/admin/add_ads" class="side-bar__menu__item__link">Add advertisement</a>
         </li>
+        <li class="item side-bar__menu__item" onclick="document.location.href='/admin/change_rcm_product'">
+            <a href="/admin/change_rcm_product" class="side-bar__menu__item__link">Change recomend product</a>
+        </li>
     {{else if isAddAds}}
         <li class="item side-bar__menu__item" onclick="document.location.href='/admin/products'">
             <a href="/admin/products" class="side-bar__menu__item__link">All products</a>
@@ -28,6 +34,22 @@
         </li>
         <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/admin/add_ads'">
             <a href="/admin/add_ads" class="side-bar__menu__item__link">Add advertisement</a>
+        </li>
+        <li class="item side-bar__menu__item" onclick="document.location.href='/admin/change_rcm_product'">
+            <a href="/admin/change_rcm_product" class="side-bar__menu__item__link">Change recomend product</a>
+        </li>
+    {{else if isChangeRcmProduct}}
+        <li class="item side-bar__menu__item" onclick="document.location.href='/admin/products'">
+            <a href="/admin/products" class="side-bar__menu__item__link">All products</a>
+        </li>
+        <li class="item side-bar__menu__item" onclick="document.location.href='/admin/products/add'">
+            <a href="/admin/products/add" class="side-bar__menu__item__link">Add product</a>
+        </li>
+        <li class="item side-bar__menu__item" onclick="document.location.href='/admin/add_ads'">
+            <a href="/admin/add_ads" class="side-bar__menu__item__link">Add advertisement</a>
+        </li>
+        <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/admin/change_rcm_product'">
+            <a href="/admin/change_rcm_product" class="side-bar__menu__item__link">Change recomend product</a>
         </li>
     {{/if}}
 </ul>
