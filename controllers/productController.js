@@ -41,6 +41,20 @@ controller.getCakes = () => {
     })
 }
 
+controller.getTeas = () => {
+    return new Promise((resolve, reject) => {
+        Product
+            .findAll({
+                where: {
+                    type : "teas"
+                },
+                raw : true
+            })
+            .then(products => resolve(products))
+            .catch(error => reject(new Error(error))); 
+    })
+}
+
 controller.getTrendingProducts = limit => {
     return new Promise((resolve, reject) => {
         Product
