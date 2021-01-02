@@ -33,8 +33,8 @@ router.post('/get_infor_register', (req, res) => {
                     type: "USER",
                     fname: req.body.fname,
                     lname: req.body.lname,
-                    avtPath: "",
-                    bgPath: "",
+                    avt: 'default',
+                    bg: 'default',
                     email: "",
                     pNum: "",
                     bDay: req.body.Bday,
@@ -46,7 +46,8 @@ router.post('/get_infor_register', (req, res) => {
                 }
     
                 req.app.set('current_user', COMMON_USER);
-    
+                req.app.set('current_account', req.body.resAcc)
+
                 controller.createUser(userAcc);
                 res.redirect("/");
             }
@@ -66,6 +67,7 @@ router.post('/get_infor_login', (req, res) => {
                     req.app.set('current_user', COMMON_USER);
                 }
                 
+                req.app.set('current_account', req.body.logAcc)
                 res.redirect("/");
             }
             else {

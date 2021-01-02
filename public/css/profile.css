@@ -1,11 +1,11 @@
 .background{
     width: 900px; 
-    height: 250;
+    height: 320px;
 }
 
 .avatar{
     width: 230px; 
-    height: 235; 
+    height: 235px; 
     position: relative; 
     top: -100px;
     z-index: 2;
