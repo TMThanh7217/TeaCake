@@ -37,9 +37,9 @@ router.post('/get_infor_register', (req, res) => {
                     bg: 'default',
                     email: "",
                     pNum: "",
-                    bDay: req.body.Bday,
-                    bMonth: req.body.Bmonth,
-                    bYear: req.body.Byear,
+                    bDay: req.body.bDay,
+                    bMonth: req.body.bMonth,
+                    bYear: req.body.bYear,
                     gender: req.body.gender,
                     nation: "",
                     bio: ""

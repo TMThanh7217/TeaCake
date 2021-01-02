@@ -105,7 +105,9 @@ router.get('/search', (req, res) => {
     res.locals.user = req.app.get('current_user');
 
     var keyword = req.query.keyword;
+    console.log(keyword);
     controller.searchProduct(keyword, function(products) {
+        console.log(products);
 
         // ---- get rows with each row have 3 products
         var rows_data = _getRows(products, 3);

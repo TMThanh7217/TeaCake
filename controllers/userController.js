@@ -21,9 +21,18 @@ controller.createUser = function(user){
 
 controller.updateUser = function(user){
 	Users.update({
-		type: 'USER',
+		fname: user.fname,
+		lname: user.lname,
+		email: user.email,
+		pNum: user.pNum,
+		bDay: user.bDay,
+		bMonth: user.bMonth,
+		bYear: user.bYear,
+		gender: user.gender,
+		nation: user.nation,
+		bio: user.bio
 	}, {
-		where: {id: user.account},
+		where: {id: user.id},
 	}
 	);
 };
