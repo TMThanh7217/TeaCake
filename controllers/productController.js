@@ -1,5 +1,6 @@
 var controller = {};
 
+const { resolve } = require('path');
 const sequelize = require('sequelize');
 var models = require('../models');
 var Product = models.Product;
@@ -70,25 +71,31 @@ controller.getByID = id => {
 }
 
 controller.searchProduct = function(keyword, callback){
-	Product.findAll({
-		where: {
-			[sequelize.Op.or]: [
-				{
-					name: {
-						[sequelize.Op.iLike]: '%' + keyword + '%'
-					}
-				},
-				{
-					description: {
-						[sequelize.Op.iLike]: '%' + keyword + '%'
-					}
-				},
-			]
-		},
-		raw: true
-	}).then(function(products) {
-		callback(products);
-	});
+	return new Promise ((resolve, reject) => {
+        Product.findAll({
+            where: {
+                [sequelize.Op.or]: [
+                    {
+                        name: {
+                            [sequelize.Op.iLike]: '%' + keyword + '%'
+                        }
+                    },
+                    {
+                        description: {
+                            [sequelize.Op.iLike]: '%' + keyword + '%'
+                        }
+                    },
+                ]
+            },
+            raw: true
+        })
+        .then(products => {
+            resolve(products);
+        })
+        .catch(err => {
+            resolve(err);
+        });
+    })
 };
 
 module.exports = controller;

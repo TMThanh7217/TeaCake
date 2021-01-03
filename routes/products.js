@@ -105,25 +105,29 @@ router.get('/search', (req, res) => {
     res.locals.user = req.app.get('current_user');
 
     var keyword = req.query.keyword;
-    controller.searchProduct(keyword, function(products) {
+    controller
+        .searchProduct(keyword)
+        .then(products => {
+            // ---- get rows with each row have 3 products
+            var rows_data = _getRows(products, 3);
 
-        // ---- get rows with each row have 3 products
-        var rows_data = _getRows(products, 3);
+            // ---- Prepare data for page
+            var page_data = {
+                title: "TeaCake - Menu",
+                rows: rows_data,
+                pageCode : 1
+            }
 
-        // ---- Prepare data for page
-        var page_data = {
-            title: "TeaCake - Menu",
-            rows: rows_data,
-            pageCode : 1
-        }
+            console.log(products);
 
-        // ---- Render home page
-        if (products.length != 0)
-            res.render('menu', page_data);
-        else
-            res.render('PNF', page_data)
-    });
+            // ---- Render home page
+            if (products.length != 0)
+                res.render('menu', page_data);
+            else
+                res.render('PNF', page_data)
+        });
 })
+
 
 router.get('/:id', (req, res) => { // product pages
     res.locals.user = req.app.get('current_user');
