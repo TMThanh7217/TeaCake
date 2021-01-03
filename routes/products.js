@@ -15,6 +15,7 @@ function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = c
 
 router.get('/', (req, res) => { // menu page
     res.locals.user = req.app.get('current_user');
+    
     controller
     .getAll()
     .then(products => {
@@ -40,6 +41,7 @@ router.get('/', (req, res) => { // menu page
 
 router.get('/cakes', (req, res) => {
     res.locals.user = req.app.get('current_user');
+
     controller
     .getCakes()
     .then(products => {
@@ -61,6 +63,7 @@ router.get('/cakes', (req, res) => {
 
 router.get('/teas', (req, res) => {
     res.locals.user = req.app.get('current_user');
+
     controller
     .getTeas()
     .then(products => {
@@ -82,6 +85,7 @@ router.get('/teas', (req, res) => {
 
 router.get('/drinks', (req, res) => {
     res.locals.user = req.app.get('current_user');
+
     controller
     .getDrinks()
     .then(products => {
@@ -101,7 +105,7 @@ router.get('/drinks', (req, res) => {
     })
 })
 
-router.get('/search', (req, res) => {
+router.get('/search', (req, res) => { 
     res.locals.user = req.app.get('current_user');
 
     var keyword = req.query.keyword;
@@ -130,25 +134,73 @@ router.get('/search', (req, res) => {
 
 router.get('/:id', (req, res) => { // product pages
     res.locals.user = req.app.get('current_user');
+
     models.Product
     .findByPk(Number(req.params.id), {raw : true})
     .then(product => {
-       
-        // ---- Prepare data for page
-        // ---- get user
+        controller
+            .getCommentbyID(req.params.id)
+            .then(comments => {
+                var chartStars = [0, 0, 0, 0, 0];
+                var totalRate = 0;
+                var totalStar = 0;
+                var is_login = true; 
+                
+                for (let i of comments) {
+                    chartStars[i.star - 1] +=1;
+                    totalRate +=1;
+                    totalStar += i.star;
+                }
 
-        var page_data = {
-            title: `TeaCake - ${product.name}`,
-            product: product,
-            pageCode : 1
-        }
+                for (let i = 0; i < 5; i++){
+                    chartStars[i] = (chartStars[i]/totalRate)*100;
+                }
 
-        // ---- Render home page
-        res.render('product', page_data);
+                if(req.app.get('current_user') == 0){
+                    is_login = false;
+                }
+                
+                // ---- Prepare data for page
+                var page_data = {
+                    chartStars: chartStars,
+                    total: totalRate*5,
+                    totalStar: totalStar,
+                    title: `TeaCake - ${product.name}`,
+                    product: product,
+                    size: comments.length,
+                    comments: comments,
+                    is_login: is_login,
+                    pageCode : 1
+                }
+
+                // ---- Render home page
+                res.render('product', page_data);
+            })
+            .catch(err => res.send("Error: " + err));
     })
     .catch(err => {
         res.json(err);
     })
+})
+
+router.post('/get_comment', (req, res) => { 
+    res.locals.user = req.app.get('current_user');
+
+    var today = new Date();
+    var dateTime = today.getHours() + ':' + today.getMinutes() + ' ' + today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+
+    var comment = {
+        ProductId: req.body.ProductId,
+        UserId: req.app.get('current_account'),
+        star: req.body.rate,
+        content: req.body.content,
+        time: dateTime,
+    }
+    console.log(comment);
+    controller.createComment(comment);
+
+    console.log('done')
+    res.redirect(`/products/${req.body.ProductId}`)
 })
 
 

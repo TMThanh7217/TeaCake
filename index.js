@@ -135,6 +135,9 @@ let hbs = exprHbs.create({
     defaultLayout : 'layout',
     layoutsDir : __dirname + '/views/layouts/',
     partialsDir : __dirname + '/views/partials/',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault:true
+    },
     helpers : {
         isAnonymous : _isAnonymous,
         isCommon : _isCommon,

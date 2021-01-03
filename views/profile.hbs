@@ -1,10 +1,10 @@
 <div class="container">
     <div class="text-center">
-        <img src= "../images/background/{{user.bg}}.jpg" class="img-thumbnail background" alt="background">
+        <img src= "../images/background/{{this_user.bg}}.jpg" class="img-thumbnail background" alt="background">
     </div>
     <div class="text-center">
-        <img src="../images/avatar/{{user.avt}}.png" class="img-thumbnail rounded-circle avatar" alt="avatar">
-        <h1 class="username"> {{user.fname}} {{user.lname}} </h1>
+        <img src="../images/avatar/{{this_user.avt}}.png" class="img-thumbnail rounded-circle avatar" alt="avatar">
+        <h1 class="username"> {{this_user.fname}} {{this_user.lname}} </h1>
     </div>
     <div class="info">
         <form class="card formColor" action="profile/get_infor_user" method="post">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" id="fname" name="fname" value="{{user.fname}}" disabled>
+                            <input type="text" class="form-control p-4" id="fname" name="fname" value="{{this_user.fname}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" id="lname" name="lname" value="{{user.lname}}" disabled>
+                            <input type="text" class="form-control p-4" id="lname" name="lname" value="{{this_user.lname}}" disabled>
                         </div>       
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="email" class="form-control p-4" id="email" name="email" value="{{user.email}}" disabled> 
+                            <input type="email" class="form-control p-4" id="email" name="email" value="{{this_user.email}}" disabled> 
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" id="phone" name="phone" value="{{user.pNum}}" disabled>
+                            <input type="text" class="form-control p-4" id="phone" name="phone" value="{{this_user.pNum}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" id="birthday" name="birthday" value="{{user.bDay}}/{{user.bMonth}}/{{user.bYear}}" disabled>
+                            <input type="text" class="form-control p-4" id="birthday" name="birthday" value="{{this_user.bDay}}/{{this_user.bMonth}}/{{this_user.bYear}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" id="gender" name="gender" value="{{user.gender}}" disabled>
+                            <input type="text" class="form-control p-4" id="gender" name="gender" value="{{this_user.gender}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" id="nation" name="nation" value="{{user.nation}}" disabled>
+                            <input type="text" class="form-control p-4" id="nation" name="nation" value="{{this_user.nation}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" id="bio" name="bio" value="{{user.bio}}" disabled>
+                            <input type="text" class="form-control p-4" id="bio" name="bio" value="{{this_user.bio}}" disabled>
                         </div>
                     </div>
                 </div>

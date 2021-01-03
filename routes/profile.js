@@ -3,11 +3,12 @@ var router = express.Router();
 const controller = require('../controllers/userController');
 
 router.get('/', (req, res) => { // credit page
+  res.locals.user = req.app.get('current_user');
     // ---- get user
     controller.searchUser(req.app.get('current_account'), function(this_user) {
       // ---- Prepare data for page
       var page_data = {
-        user: this_user,
+        this_user: this_user,
         title: "TeaCake - Profile",
       }
 
@@ -17,7 +18,9 @@ router.get('/', (req, res) => { // credit page
 
 });
 
-router.post('/get_infor_user', (req, res) => {
+router.post('/get_infor_user', (req, res) => {   
+  res.locals.user = req.app.get('current_user');
+
   console.log("here");
   var birthday = req.body.birthday;
   console.log(birthday);

@@ -95,78 +95,95 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus mollitia repellendus fugiat quae, odit quo distinctio deleniti a quas, exercitationem eum esse praesentium non! Necessitatibus repellendus qui ipsum animi ipsam.</p>
         </div>
     </div>
-
-    <div class="container p-5 rating-container">
+    {{#if is_login}}
+    <form class="container p-5 rating-container" action="get_comment" method="post">
         <h2>Ratings and comments</h2>
+        <input type="text" name="ProductId" value="{{product.id}}" style="display:none">
         <div class="star-rating d-flex flex-column align-items-center justify-content-center">
             <div class="rotateStar">
-                <input type="radio" name="rate" id="5">
+                <input type="radio" name="rate" id="5" value="5">
                 <label id="start_label" for="5"><i class="fa fa-star"></i></label>
-                <input type="radio" name="rate" id="4">
+                <input type="radio" name="rate" id="4" value="4">
                 <label for="4"><i class="fa fa-star"></i></label>
-                <input type="radio" name="rate" id="3">
+                <input type="radio" name="rate" id="3" value="3">
                 <label for="3"><i class="fa fa-star"></i></label>
-                <input type="radio" name="rate" id="2">
+                <input type="radio" name="rate" id="2" value="2">
                 <label for="2"><i class="fa fa-star"></i></label>
-                <input type="radio" name="rate" id="1">
+                <input type="radio" name="rate" id="1" value="1">
                 <label for="1"><i class="fa fa-star"></i></label>
             </div>
             <div class="my-5 text-center w-100 d-flex flex-column align-items-center justify-content-center">
-                <textarea class="form-control p-4 text-dark" id="w3review" name="first name" placeholder="Your messenger" rows="4"></textarea>
-                <button class="btn btn-order mt-4 w-25"> Comment</button>
+                <textarea class="form-control p-4 text-dark" id="w3review" name="content" placeholder="Your messenger" rows="4" required></textarea>
+                <button type="submit" class="btn btn-order mt-4 w-25"> Comment</button>
             </div>
         </div>     
-    </div>
+    </form>
+    {{/if}}
 
     <div class="container p-5">
         <h2>Comment section</h2>
         <div class="setBorderDefault">
-            <div>
-                <h4>Rating 
-                    <div class="chart">
-                        <ul class="chartBackground">
-                            <li>
-                                <div class="columns" data-percentage="50"></div>
-                                <span> 1x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
-                            </li>
-                            <li>
-                                <div class="columns" data-percentage="50"></div>
-                                <span> 2x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
-                            </li>
-                            <li>
-                                <div class="columns" data-percentage="50"></div>
-                                <span> 3x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
-                            </li>
-                            <li>
-                                <div class="columns" data-percentage="50"></div>
-                                <span> 4x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
-                            </li>
-                            <li>
-                                <div class="columns" data-percentage="50"></div>
-                                <span> 5x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <h2> Total: <i class="fa fa-star mr-2 starLightColor mt-5"></i><span>95/100</span></h2>
-                    <h5><p>123 comments</p></h5>
-                </h4>
+            <h4>Rating </h4>
+            <div class= "tableRate">
+                <div class="chart mb-4">
+                    <ul class="numbers">
+                        <li><span>100%</span></li>
+                        <li><span>50%</span></li>
+                        <li><span>0%</span></li>
+                    </ul>
+                    <ul class="chartBackground">
+                        <li>
+                            <div class="columns" data-percentage="{{chartStars.[0]}}"></div>
+                            <span> 1x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                        </li>
+                        <li>
+                            <div class="columns" data-percentage="{{chartStars.[1]}}"></div>
+                            <span> 2x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                        </li>
+                        <li>
+                            <div class="columns" data-percentage="{{chartStars.[2]}}"></div>
+                            <span> 3x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                        </li>
+                        <li>
+                            <div class="columns" data-percentage="{{chartStars.[3]}}"></div>
+                            <span> 4x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                        </li>
+                        <li>
+                            <div class="columns" data-percentage="{{chartStars.[4]}}"></div>
+                            <span> 5x <i class="fa fa-star mr-2 starLightColor" style="font-size: 30px;"></i></span>
+                        </li>
+                    </ul>
+                </div>
+                <h2 class="total"> Total: <i class="fa fa-star mr-2 starLightColor mt-4"></i><span>{{totalStar}}/{{total}}</span></h2>
             </div>
+            
+            <h5 class="mt-5"><p>{{size}} comments</p></h5>
+            {{#each comments}}
             <hr class="my-2">
             <div class="row">
                 <div class="col-2">
-                    <img src="../images/user.png" class="imgUser" alt="">
+                    <img src="../images/avatar/{{User.avt}}.png" class="imgUser" alt="">
                 </div>
                 <div class="col">
-                    <h3>Customer 1</h3>
-                    <h2><i class="fa fa-star mr-2 starLightColor"></i>
-                        <i class="fa fa-star mr-2 starUnlightColor"></i>
-                        <i class="fa fa-star mr-2 starUnlightColor"></i>
-                        <i class="fa fa-star mr-2 starUnlightColor"></i>
-                        <i class="fa fa-star mr-2 starUnlightColor"></i></h2>
-                    <p>Some bad stuff Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis amet ipsa in nesciunt sapiente doloribus perferendis nulla quisquam voluptates. Vitae.</p>
+                    <h3>{{User.fname}} {{User.lname}}</h3>
+                    <h2 id="displaystar{{id}}"></h2>
+                    <script>
+                        var t = document.querySelector(`#displaystar{{id}}`);
+                        var light = `<i class="fa fa-star mr-2 starLightColor"></i>`;
+                        var unlight = `<i class="fa fa-star mr-2 starUnlightColor"></i>`;
+
+                        for (let i = 0; i < {{star}}; i++){
+                            t.insertAdjacentHTML("beforeend", light);
+                        }
+                        for (let i = 0; i < 5 - {{star}}; i++){
+                            t.insertAdjacentHTML("beforeend", unlight);
+                        }
+                    </script>
+                    <p>{{content}}</p>
                 </div>
             </div>
-            <hr class="my-2">
+            {{/each}}
+            {{!-- <hr class="my-2">
             <div class="row">
                 <div class="col-2">
                     <img src="../images/user.png" class="imgUser" alt="">
@@ -195,7 +212,11 @@
                         <i class="fa fa-star mr-2 starLightColor"></i></h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis amet ipsa in nesciunt sapiente doloribus perferendis nulla quisquam voluptates. Vitae.</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
+<script src="/js/product_detail.js"></script>
+<script>
+    calculateChart();
+</script>
