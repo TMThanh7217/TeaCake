@@ -118,14 +118,13 @@ router.get('/search', (req, res) => {
                 pageCode : 1
             }
 
-            console.log(products);
-
             // ---- Render home page
             if (products.length != 0)
                 res.render('menu', page_data);
             else
                 res.render('PNF', page_data)
-        });
+        })
+        .catch(err => res.send("Error: " + err));
 })
 
 

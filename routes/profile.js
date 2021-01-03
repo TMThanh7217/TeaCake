@@ -1,17 +1,45 @@
 var express = require('express');
 var router = express.Router();
+const controller = require('../controllers/userController');
 
 router.get('/', (req, res) => { // credit page
     // ---- get user
-    res.locals.user = req.app.get('current_user');
+    controller.searchUser(req.app.get('current_account'), function(this_user) {
+      // ---- Prepare data for page
+      var page_data = {
+        user: this_user,
+        title: "TeaCake - Profile",
+      }
 
-    // ---- Prepare data for page
-    var page_data = {
-      title: "TeaCake - Profile",
-    }
+      // ---- Render home page
+      res.render('profile', page_data);
+    });
 
-    // ---- Render home page
-    res.render('profile', page_data);
+});
+
+router.post('/get_infor_user', (req, res) => {
+  console.log("here");
+  var birthday = req.body.birthday;
+  console.log(birthday);
+  
+  birthday = birthday.split("/");
+
+  var user = {
+      id: req.app.get('current_account'),
+      fname: req.body.fname,
+      lname: req.body.lname,
+      email: req.body.email,
+      pNum: req.body.phone,
+      bDay: parseInt(birthday[0]),
+      bMonth: parseInt(birthday[1]),
+      bYear: parseInt(birthday[2]),
+      gender: req.body.gender,
+      nation: req.body.nation,
+      bio: req.body.bio
+  }
+
+  controller.updateUser(user);
+  res.redirect('/profile');
 });
 
 module.exports = router;

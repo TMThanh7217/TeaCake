@@ -22,7 +22,7 @@ router.post('/get_infor_register', (req, res) => {
     else {
         controller.searchUser(req.body.resAcc, function(this_user) {
             if (this_user != null){
-                res.render('rlogin_register',{resAnnoun: '*Account ' + req.body.account + ' has already exists', func: "register()"});
+                res.render('login_register',{resAnnoun: '*Account ' + req.body.account + ' has already exists', func: "register()"});
             }
             else {
                 var salt = bcrypt.genSaltSync(10);
@@ -33,20 +33,21 @@ router.post('/get_infor_register', (req, res) => {
                     type: "USER",
                     fname: req.body.fname,
                     lname: req.body.lname,
-                    avtPath: "",
-                    bgPath: "",
+                    avt: 'default',
+                    bg: 'default',
                     email: "",
                     pNum: "",
-                    bDay: req.body.Bday,
-                    bMonth: req.body.Bmonth,
-                    bYear: req.body.Byear,
+                    bDay: req.body.bDay,
+                    bMonth: req.body.bMonth,
+                    bYear: req.body.bYear,
                     gender: req.body.gender,
                     nation: "",
                     bio: ""
                 }
     
                 req.app.set('current_user', COMMON_USER);
-    
+                req.app.set('current_account', req.body.resAcc)
+
                 controller.createUser(userAcc);
                 res.redirect("/");
             }
@@ -66,6 +67,7 @@ router.post('/get_infor_login', (req, res) => {
                     req.app.set('current_user', COMMON_USER);
                 }
                 
+                req.app.set('current_account', req.body.logAcc)
                 res.redirect("/");
             }
             else {

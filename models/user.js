@@ -15,22 +15,22 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.init({
     id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       primaryKey: true
     },
-    password: DataTypes.TEXT,
-    type: DataTypes.TEXT,
-    fname: DataTypes.TEXT,
-    lname: DataTypes.TEXT,
-    avtPath: DataTypes.TEXT,
-    bgPath: DataTypes.TEXT,
-    email: DataTypes.TEXT,
-    pNum: DataTypes.TEXT,
-    bDay: DataTypes.TEXT,
-    bMonth: DataTypes.TEXT,
-    bYear: DataTypes.TEXT,
-    gender: DataTypes.TEXT,
-    nation: DataTypes.TEXT,
+    password: DataTypes.STRING,
+    type: DataTypes.STRING,
+    fname: DataTypes.STRING,
+    lname: DataTypes.STRING,
+    avt: DataTypes.STRING,
+    bg: DataTypes.STRING,
+    email: DataTypes.STRING,
+    pNum: DataTypes.STRING,
+    bDay: DataTypes.INTEGER,
+    bMonth: DataTypes.INTEGER,
+    bYear: DataTypes.INTEGER,
+    gender: DataTypes.STRING,
+    nation: DataTypes.STRING,
     bio: DataTypes.TEXT
   }, {
     sequelize,

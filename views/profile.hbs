@@ -1,13 +1,13 @@
 <div class="container">
     <div class="text-center">
-        <img src= "../images/background.jpg" class="img-thumbnail background" alt="background">
+        <img src= "../images/background/{{user.bg}}.jpg" class="img-thumbnail background" alt="background">
     </div>
     <div class="text-center">
-        <img src="../images/user.png" class="img-thumbnail rounded-circle avatar" alt="avatar">
-        <h1 class="username"> User Name </h1>
+        <img src="../images/avatar/{{user.avt}}.png" class="img-thumbnail rounded-circle avatar" alt="avatar">
+        <h1 class="username"> {{user.fname}} {{user.lname}} </h1>
     </div>
     <div class="info">
-        <div class="card formColor">
+        <form class="card formColor" action="profile/get_infor_user" method="post">
             <div class="card-header bgColor">
                 <h2 class="text-center">Public Profile</h2>
             </div>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" name="first name" value="User" disabled>
+                            <input type="text" class="form-control p-4" id="fname" name="fname" value="{{user.fname}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" name="last name" value="Name" disabled>
+                            <input type="text" class="form-control p-4" id="lname" name="lname" value="{{user.lname}}" disabled>
                         </div>       
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" name="email" value="user.name@gmail.com" disabled> 
+                            <input type="email" class="form-control p-4" id="email" name="email" value="{{user.email}}" disabled> 
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,17 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" name="phone" value="0969327639" disabled>
+                            <input type="text" class="form-control p-4" id="phone" name="phone" value="{{user.pNum}}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-2 inputRow">
+                        <h5>Birthday</h5>
+                    </div>
+                    <div class="col inputRow">
+                        <div class="form-row">
+                            <input type="text" class="form-control p-4" id="birthday" name="birthday" value="{{user.bDay}}/{{user.bMonth}}/{{user.bYear}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -58,17 +68,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" name="gender" value="Male" disabled>
-                        </div>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-2 inputRow">
-                        <h5>Favorite food</h5>
-                    </div>
-                    <div class="col inputRow">
-                        <div class="form-row">
-                            <input type="text" class="form-control p-4" name="favoriteFood" value="Lemon ice cream, lemon lemongrass kumquat tea, lemon juice" disabled>
+                            <input type="text" class="form-control p-4" id="gender" name="gender" value="{{user.gender}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" name="nation" value="Campuchia" disabled>
+                            <input type="text" class="form-control p-4" id="nation" name="nation" value="{{user.nation}}" disabled>
                         </div>
                     </div>
                 </div>
@@ -88,11 +88,14 @@
                     </div>
                     <div class="col inputRow">
                         <div class="form-row">
-                            <input type="text" class="form-control p-4" name="phone" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quod!" disabled>
+                            <input type="text" class="form-control p-4" id="bio" name="bio" value="{{user.bio}}" disabled>
                         </div>
                     </div>
                 </div>
+                <button type="button" class="btn btn-lg btn-block btn-order mt-4 mx-auto" id="editBtn" style="width: 20%;"> Edit Profile</button>
+                <button type="submit" class="btn btn-lg btn-block btn-order mt-4 mx-auto" id="cfmBtn" style="width: 20%; display:none"> Confirm</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
+<script src="js/profile.js"></script>
