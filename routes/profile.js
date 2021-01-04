@@ -21,10 +21,7 @@ router.get('/', (req, res) => { // credit page
 router.post('/get_infor_user', (req, res) => {   
   res.locals.user = req.app.get('current_user');
 
-  console.log("here");
   var birthday = req.body.birthday;
-  console.log(birthday);
-  
   birthday = birthday.split("/");
 
   var user = {

@@ -36,6 +36,7 @@ router.post('/get_infor_register', (req, res) => {
                     avt: 'default',
                     bg: 'default',
                     email: "",
+                    address: "",
                     pNum: "",
                     bDay: req.body.bDay,
                     bMonth: req.body.bMonth,

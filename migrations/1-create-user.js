@@ -28,6 +28,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      address: {
+        type: Sequelize.STRING
+      },
       pNum: {
         type: Sequelize.STRING
       },

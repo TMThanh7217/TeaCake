@@ -6,6 +6,7 @@ editBtn.addEventListener("click", function(e) {
     $("#fname").prop("disabled", false);
     $("#lname").prop("disabled", false);
     $("#email").prop("disabled", false);
+    $("#address").prop("disabled", false);
     $("#birthday").prop("disabled", false);
     $("#phone").prop("disabled", false);
     $("#gender").prop("disabled", false);

@@ -160,6 +160,10 @@ router.get('/:id', (req, res) => { // product pages
                     is_login = false;
                 }
                 
+                if (is_login){
+                    
+                }
+
                 // ---- Prepare data for page
                 var page_data = {
                     chartStars: chartStars,
