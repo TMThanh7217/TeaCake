@@ -102,14 +102,14 @@ router.post('/get_product', (req, res) => {
                     Key: 'product_' + product['name'].replace(" ", "_") + '.jpg',
                     Body: file
                 };
-                // s3bucket.upload(params, function (err, data) {
-                //     if (err) {
-                //         console.log('error in callback');
-                //         console.log(err);
-                //     }
-                //     console.log('success');
-                //     console.log(data);
-                // });
+                s3bucket.upload(params, function (err, data) {
+                    if (err) {
+                        console.log('error in callback');
+                        console.log(err);
+                    }
+                    console.log('success');
+                    console.log(data);
+                });
             });    
 
             file.on('data', function(data) {});
