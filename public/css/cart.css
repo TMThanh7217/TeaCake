@@ -74,7 +74,7 @@ input[type=number] {
     font-weight: bold;
     color: black;
     font-size: 18px;
-    margin: 5px 0;
+    width: 100px;
 }
 .confirm-payment_option-confirm_Ccl {
     background-color:rgb(235, 35, 28);
@@ -99,3 +99,4 @@ input[type=number] {
 .bg-container {
     background-color: wheat;
 }
+

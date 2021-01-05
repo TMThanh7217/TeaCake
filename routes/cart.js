@@ -26,8 +26,6 @@ router.post('/remove', (req, res, next) => {
     var productID = Number(req.body.id);
     var cart = req.session.cart;
     var cartItem = cart.remove(productID);
-    console.log("_______________")
-    console.log(cartItem.totalPrice)
     res.json(cartItem);
 });
 

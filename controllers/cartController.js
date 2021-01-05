@@ -35,18 +35,12 @@ module.exports = class Cart {
         
         storedItem.price = Number(storedItem.item.price) * storedItem.quantity;
         
-        console.log('-----------------------------------------');
-        console.log(`add function price: ${storedItem.price} type ${typeof storedItem.price}`)
-        console.log('-----------------------------------------');
+       
 
         this.totalPrice = this.getTotalPrice();
-        console.log('-----------------------------------------');
-        console.log(`add function tp: ${this.totalPrice} type ${typeof this.totalPrice}`)
-        console.log('-----------------------------------------');
+        
         this.totalQuantity = this.getTotalQuantity();
-        console.log('-----------------------------------------');
-        console.log(`add function tq: ${this.totalQuantity} type ${typeof this.totalQuantity}`)
-        console.log('-----------------------------------------');
+        
     };
 
     remove(id) {
