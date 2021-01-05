@@ -1,3 +1,26 @@
+<div>
+    {{#each ads}}
+        <div class="ads_{{pos}}" id="ads_{{id}}">
+            <button></button>
+            <img src="https://mind-sharing.s3-ap-southeast-1.amazonaws.com/{{img}}" alt="ads_img" class="img-thumbnail ads_img">
+            <button class="close_ads_{{pos}}" id="closeBtn_{{id}}"><i class="fas fa-window-close"></i></button>
+        </div>
+        <script>
+            document.getElementById(`closeBtn_{{id}}`).addEventListener("click", function(e) {
+                e.preventDefault();
+                document.getElementById(`ads_{{id}}`).style.display = "none";
+            });
+            var distance = 0 + {{time}};
+            var x_{{id}} = setInterval(function() {
+                distance -= 1;
+                if (distance < 0) {
+                    clearInterval(x_{{id}});
+                    document.getElementById(`ads_{{id}}`).style.display = "none";
+                }
+            }, 1000);
+        </script>
+    {{/each}}
+</div>
 <div class="card u-shadow-v18 g-bg-white mb-4 mx-5">
     <div class="card-header text-center title-bseller">
         <h3>Recommend Product</h3>

@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 var array = require('../myModules/array');
+var adsController = require('../controllers/adsController')
+const AWS = require('aws-sdk');
+const Busboy = require('busboy');
 
 router.get('/products', (req, res) => {
     models.Product
@@ -80,6 +83,54 @@ router.get('/change_rcm_product', (req, res) => {
     })
 });
 
+router.post('/get_ads', function (req, res) {
+    var s3bucket = new AWS.S3({
+        accessKeyId: 'AKIATRGWWZO2WUH5TFNJ',
+        secretAccessKey: '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',
+        Bucket: 'mind-sharing'
+    });
+    var busboy = new Busboy({ headers: req.headers });
+    var ads = {}
 
+    busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+        if (filename != ''){
+            s3bucket.createBucket(function () {
+                var params = {
+                    Bucket: 'mind-sharing',
+                    Key: 'ads_' + ads.pos + '.png',
+                    Body: file
+                };
+                s3bucket.upload(params, function (err, data) {
+                    if (err) {
+                        console.log('error in callback');
+                        console.log(err);
+                    }
+                    console.log('success');
+                    console.log(data);
+                });
+            });    
+
+            file.on('data', function(data) {});
+            file.on('end', function() {});
+            
+            ads['img'] = 'ads_' + ads.pos + '.png'
+        }
+    });
+
+    busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+        ads[fieldname] = val;
+    });
+
+    busboy.on('finish', function() {
+        console.log(ads);
+        ads['start'] = ads['yStart'] +  '/' + ads['mStart'] + '/' + ads['dStart'];
+        ads['end'] = ads['yEnd'] +  '/' + ads['mEnd'] + '/' + ads['dEnd'];
+        adsController.createAds(ads);
+
+        res.redirect('/');
+    });
+
+    req.pipe(busboy);
+});
 
 module.exports = router;

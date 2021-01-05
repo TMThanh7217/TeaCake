@@ -172,3 +172,47 @@ footer a{
 .icon-link:hover {
     color: aliceblue;
 }
+
+.ads_left {
+    position:fixed;
+    top: 170px;
+    left: -10px;
+    margin: 0px;
+    padding: 0px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0);
+}
+
+.ads_right {
+    float: right;
+    position:fixed;
+    top: 170px;
+    right: 0px;
+    margin: 0px;
+    padding: 0px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0);
+}
+
+.ads_img{
+    width: 150px;
+    height: 400px;
+}
+
+.close_ads_left{
+    border: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.close_ads_right{
+    border: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+}
