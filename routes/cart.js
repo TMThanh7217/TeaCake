@@ -25,8 +25,10 @@ router.post('/', (req, res, next) => {
 router.post('/remove', (req, res, next) => {
     var productID = Number(req.body.id);
     var cart = req.session.cart;
-    cart.remove(productID);
-    res.json(cart.getCartItem(productID));
+    var cartItem = cart.remove(productID);
+    console.log("_______________")
+    console.log(cartItem.totalPrice)
+    res.json(cartItem);
 });
 
 module.exports = router;

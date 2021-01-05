@@ -26,6 +26,13 @@ function removeFromCart() {
         success: result => {
             $('#cart-badge').html(result.totalQuantity);
             $(`#productRow-${id}`).remove();
+            let totalPrice = Number(result.totalPrice);
+            console.log("|SD:AS|DF:}|A}F:A|F:A|F:\n"+totalPrice)
+            $('.confirm-payment_data-total').html(`$${totalPrice}`);
+            let discount = Number($(".confirm-payment_data-discount__value").text())
+            console.log("|SD:AS|DF:}|A}F:A|F:A|F:\n"+discount)
+            let afterPrice = (totalPrice * (1 - discount / 100)).toFixed(2);
+            $('.confirm-payment_data-after').html(`$${afterPrice}`);
         }
     })
 }

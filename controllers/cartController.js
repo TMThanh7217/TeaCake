@@ -56,6 +56,7 @@ module.exports = class Cart {
             this.totalPrice = this.getTotalPrice();
             this.totalQuantity = this.getTotalQuantity();
         }
+        return this.getCartItem(id);
     };
 
     update(id, quantity){
