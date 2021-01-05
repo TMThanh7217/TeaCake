@@ -1,0 +1,8 @@
+[
+    {
+        "id":0,
+        "userID": "admin",
+        "totalPrice": 10,
+        "paymentMethod": "card"        
+    }
+]
