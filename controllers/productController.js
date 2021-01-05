@@ -99,4 +99,11 @@ controller.searchProduct = function(keyword){
     })
 };
 
+controller.createProduct = function(product){
+	Product.create(product)
+	.catch(function(error) {
+		console.log(error)
+	});
+};
+
 module.exports = controller;

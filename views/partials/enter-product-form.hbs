@@ -1,64 +1,63 @@
 <div class="row mt-3">
     <div class="col-3">
-        <img src="/images/no_image.jpg" alt="" class="img img-fluid img-thumbnail">
+        <img src="/images/no_image.jpg" alt="" id="fileDisplayArea" class="img img-fluid img-thumbnail">
     </div>
     <div class="col-9">
-        <form action="{{action}}" method="post" class="mt-2">
+        <form action="{{action}}" method="post" class="mt-2" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="inputName" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Name</label>
                 <div class="col-sm-9 col-lg-10 col-md-10">
-                    <input type="text" class="form-control" id="inputName" name="productName" placeholder="Product's name">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputID" class="col-sm-3 col-lg-2 col-md-2 col-form-label">ID</label>
-                <div class="col-sm-3 col-lg-4 col-md-4">
-                    <input type="text" class="form-control" id="inputID" name="productID" placeholder="Product's ID">
-                </div>
-                <label for="inputPrice" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Price</label>
-                <div class="col-sm-3 col-lg-4 col-md-4 input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">$</div>
-                    </div>
-                    <input type="number" class="form-control" id="inputPrice" name="productPrice" placeholder="Product's price">
+                    <input type="text" class="form-control" id="inputName" name="name" placeholder="Product's name" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="selectStatus" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Status</label>
                 <div class="col-sm-3 col-lg-4 col-md-4">
-                    <select name="productStatus" id="selectStatus" class="custom-select">
+                    <select name="status" id="selectStatus" class="custom-select">
                         <option value="1" selected>Stocking</option>
                         <option value="0">Out of Stock</option>
                     </select>
                 </div>
                 <label for="selectType" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Type</label>
                 <div class="col-sm-3 col-lg-4 col-md-4 input-group">
-                    <select name="productStatus" id="selectType" class="custom-select">
-                        <option value="1" selected>Tea</option>
-                        <option value="0">Cake</option>
-                        <option value="0">Drink</option>
+                    <select name="type" id="selectType" class="custom-select">
+                        <option value="Tea">Tea</option>
+                        <option value="cake">Cake</option>
+                        <option value="Drink">Drink</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputDesc" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Description</label>
-                <div class="col-sm-9 col-lg-10 col-md-10">
-                    <textarea class="form-control" id="inputDesc" name="productDesc" rows="3" placeholder="Product's description"></textarea>
+                <label for="inputPrice" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Price</label>
+                <div class="col-sm-3 col-lg-4 col-md-4 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">$</div>
+                    </div>
+                    <input type="number" step="0.01" class="form-control" id="inputPrice" name="price" placeholder="Product's price" required>
+                </div>
+                <label for="" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Image</label>
+                <div class="input-group col-sm-3 col-lg-4 col-md-4">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputImg" onchange="loadFile(event)" name="src" required>
+                        <label class="custom-file-label" for="inputImg">Choose file</label>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputDesc" class="col-sm-3 col-lg-2 col-md-2 col-form-label">Image</label>
-                <div class="input-group col-sm-9 col-lg-10 col-md-10">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputImg" name="productImg">
-                        <label class="custom-file-label" for="inputImg">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" id="btnUpload">Upload</button>
-                    </div>
+                <label for="inputDesc" class="col-sm-3 col-lg-2 col-md-2 col-form-label" required>Description</label>
+                <div class="col-sm-9 col-lg-10 col-md-10">
+                    <textarea class="form-control" id="inputDesc" name="description" rows="3" placeholder="Product's description"></textarea>
                 </div>
             </div>
-            <button type="submit" class="btn btn-secondary btn-md">Submit</button>
+            <div class="text-center mt-5">
+                <button type="submit" class="btn btn-TeaCake" style="width: 20%;"> Submit </button>
+            </div>
         </form>
     </div>
 </div>
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('fileDisplayArea');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>

@@ -3,8 +3,10 @@ var router = express.Router();
 var models = require('../models');
 var array = require('../myModules/array');
 var adsController = require('../controllers/adsController')
+var productController = require('../controllers/productController')
 const AWS = require('aws-sdk');
 const Busboy = require('busboy');
+const controller = require('../controllers/adsController');
 
 router.get('/products', (req, res) => {
     models.Product
@@ -81,6 +83,60 @@ router.get('/change_rcm_product', (req, res) => {
         }
         res.render('admin-change_rcm_product', page_data);
     })
+});
+
+router.post('/get_product', (req, res) => {
+    var s3bucket = new AWS.S3({
+        accessKeyId: 'AKIATRGWWZO2WUH5TFNJ',
+        secretAccessKey: '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',
+        Bucket: 'mind-sharing'
+    });
+    var busboy = new Busboy({ headers: req.headers });
+    var product = {}
+
+    busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+        if (filename != ''){
+            s3bucket.createBucket(function () {
+                var params = {
+                    Bucket: 'mind-sharing',
+                    Key: 'product_' + product['name'].replace(" ", "_") + '.jpg',
+                    Body: file
+                };
+                // s3bucket.upload(params, function (err, data) {
+                //     if (err) {
+                //         console.log('error in callback');
+                //         console.log(err);
+                //     }
+                //     console.log('success');
+                //     console.log(data);
+                // });
+            });    
+
+            file.on('data', function(data) {});
+            file.on('end', function() {});
+
+            product['src'] = 'https://mind-sharing.s3-ap-southeast-1.amazonaws.com/' + 'product_' + product['name'].replace(" ", "_") + '.jpg'
+        }
+    });
+
+    busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+        product[fieldname] = val;
+    });
+
+    busboy.on('finish', function() {
+        product['like'] = 0,
+        productController
+            .getAll()
+            .then(products => { 
+                product['id'] = products[products.length - 1].id + 1,
+                console.log(product)
+                productController.createProduct(product);
+
+                res.redirect('products/add');
+            });
+    });
+
+    req.pipe(busboy);
 });
 
 router.post('/get_ads', function (req, res) {
