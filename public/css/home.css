@@ -158,3 +158,17 @@ footer a{
 .best_seller {
     cursor: pointer;
 }
+
+.badge-top {
+    position: relative;
+    margin-left: 80%;
+    margin-top: -60% !important;
+}
+
+.icon-link {
+    cursor: pointer;
+}
+
+.icon-link:hover {
+    color: aliceblue;
+}

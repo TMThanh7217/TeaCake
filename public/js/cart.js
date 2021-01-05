@@ -12,6 +12,7 @@ function addToCart() {
         type: 'POST',
         data: { id, quantity },
         success: result => {
+            console.log($('#cart-badge').html());
             $('#cart-badge').html(result.totalQuantity);
         }
     })
@@ -26,6 +27,13 @@ function removeFromCart() {
         success: result => {
             $('#cart-badge').html(result.totalQuantity);
             $(`#productRow-${id}`).remove();
+            let totalPrice = Number(result.totalPrice);
+           
+            $('.confirm-payment_data-total').html(`$${totalPrice}`);
+            let discount = Number($(".confirm-payment_data-discount__value").text())
+           
+            let afterPrice = (totalPrice * (1 - discount / 100)).toFixed(2);
+            $('.confirm-payment_data-after').html(`$${afterPrice}`);
         }
     })
 }

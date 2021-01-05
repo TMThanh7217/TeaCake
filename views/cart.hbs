@@ -38,12 +38,18 @@
                 </div>
                 <div class="col-4 confirm-payment_data">
                     <p class="row confirm-payment_data-total">${{cart.totalPrice}}</p>
-                    <p class="row confirm-payment_data-discount">0%</p>
+                    <p class="row confirm-payment_data-discount"><span class="confirm-payment_data-discount__value">0</span>%</p>
                     <p class="row confirm-payment_data-after">${{cart.totalPrice}}</p>
                 </div>
                 <div class="col-4 confirm-payment_option d-flex flex-column justify-content-between align-items-end">
-                    <div class="row">
-                        <div class="dropdown confirm-payment_option-code">
+                    <div class="container mb-5">
+                        <div class="confirm-payment_option-confirm">
+                            <button class="btn confirm-payment_option-confirm_OK">Confirm</button>
+                            <button class="btn confirm-payment_option-confirm_Ccl">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="dropright confirm-payment_option-code">
                             <button type="button" class="btn confirm-payment_option-code_btn dropdown-toggle" data-toggle="dropdown">
                                 Code 1
                             </button>
@@ -53,10 +59,6 @@
                                 <a class="dropdown-item" href="#">Code 3</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="confirm-payment_option-confirm row btn-group">
-                        <button class="btn confirm-payment_option-confirm_OK">Confirm</button>
-                        <button class="btn confirm-payment_option-confirm_Ccl">Cancel</button>
                     </div>
                 </div>
             </div>
