@@ -1,0 +1,27 @@
+[
+    {
+        "id":0,
+        "author":"System",
+        "userID":"admin",
+        "header":"Amet consectetur adipisicing elit.",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "img":"images/TeaCake.png"
+    },
+    {
+        "id":1,
+        "author":"System",
+        "userID":"admin",
+        "header":"Amet consectetur adipisicing elit.",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "img":"images/TeaCake.png"
+    },
+    
+    {
+        "id":2,
+        "author":"System",
+        "userID":"admin",
+        "header":"Amet consectetur adipisicing elit.",
+        "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "img":"images/TeaCake.png"
+    }
+]
