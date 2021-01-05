@@ -52,25 +52,45 @@ body{
     font-weight: 600 !important;
 }
 
-.btn-order {
+.btn-TeaCake {
     border-radius:20px;
-    height: 90%;
-    width: 80%;
+    color: black;
+    height: 50px;
+    max-height: 100px;
     font-weight: bold;
     background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));
     font-size: 20px;
     border: solid 3px black;
+    min-width: 100px;
 }
 
-.btn-order:hover {
+.btn-TeaCake + .btn-TeaCake {
+    margin-left: 20px;
+}
+
+.btn-TeaCake:hover {
+    border: solid 3px black;
+    box-shadow: none;
+    color: black;
     background: linear-gradient(to right,rgb(235, 35, 28),rgb(236, 189, 128), rgb(217, 238, 123), rgb(180, 236, 143))
 }
 
-.btn-order:active {
+.btn-TeaCake:active {
+    
+    box-shadow: none;
     background: linear-gradient(to right,rgb(131, 20, 16),rgb(138, 94, 36), rgb(107, 121, 48), rgb(57, 112, 21))
 }
 
 .product-img {
     max-height: 300px;
     min-width: 200px;
+}
+
+.product-name {
+    cursor: pointer;
+}
+
+.product-name:hover {
+    text-decoration: underline;
+    color: cornflowerblue !important;
 }
