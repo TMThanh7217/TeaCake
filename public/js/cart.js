@@ -16,6 +16,8 @@ function addToCart() {
             $('#cart-badge').html(result.totalQuantity);
         }
     })
+
+    document.querySelector('#cart-badge').innerHTML = Number(document.querySelector('#cart-badge').innerHTML) + 1;
 }
 
 function removeFromCart() {
