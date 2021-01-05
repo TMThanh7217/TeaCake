@@ -8,7 +8,7 @@ router.get('/products', (req, res) => {
     .findAll({raw: true})
     .then(products => {
         // get user
-        res.locals.user = req.app.get('current_user');
+        
 
         // page data
         let page_data = {
@@ -33,7 +33,7 @@ router.get('/products/add', (req, res) => {
 })
 
 router.get('/add_ads', (req, res) => {
-    res.locals.user = req.app.get('current_user');
+    
     let page_data = {
         title: "TeaCake - Admin"
     }
@@ -56,7 +56,7 @@ router.get('/change_rcm_product', (req, res) => {
     .findAll({raw : true})
     .then(products => {
         // get user
-        res.locals.user = req.app.get('current_user');
+        
 
         // ---- get rows with each row have 3 products
         var rows_data = _getRows(products, 5);

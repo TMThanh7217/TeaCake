@@ -7,7 +7,7 @@ var blogs = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/b
 
 router.get('/', (req, res) => { // credit page
     // ---- get user
-    res.locals.user = req.app.get('current_user');
+
 
     var rows = myModules.getRows(blogs, 3);
     // ---- Prepare data for page

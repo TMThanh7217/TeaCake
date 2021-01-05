@@ -9,7 +9,7 @@ const COMMON_USER = 1;
 const ADMIN_USER = 2;
 
 router.get('/login', (req, res) => { // login page
-    res.locals.user = req.app.get('current_user');
+    
     
     res.render('login_register');
 })
@@ -46,7 +46,7 @@ router.post('/get_infor_register', (req, res) => {
                     bio: ""
                 }
     
-                req.app.set('current_user', COMMON_USER);
+                req.app.set('userAuthorization', COMMON_USER);
                 req.app.set('current_account', req.body.resAcc)
 
                 controller.createUser(userAcc);
@@ -62,10 +62,10 @@ router.post('/get_infor_login', (req, res) => {
         if (this_user != null){
             if (bcrypt.compareSync(req.body.logPass, this_user.password)){
                 if (this_user.type == "ADMIN"){
-                    req.app.set('current_user', ADMIN_USER);  
+                    req.app.set('userAuthorization', ADMIN_USER);  
                 }
                 else {
-                    req.app.set('current_user', COMMON_USER);
+                    req.app.set('userAuthorization', COMMON_USER);
                 }
                 
                 req.app.set('current_account', req.body.logAcc)
@@ -84,8 +84,8 @@ router.post('/get_infor_login', (req, res) => {
 
 router.get('/logout', (req, res) => { // logout page
     // ---- Change user to anonymous
-    req.app.set('current_user', ANONYMOUS_USER);
-    res.locals.user = req.app.get('current_user');
+    req.app.set('userAuthorization', ANONYMOUS_USER);
+    
     res.redirect('/');
 })
 
