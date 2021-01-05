@@ -17,45 +17,8 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 // ------------------Some local vars----------------
-/*products = {
-    cakes : [...],
-    drinks : [...],
-    teas : [...]
-}*/
-var products = JSON.parse(fs.readFileSync(__dirname + '/public/json/products.json')); // object of products
 
-/*members = {
-    "id": ...,
-    "name": ...,
-    "avt":"",
-    "position": ...,
-    "quote": ...
-}
- */
-var members = JSON.parse(fs.readFileSync(__dirname + "/public/json/members.json"));
-
-/*UserInfor = {
-    "fname": ...,
-    "lname": ...,
-    "account": ...,
-    "password": ...,
-    "avtImage": ...,
-    "bgImage": ...,
-    "email": ...,
-    "pNumber": ...,
-    "Bday": ...,
-    "Bmonth": ...,
-    "Byear": ...,
-    "gender": ..., 
-    "nation": ...,
-    "bio": ...
-}*/
-
-/*
-*/
-var blogs = JSON.parse(fs.readFileSync(__dirname + "/public/json/blogs.json"));
-
-app.set('current_user', ANONYMOUS_USER); // identify user
+app.set('userAuthorization', ANONYMOUS_USER); // identify user
 // -------Use here------------------
 // Add headers
 app.use(function (req, res, next) {
@@ -76,6 +39,27 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+let session = require('express-session');
+app.use(session({
+  cookie: {httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000},
+  secret: "S3cret",
+  resave: false,
+  saveUninitialized: false
+}));
+
+var Cart = require('./controllers/cartController');
+app.use((req, res, next) => {
+  res.locals.userAuthorization = req.app.get('userAuthorization');
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  req.session.cart = cart;
+  res.locals.totalQuantity = cart.totalQuantity;
+  next();
+})
+
 app.use(express.static(__dirname + "/public")); // Public files
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

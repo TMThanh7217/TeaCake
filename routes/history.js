@@ -10,7 +10,7 @@ router.get('/', (req, res) => { // cart page
         raw : true,
     })
     .then(products => {
-        res.locals.user = req.app.get('current_user');
+        
     
         let history_items = myModules.getNElements(myModules.getCakes(products), 2).concat(myModules.getNElements(myModules.getTeas(products), 1)).concat(myModules.getNElements(myModules.getDrinks(products), 1));
         // ---- Prepare data for page

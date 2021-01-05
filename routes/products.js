@@ -14,7 +14,7 @@ function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = c
 }
 
 router.get('/', (req, res) => { // menu page
-    res.locals.user = req.app.get('current_user');
+   
     
     productController
     .getAll()
@@ -40,7 +40,7 @@ router.get('/', (req, res) => { // menu page
 })
 
 router.get('/cakes', (req, res) => {
-    res.locals.user = req.app.get('current_user');
+   
 
     productController
     .getCakes()
@@ -62,7 +62,7 @@ router.get('/cakes', (req, res) => {
 })
 
 router.get('/teas', (req, res) => {
-    res.locals.user = req.app.get('current_user');
+   
 
     productController
     .getTeas()
@@ -84,7 +84,7 @@ router.get('/teas', (req, res) => {
 })
 
 router.get('/drinks', (req, res) => {
-    res.locals.user = req.app.get('current_user');
+   
 
     productController
     .getDrinks()
@@ -106,7 +106,7 @@ router.get('/drinks', (req, res) => {
 })
 
 router.get('/search', (req, res) => { 
-    res.locals.user = req.app.get('current_user');
+   
 
     var keyword = req.query.keyword;
     productController
@@ -133,7 +133,7 @@ router.get('/search', (req, res) => {
 
 
 router.get('/:id', (req, res) => { // product pages
-    res.locals.user = req.app.get('current_user');
+   
 
     models.Product
     .findByPk(Number(req.params.id), {raw : true})
@@ -188,7 +188,7 @@ router.get('/:id', (req, res) => { // product pages
 })
 
 router.post('/get_comment', (req, res) => { 
-    res.locals.user = req.app.get('current_user');
+   
 
     var today = new Date();
     var dateTime = today.getHours() + ':' + today.getMinutes() + ' ' + today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();

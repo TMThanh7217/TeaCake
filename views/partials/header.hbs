@@ -38,13 +38,13 @@
             <a href="#"><button type="submit" class="search-button"><i class="fa fa-search icon"></i></button></a>
         </form>
         <div id="login-area" class="navbar-collapse collapse order-3 dual-collapse2 d-flex justify-content-center" style="width: 15%">
-            {{#if (isAnonymous user)}}
+            {{#if (isAnonymous userAuthorization)}}
             <ul class='navbar-nav mx-auto w-100 d-flex justify-content-center'>
                 <li id='login-btn' class='nav-item p-1 right-item w-75' onclick='document.location.href="/login"'>
                     <a href='/login'>Login</a> <i class='fa fa-user' style='font-size: 40px'></i>
                 </li>
             </ul>
-            {{else if (isCommon user)}}
+            {{else if (isCommon userAuthorization)}}
             <div class='dropdown nav-item acc-drop p-1 w-75'>
                 <button type='button' class='btn right-item' data-toggle='dropdown'>
                     Account <i class='fa fa-user ml-3' style='font-size: 40px'></i>

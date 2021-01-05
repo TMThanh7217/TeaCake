@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', (req, res) => { // credit page
     // ---- get user
-    res.locals.user = req.app.get('current_user');
+    
     // ---- Prepare data for page
     const path = require('path');
     const fs = require('fs');

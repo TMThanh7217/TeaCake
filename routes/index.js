@@ -8,7 +8,7 @@ router.get('/', (req, res) => { // root-index page
     .findAll({raw : true})
     .then(products => {
         // ---- get user
-        res.locals.user = req.app.get('current_user');
+        
 
         // ---- Prepare data for home page
         let _cakes = myModule.getNElements(myModule.getCakes(products), 5); // get 5 recommend cakes
