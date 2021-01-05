@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-const controller = require('../controllers/productController');
-
+const productController = require('../controllers/productController');
+const commentController = require('../controllers/commentController');
 function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = cap 
     let rows = []; // init 2D array
     for(let i = 0; i < data.length; i += cap) {
@@ -16,7 +16,7 @@ function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = c
 router.get('/', (req, res) => { // menu page
     res.locals.user = req.app.get('current_user');
     
-    controller
+    productController
     .getAll()
     .then(products => {
         // ---- get rows with each row have 3 products
@@ -42,7 +42,7 @@ router.get('/', (req, res) => { // menu page
 router.get('/cakes', (req, res) => {
     res.locals.user = req.app.get('current_user');
 
-    controller
+    productController
     .getCakes()
     .then(products => {
         var rows = _getRows(products, 3);
@@ -64,7 +64,7 @@ router.get('/cakes', (req, res) => {
 router.get('/teas', (req, res) => {
     res.locals.user = req.app.get('current_user');
 
-    controller
+    productController
     .getTeas()
     .then(products => {
         var rows = _getRows(products, 3);
@@ -86,7 +86,7 @@ router.get('/teas', (req, res) => {
 router.get('/drinks', (req, res) => {
     res.locals.user = req.app.get('current_user');
 
-    controller
+    productController
     .getDrinks()
     .then(products => {
         var rows = _getRows(products, 3);
@@ -109,7 +109,7 @@ router.get('/search', (req, res) => {
     res.locals.user = req.app.get('current_user');
 
     var keyword = req.query.keyword;
-    controller
+    productController
         .searchProduct(keyword)
         .then(products => {
             // ---- get rows with each row have 3 products
@@ -138,8 +138,8 @@ router.get('/:id', (req, res) => { // product pages
     models.Product
     .findByPk(Number(req.params.id), {raw : true})
     .then(product => {
-        controller
-            .getCommentbyID(req.params.id)
+        commentController
+            .getCommentByID(req.params.id)
             .then(comments => {
                 var chartStars = [0, 0, 0, 0, 0];
                 var totalRate = 0;
@@ -201,7 +201,7 @@ router.post('/get_comment', (req, res) => {
         time: dateTime,
     }
     console.log(comment);
-    controller.createComment(comment);
+    commentController.createComment(comment);
 
     console.log('done')
     res.redirect(`/products/${req.body.ProductId}`)

@@ -4,7 +4,7 @@ body{
 }
 
 #background{
-    height: 700px;
+    height: 750px;
     width: 100%;
     background-position: center;    
     background-size: cover;
@@ -164,6 +164,6 @@ body{
 #footer {
     width: 100%;
     position: absolute !important;
-    top: 700px !important;
-    margin-bottom: -30px !important;
+    top: calc(100vh - 90px) !important;
+    /* margin-bottom: -30px !important; */
 }

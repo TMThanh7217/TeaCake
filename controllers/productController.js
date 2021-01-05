@@ -4,8 +4,7 @@ const { resolve } = require('path');
 const sequelize = require('sequelize');
 const models = require('../models');
 const Product = models.Product;
-const Comment = models.Comment;
-const User = models.User;
+
 
 controller.getAll = () => {
     return new Promise((resolve, reject) => {
@@ -99,27 +98,5 @@ controller.searchProduct = function(keyword){
         });
     })
 };
-
-controller.getCommentbyID = id => {
-    return new Promise((resolve, reject) => {
-        Comment
-            .findAll({
-                where: {
-                    ProductId : id
-                },
-                include: [User]
-            })
-            .then(comments => resolve(comments))
-            .catch(error => reject(new Error(error))); 
-    })
-}
-
-controller.createComment = function(comment){
-    return new Promise((resolve, reject) => {
-        Comment
-            .create(comment)
-            .catch(error => reject(new Error(error))); 
-    })
-}
 
 module.exports = controller;
