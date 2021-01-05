@@ -88,7 +88,7 @@ module.exports = class Cart {
         return {
             items: this.getItemsList(),
             totalQuantity: this.totalQuantity,
-            totalPrice: this.totalPrice,
+            totalPrice: this.totalPrice.toFixed(2),
             address: this.address,
             paymentMethod: this.paymentMethod
         }
