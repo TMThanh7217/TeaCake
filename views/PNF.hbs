@@ -1,4 +1,36 @@
-<div class="container-fluid p-5">
-    <h3 class="bg-main text-white p-2">Result</h3>
-    <p>Product not found!!!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 p-3">
+            
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products'">
+                    <a href="/products" class="side-bar__menu__item__link">Menu</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas'">
+                    <a href="/products/teas" class="side-bar__menu__item__link">Teas</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes'">
+                    <a href="/products/cakes" class="side-bar__menu__item__link">Cakes</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks'">
+                    <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+        
+            <div class="row p-3">
+                
+                <h3 class="bg-main text-white w-100 p-2 text-center" style="font-size: 40px;">{{cate}}</h3>
+                
+            </div>
+            
+            <div class="row p-3">
+                <p>{{mess}}</p>
+            </div>
+        
+        </div>
+        
+    </div>
 </div>

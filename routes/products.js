@@ -119,14 +119,17 @@ router.get('/search', (req, res) => {
             var page_data = {
                 title: "TeaCake - Menu",
                 rows: rows_data,
-                pageCode : 1
+                pageCode : 1,
+                cate: `Search result for "${keyword}"`
             }
 
             // ---- Render home page
             if (products.length != 0)
                 res.render('menu', page_data);
-            else
+            else {
+                page_data.mess = "Oops!!! Sorry, we can't find any product with your keyword."
                 res.render('PNF', page_data)
+            }
         })
         .catch(err => res.send("Error: " + err));
 })

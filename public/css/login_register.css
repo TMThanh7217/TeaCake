@@ -161,9 +161,9 @@ body{
     margin-left: 20px;
 }
 
-#footer {
+footer {
+    position: fixed;
+    height: 80px;
+    bottom: 0;
     width: 100%;
-    position: absolute !important;
-    top: calc(100vh - 90px) !important;
-    /* margin-bottom: -30px !important; */
 }

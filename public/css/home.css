@@ -25,6 +25,13 @@ header, footer{
     border-color: black;
 }
 
+footer {
+    position: fixed;
+    height: 70px;
+    bottom: 0;
+    width: 100%;
+}
+
 .left-item {
     display: flex;
     justify-content: center;
@@ -109,6 +116,7 @@ footer a{
     font-weight: bold;
     color: black;
     font-size: 11px;
+    
 }
 
 #rp-btn {
