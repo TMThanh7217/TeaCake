@@ -41,6 +41,7 @@ module.exports = class Cart {
         
         this.totalQuantity = this.getTotalQuantity();
         
+        return this.getCart();
     };
 
     remove(id) {
@@ -50,7 +51,7 @@ module.exports = class Cart {
             this.totalPrice = this.getTotalPrice();
             this.totalQuantity = this.getTotalQuantity();
         }
-        return this.getCartItem(id);
+        return this.getCart();
     };
 
     update(id, quantity){

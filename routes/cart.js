@@ -18,8 +18,9 @@ router.post('/', (req, res, next) => {
         .getByID(productID)
         .then(product => {
             product.price = Number(product.price);
-            var cartItem = req.session.cart.add(product, productID, quantity);
-            res.json(cartItem);
+            var cart = req.session.cart;
+            var cartData = cart.add(product, productID, quantity);
+            res.json(cartData);
         })
         .catch(err => next(err));
 });
@@ -27,8 +28,8 @@ router.post('/', (req, res, next) => {
 router.post('/remove', (req, res, next) => {
     var productID = Number(req.body.id);
     var cart = req.session.cart;
-    var cartItem = cart.remove(productID);
-    res.json(cartItem);
+    var cartData = cart.remove(productID);
+    res.json(cartData);
 });
 
 router.post('/pay', (req, res, next) => {

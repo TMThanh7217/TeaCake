@@ -12,12 +12,10 @@ function addToCart() {
         type: 'POST',
         data: { id, quantity },
         success: result => {
-            console.log($('#cart-badge').html());
+            console.log(result.totalQuantity);
             $('#cart-badge').html(result.totalQuantity);
         }
-    })
-
-    document.querySelector('#cart-badge').innerHTML = Number(document.querySelector('#cart-badge').innerHTML) + 1;
+    })  
 }
 
 function removeFromCart() {
@@ -27,6 +25,7 @@ function removeFromCart() {
         type: 'POST',
         data: {id},
         success: result => {
+            console.log(result)
             $('#cart-badge').html(result.totalQuantity);
             $(`#productRow-${id}`).remove();
             let totalPrice = Number(result.totalPrice);
