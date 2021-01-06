@@ -6,7 +6,11 @@ var orderItemController = require("../controllers/orderItemController");
 router.get('/', (req, res) => {
     var cart = req.session.cart;
     res.locals.cart = cart.getCart();
-    res.render('cart');
+    var pageData = {
+        title: "TeaCake - Cart",
+        isEmpty: cart.isEmpty()
+    }
+    res.render('cart', pageData);
 });
 
 

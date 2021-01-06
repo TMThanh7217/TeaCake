@@ -1,7 +1,13 @@
 <div class="container-fluid d-flex flex-column align-items-center mt-3">
     <h1>Your Cart</h1>
     <div class="container d-flex flex-column align-items-center my-3">
-        <div id="cart" class="container-fluid mb-2 p-3 bg-container">
+        
+        <div id="cart" class="container-fluid mb-2 p-3 bg-container d-flex flex-column">
+            {{#if isEmpty}}
+            <p class="mx-auto">
+                Your cart is empty. Please, go shopping and pick at least one product.
+            </p>
+            {{else}}
             {{#each cart.items}}
             <div id="productRow-{{this.item.id}}"class="row item my-2">
                 <div class="col-3 item-img">
@@ -27,8 +33,9 @@
                 </div>
             </div>
             {{/each}}
+            {{/if}}
         </div>
-
+    
         <div class="container-fluid mt-5 p-3 confirm-payment_zone d-flex justify-content-center bg-container">
             <div id="confirm" class="container-fluid row w-100">
                 <div class="col-4  confirm-payment_header">

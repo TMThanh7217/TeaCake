@@ -12,7 +12,7 @@ function addToCart() {
         type: 'POST',
         data: { id, quantity },
         success: result => {
-            console.log(result.totalQuantity);
+            
             $('#cart-badge').html(result.totalQuantity);
         }
     })  
@@ -25,9 +25,14 @@ function removeFromCart() {
         type: 'POST',
         data: {id},
         success: result => {
-            console.log(result)
+            
             $('#cart-badge').html(result.totalQuantity);
             $(`#productRow-${id}`).remove();
+
+            let emptyMess = "Your cart is empty. Please, go shopping and pick at least one product.";
+
+            if(result.totalQuantity == 0)
+                $('#cart').html(`<p class="mx-auto">${emptyMess}<p>`);
             let totalPrice = Number(result.totalPrice);
            
             $('.confirm-payment_data-total').html(`$${totalPrice}`);

@@ -97,4 +97,8 @@ module.exports = class Cart {
             totalPrice: this.totalPrice
         }
     }
+
+    isEmpty() {
+        return this.totalQuantity == 0;
+    }
 }
