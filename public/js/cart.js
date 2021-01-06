@@ -44,6 +44,26 @@ function removeFromCart() {
     })
 }
 
+function emptyCart() {
+    $.ajax({
+        url: '/cart/empty',
+        type: 'POST',
+        success: result => {
+            
+            $('#cart-badge').html(0);
+
+            let emptyMess = "Your cart is empty. Please, go shopping and pick at least one product.";
+
+            $('#cart').html(`<p class="mx-auto">${emptyMess}<p>`);
+            
+           
+            $('.confirm-payment_data-total').html(`$0`);
+            
+            $('.confirm-payment_data-after').html(`$0`);
+        }
+    })
+}
+
 function Pay() {
     var total = $('#total').html();
     var discount = $('#discount').html();

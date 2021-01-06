@@ -36,6 +36,13 @@ router.post('/remove', (req, res, next) => {
     res.json(cartData);
 });
 
+
+router.post('/empty', (req, res, next) => {
+    var cart = req.session.cart;
+    cart.empty();
+    res.json("OK");
+});
+
 router.post('/pay', (req, res, next) => {
     var cart = req.session.cart;
     var acc = req.app.get('current_account');

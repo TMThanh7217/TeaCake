@@ -67,8 +67,8 @@ module.exports = class Cart {
 
     empty (){
         this.items = {};
-        this.price = 0;
-        this.quantity = 0;
+        this.totalPrice = 0;
+        this.totalQuantity = 0;
     };
 
     getItemsList() {

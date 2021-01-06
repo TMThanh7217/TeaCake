@@ -52,7 +52,7 @@
                     <div class="container mb-5">
                         <div class="confirm-payment_option-confirm">
                             <button class="btn confirm-payment_option-confirm_OK" onclick="Pay()">Confirm</button>
-                            <button class="btn confirm-payment_option-confirm_Ccl">Cancel</button>
+                            <button class="btn confirm-payment_option-confirm_Ccl" data-toggle="modal" data-target="#deleteModal">Empty cart</button>
                         </div>
                     </div>
                     <div class="container">
@@ -73,3 +73,4 @@
 
     </div>
 </div>
+{{> modal-delete-warn action="emptyCart()"}}
