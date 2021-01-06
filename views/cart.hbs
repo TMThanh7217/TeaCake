@@ -11,7 +11,7 @@
             {{#each cart.items}}
             <div id="productRow-{{this.item.id}}"class="row item my-2">
                 <div class="col-3 item-img">
-                    <img src="{{this.item.src}}" alt="" class="img-fluid img-thumbnail">
+                    <img src="{{this.item.src}}" alt="hinh anh cac thu" class="img-fluid img-thumbnail product-img" onclick="document.location.href='/products/{{this.item.id}}'">
                 </div>
                 <div class="col-5 item-info">
                     <p class="item-info_name" onclick="document.location.href='/products/{{this.item.id}}'">{{this.item.name}}</p>
@@ -21,7 +21,7 @@
                         <span class="item-info_buy-later ml-2">Buy later</span></p>
                 </div>
                 <div class="col-2 item_pricess">
-                    <p class="item-pricess_real-price">${{this.item.price}}</p>
+                    <p class="item-pricess_real-price" style="font-size: 30px; font-weight:bold">${{this.item.price}}</p>
                     <p class="item-pricess_discount-price">
                         <del>${{this.item.price}}</del>
                         <span>|</span>
@@ -29,7 +29,7 @@
                     </p>
                 </div>
                 <div class="col-2 item_qty">
-                    <strong>Quantity: {{this.quantity}}</strong>
+                    <strong style="font-size: 20px; font-weight:bold">Quantity: {{this.quantity}}</strong>
                 </div>
             </div>
             {{/each}}

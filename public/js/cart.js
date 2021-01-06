@@ -1,7 +1,21 @@
 $(document).ready(() => {
     $('.btn-order').on('click', addToCart);
     $('.cart__item__btn--remove').on('click', removeFromCart);
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
+    })
+    $(function () {
+        $('[data-toggle="popover"][data-timeout]').popover({ trigger:"manual" }).click(function() { 
+            var pop = $(this); 
+            pop.popover("show") 
+            pop.on('shown.bs.popover',function() { 
+             setTimeout(function() {
+              pop.popover("hide")}, $(this).data("timeout")); 
+            })
+        })
+    })
 });
+
 
 
 function addToCart() {

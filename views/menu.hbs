@@ -80,7 +80,9 @@
             {{/if}}
         </div>
         {{/if}}
-        
+
+
+
         {{#if cate}}
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
         {{/if}}
@@ -107,8 +109,8 @@
                             <p>{{this.description}}</p>
                             <span class="d-block g-color-primary g-font-size-16">${{this.price}}</span>
                             <div class="container mt-3">
-                                <button type="button" class="btn btn-order btn-TeaCake"  data-id={{this.id}}>Add to Cart</button>
-                                <button type="button" class="btn btn-info btn-TeaCake" onclick='document.location.href="/products/{{this.id}}"'>Infor <i class="fa fa-search"></i></button>
+                                <button tabindex="0" type="button" class="btn btn-order btn-TeaCake show-toast" data-id={{this.id}} role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="Add to cart successfully!">Add <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-info btn-TeaCake" onclick='document.location.href="/products/{{this.id}}"'>Detail <i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,7 @@
             <p>{{product.description}}</p>
             <h2><i class="fa fa-heart mr-2" style="color: palevioletred;"></i><span>{{product.like}}</span></h2>
             <div class="container-fluid m-bg-white product-infor_prices">
-                <span class="product-infor_prices-real">${{product.price}}</span>
+                <span class="product-infor_prices-real" style="font-size: 30px; font-weight:bold">${{product.price}}</span>
                 <del class="product-infor_prices-org">${{product.price}}</del>
                 <span class="product-infor_prices-discount">-20%</span>
             </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-order btn-TeaCake product-infor__btn-order" data-id={{product.id}}>Add to cart</button>
+            <button class="btn btn-order btn-TeaCake product-infor__btn-order" data-id={{product.id}} role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="Add to cart successfully!">Add to cart</button>
         </div>
     </div>
     

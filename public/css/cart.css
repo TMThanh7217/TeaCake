@@ -18,7 +18,7 @@
 .item-info_del, .item-info_buy-later {
     color: rgb(61, 96, 137);
     display: inline-block;
-    font-size: 18px;
+    font-size: 22px;
     cursor: pointer;
 }
 
@@ -99,4 +99,3 @@ input[type=number] {
 .bg-container {
     background-color: wheat;
 }
-
