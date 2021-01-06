@@ -5,34 +5,34 @@
                 <h1>History</h1>
             </div>
             <div class="card-body bg-container">
-            {{#each products}}
+            {{#each orders}}
             <hr class="">
-            <div class = "date-time text-center"><p>Date: 1/1/2021 -- Time: 00:00:00</p></div>
-            <div class="row item my-2">
-                
-                <div class="col-3 item-img">
-                    <img src="{{this.src}}" alt="" class="img-fluid img-thumbnail">
+            <div class = "date-time text-center"><p>{{this.createAt}}</p></div>
+            {{#each ../orderItems}}
+                <div class="row item my-2">
+                    <div class="col-3 item-img">
+                        <img src="{{}}" alt="" class="img-fluid img-thumbnail">
+                    </div>
+                    <div class="col-5 item-info">
+                        <p class="item-info_name">{{this.name}}</p>
+                        <p class="item-info_action">
+                            
+                            <span class="item-info_buy-later ml-2">Buy again</span></p>
+                    </div>
+                    <div class="col-2 item_pricess">
+                        <p class="item-pricess_real-price">${{this.price}}</p>
+                        <p class="item-pricess_discount-price">
+                            <del>${{this.price}}</del>
+                            <span>|</span>
+                            <span>-x%</span>
+                        </p>
+                    </div>
+                    <div class="col-2 item_qty input-group">
+                        <h5>Quantity: 1</h5>
+                        <h5>Total: ${{this.price}}</h5>
+                    </div>
                 </div>
-                <div class="col-5 item-info">
-                    <p class="item-info_name">{{this.name}}</p>
-                    <p class="item-info_detail">{{this.description}}</p>
-                    <p class="item-info_action">
-                        
-                        <span class="item-info_buy-later ml-2">Buy again</span></p>
-                </div>
-                <div class="col-2 item_pricess">
-                    <p class="item-pricess_real-price">${{this.price}}</p>
-                    <p class="item-pricess_discount-price">
-                        <del>${{this.price}}</del>
-                        <span>|</span>
-                        <span>-x%</span>
-                    </p>
-                </div>
-                <div class="col-2 item_qty input-group">
-                    <h5>Quantity: 1</h5>
-                    <h5>Total: ${{this.price}}</h5>
-                </div>
-            </div>
+            {{/each}}
             {{/each}}
             </div>
         </div>

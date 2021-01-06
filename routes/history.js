@@ -2,18 +2,17 @@ var express = require('express');
 var router = express.Router();
 var myModules = require('../myModules/array')
 var models = require('../models');
+var orderController = require("../controllers/orderController");
+var orderItemController = require("../controllers/orderItemController");
 
 router.get('/', (req, res) => { // cart page
     // ---- get user
-    models.Product
-    .findAll({
-        raw : true,
-    })
-    .then(products => {
-        
     
-        let history_items = myModules.getNElements(myModules.getCakes(products), 2).concat(myModules.getNElements(myModules.getTeas(products), 1)).concat(myModules.getNElements(myModules.getDrinks(products), 1));
-        // ---- Prepare data for page
+    var acc = req.app.get('current_account');
+    
+    orderController.getOrdersByUserId(acc)
+    .then(orders => {
+
         var page_data = {
             title: "TeaCake - History",
             products: history_items
