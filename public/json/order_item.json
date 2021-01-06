@@ -1,8 +1,8 @@
 [
     {
         "id":0,
-        "itemID": 0,
-        "orderID": 0,
+        "ProductId": 0,
+        "OrderId": 0,
         "quantity": 1        
     }
 ]

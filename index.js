@@ -164,6 +164,9 @@ app.use('/contact', require('./routes/contact')); // contact page
 app.use('/blog', require('./routes/blog')); // blogs page
 
 app.use('/admin', require('./routes/admin')); // admin pages
+
+//app.use('/notification', require('./routes/notification')); // view notification
+
 // Sync to db
 app.get('/sync', (req, res) => {
     models.sequelize.sync().then(()=>{

@@ -1,8 +1,10 @@
 [
     {
         "id":0,
-        "userID": "admin",
+        "UserId": "admin",
         "totalPrice": 10,
+        "discount": 100,
+        "finalPrice": 0,
         "paymentMethod": "card"        
     }
 ]

@@ -39,3 +39,19 @@ function removeFromCart() {
         }
     })
 }
+
+function Pay() {
+    var total = $('#total').html();
+    var discount = $('#discount').html();
+    var total_after = $('#total_after').html();
+
+    $.ajax({
+        url: '/cart/pay',
+        type: 'POST',
+        data: { total, discount, total_after },
+        success: result => {
+            console.log(success);
+            // $('#cart-badge').html(result.totalQuantity);
+        }
+    })
+}

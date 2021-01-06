@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userID: {
+      UserId: {
         type: Sequelize.STRING,
         references: {
           model: 'Users',
@@ -16,6 +16,12 @@ module.exports = {
         },
       },
       totalPrice: {
+        type: Sequelize.DECIMAL
+      },
+      discount: {
+        type: Sequelize.INTEGER
+      },
+      finalPrice: {
         type: Sequelize.DECIMAL
       },
       paymentMethod: {
