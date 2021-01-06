@@ -2,7 +2,9 @@ var controller = {};
 
 var models = require('../models');
 var Orders = models.Order;
-var OrderItems = models.OrderItems;
+var OrderItems = models.OrderItem;
+var Products = models.Pruduct;
+var productController = require("../controllers/productController");
 
 controller.createOrder = function(order){
 	Orders.create(order)
@@ -27,7 +29,6 @@ controller.getOrdersByUserId = id => {
                 where: {
                     UserId : id
                 },
-                include: [OrderItems]
             })
             .then(orders => resolve(orders))
             .catch(error => reject(new Error(error))); 

@@ -8,70 +8,61 @@
             {{#each orders}}
             <hr class="">
             <div class = "date-time text-center"><p>{{this.createAt}}</p></div>
-            {{#each ../orderItems}}
+            <div class = "BillID text-center m-3"><h4>Bill ID: {{this.id}}</h4></div>
+            {{#each orderItems}}
                 <div class="row item my-2">
                     <div class="col-3 item-img">
-                        <img src="{{}}" alt="" class="img-fluid img-thumbnail">
+                        <img src="{{this.Product.src}}" alt="" class="img-fluid img-thumbnail">
                     </div>
-                    <div class="col-5 item-info">
-                        <p class="item-info_name">{{this.name}}</p>
+                    <div class="col-3 item-info">
+                        <p class="item-info_name">{{this.Product.name}}</p>
                         <p class="item-info_action">
-                            
-                            <span class="item-info_buy-later ml-2">Buy again</span></p>
-                    </div>
-                    <div class="col-2 item_pricess">
-                        <p class="item-pricess_real-price">${{this.price}}</p>
-                        <p class="item-pricess_discount-price">
-                            <del>${{this.price}}</del>
-                            <span>|</span>
-                            <span>-x%</span>
+                            <span class="item-info_buy-later ml-2">Buy again</span>
                         </p>
                     </div>
+                    <div class="col-2 item_pricess">
+                        <h5 class="item-pricess_real-price">${{this.Product.price}}</h5>
+                        <h5 class="item-pricess_discount-price">
+                            <del>${{this.Product.price}}</del>
+                            <span>|</span>
+                            <span>-x%</span>
+                        </h5>
+                    </div>
                     <div class="col-2 item_qty input-group">
-                        <h5>Quantity: 1</h5>
-                        <h5>Total: ${{this.price}}</h5>
+                        <h5>Quantity: {{this.quantity}}</h5>
                     </div>
                 </div>
             {{/each}}
+            <p class="text-center">-----------------------------------------------------------------------</p>
+            <div class="total m-3">
+                <div class="row">
+                    <div class="col-5" style="left: 150px">
+                        <h4>Total Price: </h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>${{this.totalPrice}}</h4>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-5" style="left: 150px">
+                        <h4>Discount: </h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>{{this.discount}}%</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5" style="left: 150px">
+                        <h4>After discount: </h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>${{this.finalPrice}}</h4>
+                    </div>
+                </div>
+                
+            </div>
             {{/each}}
             </div>
         </div>
     </div>
 </div>
-
-{{!-- <div class="container">
-    {{#each products}}
-    <div class = "card m-4">
-        <div class="card-header bg-info text-center" style="background: linear-gradient(to right,rgb(217, 230, 233),rgb(168, 236, 216), rgb(211, 231, 122), rgb(236, 222, 19));">
-            <p>HUHU</p>
-        </div>
-        <div class="card-body formColor">
-            <div class = "date-time text-center"><p>Date: 1/1/2021 -- Time: 00:00:00</p></div>
-            <div class="row">
-                <div class="col-2">
-                    <img src="{{this.src}}" alt="" class="img-fluid img-thumbnail">
-                </div>
-                <div class="col-5 item-info">
-                    <p class="item-info_name">{{this.name}}</p>
-                    <p class="item-info_detail">{{this.description}}</p>
-                    <p class="item-info_action">
-                        
-                        <span class="item-info_buy-later ml-2">Buy again</span></p>
-                </div>
-                <div class="col-2 item_pricess">
-                    <p class="item-pricess_real-price">${{this.price}}</p>
-                    <p class="item-pricess_discount-price">
-                        <del>${{this.price}}</del>
-                        <span>|</span>
-                        <span>-x%</span>
-                    </p>
-                </div>
-                <div class="col-2 total">
-                    <h5>Quantity: 1</h5>
-                    <h5>Total: ${{this.price}}</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{/each}}
-</div> --}}
