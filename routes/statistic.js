@@ -19,7 +19,6 @@ router.get('/', (req, res) => { // cart page
                     tmp += products[i].OrderItems[j].quantity;
                 }
             }
-            console.log(products[i]);
             products[i].sold = tmp;
         }
 

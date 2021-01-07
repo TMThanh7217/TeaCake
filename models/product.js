@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Product.hasMany(models.Comment);
       Product.hasMany(models.OrderItem);
+      Product.hasMany(models.RcmProduct);
     }
   };
   Product.init({
