@@ -78,5 +78,9 @@
     </div>
 </div>
 {{> modal-delete-warn action="emptyCart()"}}
-{{> confirm-payment-modal action="Pay()"}}
+{{#unless isEmpty}}
+{{> confirm-payment-modal action="Pay()" mess="We accepted your order!! Please, waiting for our shipper."}}
+{{else}}
+{{> confirm-payment-modal action="" mess="PLease get at least 1 product before confirm payment"}}
+{{/unless}}
 {{> login-require-modal action="document.location.href='/login'"}}

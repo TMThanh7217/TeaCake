@@ -7,6 +7,8 @@ $(document).ready(() => {
     $(function () {
         $('[data-toggle="popover"][data-timeout]').popover({ trigger:"manual" }).click(function() { 
             var pop = $(this); 
+            var quantity = $('#qtyField') ? Number($('#qtyField').val()) : 1;
+            if (quantity <= 0) return;
             pop.popover("show") 
             pop.on('shown.bs.popover',function() { 
              setTimeout(function() {
@@ -21,6 +23,7 @@ $(document).ready(() => {
 function addToCart() {
     var id = $(this).data('id');
     var quantity = $('#qtyField') ? Number($('#qtyField').val()) : 1;
+    if (quantity <= 0) return;
     $.ajax({
         url: '/cart',
         type: 'POST',
@@ -76,6 +79,7 @@ function emptyCart() {
             $('.confirm-payment_data-after').html(`$0`);
         }
     })
+    document.location.href="/cart"; 
 }
 
 function Pay() {
@@ -88,9 +92,9 @@ function Pay() {
         type: 'POST',
         data: { total, discount, total_after },
         success: result => {
-            console.log(success);
+            console.log("ok");
             // $('#cart-badge').html(result.totalQuantity);
             emptyCart();
-        }
+        },
     })
 }
