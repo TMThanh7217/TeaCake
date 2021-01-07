@@ -103,8 +103,8 @@
             <i class='fa fa-shopping-cart fa-stack-2x icon-link' onclick="document.location.href='/cart'"></i>
             <span class="badge badge-info badge-top" id="cart-badge">{{totalQuantity}}</span>
         </span>
-        <div id="notification" class="noti">
 
+        <div id="notification" class="noti">
             <div class="nav-item dropdown">
                 <a class="nav-link text-light" href="#" id="notiDropdown" role="button" data-toggle="dropdown">
                     <i class="fa fa-bell fa-2x"></i>
@@ -117,6 +117,7 @@
                                 <center><span>Notifications</span></center>
                             </div>
                     </li>
+
                     {{#each Notifications}}
                     <hr>
                     <li class="notification-box">
