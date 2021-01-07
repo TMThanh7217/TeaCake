@@ -5,27 +5,6 @@
                 <h1>Statistic</h1>
             </div>
             <div class="card-body bg-container">
-                <div class="moth text-center">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="" data-toggle="dropdown">
-                            Choose Month            
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="triggerId">
-                            <a class="dropdown-item" href="#">Jannuary</a>
-                            <a class="dropdown-item" href="#">February</a>
-                            <a class="dropdown-item" href="#">March</a>
-                            <a class="dropdown-item" href="#">April</a>
-                            <a class="dropdown-item" href="#">May</a>
-                            <a class="dropdown-item" href="#">June</a>
-                            <a class="dropdown-item" href="#">July</a>
-                            <a class="dropdown-item" href="#">August</a>
-                            <a class="dropdown-item" href="#">September</a>
-                            <a class="dropdown-item" href="#">October</a>
-                            <a class="dropdown-item" href="#">November</a>
-                            <a class="dropdown-item" href="#">December</a>
-                        </div>
-                    </div>
-                </div>
 
             {{#each products}}
             <hr class="">
@@ -36,9 +15,9 @@
                 </div>
                 <div class="col-5 item-info">
                     <p class="item-info_name">{{this.name}}</p>
-                    <p class="item-info_sold"><h3>Sold: 100</h3></p>
+                    <p class="item-info_sold"><h3>Sold: {{this.sold}}</h3></p>
                     <p class="item-info_action">
-                        <span class="item-info_buy-later ml-2">View Product</span>
+                        <span class="item-info_buy-later ml-2" onclick='document.location.href="/products/{{this.id}}"'>View Product</span>
                     </p>
                 </div>
                 <div class="col-2 item_pricess">

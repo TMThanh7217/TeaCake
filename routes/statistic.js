@@ -2,21 +2,31 @@ var express = require('express');
 var router = express.Router();
 var myModules = require('../myModules/array')
 var models = require('../models');
+var OrderItems = models.OrderItem;
 
 router.get('/', (req, res) => { // cart page
     // ---- get user
     models.Product
     .findAll({
-        raw : true,
+        include: [OrderItems]
     })
     .then(products => {
-        
-    
-        let statistic_items = myModules.getNElements(myModules.getCakes(products), 2).concat(myModules.getNElements(myModules.getTeas(products), 1)).concat(myModules.getNElements(myModules.getDrinks(products), 1));
+
+        for (let i = 0; i < products.length; i++) {
+            var tmp = 0;
+            if (products[i].OrderItems != null) {
+                for (let j = 0; j < products[i].OrderItems.length; j++) {
+                    tmp += products[i].OrderItems[j].quantity;
+                }
+            }
+            console.log(products[i]);
+            products[i].sold = tmp;
+        }
+
         // ---- Prepare data for page
         var page_data = {
             title: "TeaCake - Statistic",
-            products: statistic_items
+            products: products
         }
 
         // ---- Render home page

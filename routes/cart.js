@@ -3,6 +3,7 @@ var router = express.Router();
 var orderController = require("../controllers/orderController");
 var orderItemController = require("../controllers/orderItemController");
 var notiController = require('../controllers/notiController');
+var userController = require('../controllers/userController');
 
 router.get('/', (req, res) => {
     var cart = req.session.cart;
@@ -11,7 +12,12 @@ router.get('/', (req, res) => {
         title: "TeaCake - Cart",
         isEmpty: cart.isEmpty()
     }
-    res.render('cart', pageData);
+    var this_user = {}
+    // userController.searchUser(req.app.get('current_account'))
+    //     .then(user => {
+    //         this_user = user;
+    // })
+    res.render('cart', pageData, this_user);
 });
 
 
