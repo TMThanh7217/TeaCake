@@ -159,12 +159,8 @@ router.get('/:id', (req, res) => { // product pages
                     chartStars[i] = (chartStars[i]/totalRate)*100;
                 }
 
-                if(req.app.get('current_user') == 0){
+                if(req.app.get('current_user') == null){
                     is_login = false;
-                }
-                
-                if (is_login){
-                    
                 }
 
                 // ---- Prepare data for page
