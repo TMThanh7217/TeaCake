@@ -76,6 +76,7 @@ function emptyCart() {
             $('.confirm-payment_data-after').html(`$0`);
         }
     })
+    document.location.href="/cart"; 
 }
 
 function Pay() {
@@ -88,9 +89,9 @@ function Pay() {
         type: 'POST',
         data: { total, discount, total_after },
         success: result => {
-            console.log(success);
+            console.log("ok");
             // $('#cart-badge').html(result.totalQuantity);
             emptyCart();
-        }
+        },
     })
 }

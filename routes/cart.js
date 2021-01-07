@@ -72,7 +72,10 @@ router.post('/pay', (req, res, next) => {
             }
             orderItemController.createOrderItem(orderItem);
         }
+
+        res.json("ok");
     })
+    .catch(error => res.json(error));
 });
 
 module.exports = router;
