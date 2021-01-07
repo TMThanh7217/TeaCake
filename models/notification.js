@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Notification.init({
     author: DataTypes.TEXT,
-    userID: DataTypes.STRING,
+    UserId: DataTypes.STRING,
     header: DataTypes.TEXT,
     content: DataTypes.TEXT,
     img: DataTypes.STRING

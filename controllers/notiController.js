@@ -8,9 +8,8 @@ controller.getNotificationByID = id => {
         Notification
             .findAll({
                 where: {
-                    userID : id
-                },
-                include: [User]
+                    UserId : id
+                }
             })
             .then(notifications => resolve(notifications))
             .catch(error => reject(new Error(error))); 
@@ -18,11 +17,11 @@ controller.getNotificationByID = id => {
 }
 
 controller.createNotification = function(notification) {
-    return new Promise((resolve, reject) => {
         Notification
-            .create(notification)
-            .catch(error => reject(new Error(error))); 
-    })
+        .create(notification)
+        .catch(function(error) {
+            console.log(error)
+        });
 }
 
 module.exports = controller;

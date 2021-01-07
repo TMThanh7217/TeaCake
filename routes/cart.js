@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var orderController = require("../controllers/orderController");
 var orderItemController = require("../controllers/orderItemController");
+var notiController = require('../controllers/notiController');
 
 router.get('/', (req, res) => {
     var cart = req.session.cart;
@@ -63,6 +64,15 @@ router.post('/pay', (req, res, next) => {
             "paymentMethod": "COD"
         }
         orderController.createOrder(order);
+
+        var noti = {
+            author: "TeaCake",
+            UserId: acc,
+            header: "Order successfully",
+            content: "You've ordered successfully, check out in your history!",
+            img: "/images/TeaCake.png"
+        }
+        notiController.createNotification(noti);
 
         for (let i = 0; i < cart.getCart().items.length; i++) {
             var orderItem = {

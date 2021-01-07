@@ -7,6 +7,8 @@ var productController = require('../controllers/productController')
 const AWS = require('aws-sdk');
 const Busboy = require('busboy');
 const controller = require('../controllers/adsController');
+var notiController = require('../controllers/notiController');
+var userController = require('../controllers/userController');
 
 router.get('/products', (req, res) => {
     if (res.locals.userAuthorization != 2)
@@ -143,11 +145,26 @@ router.post('/get_product', (req, res) => {
     busboy.on('finish', function() {
         product['like'] = 0,
         productController
-            .getAll()
+            .getAllProducts()
             .then(products => { 
                 product['id'] = products[products.length - 1].id + 1,
                 console.log(product)
                 productController.createProduct(product);
+
+                userController
+                .getAllUsers()
+                .then(users => {
+                    for (let i = 0; i < users.length; i++) {
+                        var noti = {
+                            author: "TeaCake",
+                            UserId: users[i].id,
+                            header: "New Product",
+                            content: "We've just released a new product! Check it out in Menu!",
+                            img: "/images/TeaCake.png"
+                        }
+                        notiController.createNotification(noti);
+                    }
+                })
 
                 res.redirect('products/add');
             });

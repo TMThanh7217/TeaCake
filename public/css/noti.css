@@ -1,4 +1,4 @@
-.head{
+.head-noti{
     top: 60px;
     right: 0px;
     left: unset;
@@ -8,13 +8,20 @@
     padding: 0px;
 }
 
-.head:before{
+.head-noti:before{
     content: "";
     position: absolute;
     top: -20px;
     right: 12px;
     border:10px solid #343A40;
     border-color: transparent transparent #343A40 transparent;
+}
+
+
+.head-noti {
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
   
 .notification-box{

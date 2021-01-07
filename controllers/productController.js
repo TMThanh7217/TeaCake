@@ -5,7 +5,6 @@ const sequelize = require('sequelize');
 const models = require('../models');
 const Product = models.Product;
 
-
 controller.getAll = (sort) => {
     orderQuery = [];
     switch (sort) {
@@ -179,10 +178,19 @@ controller.searchProduct = function(keyword){
 };
 
 controller.createProduct = function(product){
-	Product.create(product)
+    Product.create(product)
 	.catch(function(error) {
 		console.log(error)
 	});
 };
+
+controller.getAllProducts = function() {
+    return new Promise ((resolve, reject) => {
+        Product
+        .findAll()
+        .then(products => resolve(products))
+        .catch(error => reject(new Error(error)));
+    })
+}
 
 module.exports = controller;

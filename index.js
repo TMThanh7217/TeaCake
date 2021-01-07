@@ -16,6 +16,7 @@ const corsOptions = {
     origin: 'http://localhost:8000',
     optionsSuccessStatus: 200
 }
+
 // ------------------Some local vars----------------
 
 app.set('userAuthorization', ANONYMOUS_USER); // identify user
@@ -52,11 +53,18 @@ app.use(session({
 }));
 
 var Cart = require('./controllers/cartController');
+var notiController = require('./controllers/notiController');
 app.use((req, res, next) => {
   res.locals.userAuthorization = req.app.get('userAuthorization');
   var cart = new Cart(req.session.cart ? req.session.cart : {});
   req.session.cart = cart;
   res.locals.totalQuantity = cart.totalQuantity;
+
+  notiController
+    .getNotificationByID(req.app.get('current_account'))
+    .then(noti => {
+        res.locals.Notifications = noti
+    })
   next();
 })
 
@@ -113,6 +121,7 @@ function _isTeasCate(cate) {
     return cate.toLowerCase() == "teas";
 }
 
+
 // ------Init some stuff
 let hbs = exprHbs.create({
     extname : "hbs",
@@ -134,7 +143,7 @@ let hbs = exprHbs.create({
         isDrinksCate : _isDrinksCate,
         isCakesCate : _isCakesCate,
         isTeasCate : _isTeasCate,
-        isCredit : _isCredit
+        isCredit : _isCredit,
     }
 });
 

@@ -37,4 +37,12 @@ controller.updateUser = function(user){
 	);
 };
 
+controller.getAllUsers = function() {
+	return new Promise((resolve, reject) => {
+		Users.findAll()
+		.then(users => resolve(users))
+		.catch(error => reject(new Error(error)))
+	})
+}
+
 module.exports = controller;
