@@ -90,6 +90,7 @@ function Pay() {
         success: result => {
             console.log(success);
             // $('#cart-badge').html(result.totalQuantity);
+            emptyCart();
         }
     })
 }
