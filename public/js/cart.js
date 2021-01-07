@@ -7,6 +7,8 @@ $(document).ready(() => {
     $(function () {
         $('[data-toggle="popover"][data-timeout]').popover({ trigger:"manual" }).click(function() { 
             var pop = $(this); 
+            var quantity = $('#qtyField') ? Number($('#qtyField').val()) : 1;
+            if (quantity <= 0) return;
             pop.popover("show") 
             pop.on('shown.bs.popover',function() { 
              setTimeout(function() {
@@ -21,6 +23,7 @@ $(document).ready(() => {
 function addToCart() {
     var id = $(this).data('id');
     var quantity = $('#qtyField') ? Number($('#qtyField').val()) : 1;
+    if (quantity <= 0) return;
     $.ajax({
         url: '/cart',
         type: 'POST',
