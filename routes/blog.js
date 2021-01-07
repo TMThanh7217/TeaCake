@@ -4,10 +4,10 @@ var myModules = require('../myModules/array')
 var path = require('path');
 var fs = require('fs');
 var blogs = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/blogs.json')));
+var userController = require('../controllers/userController');
 
 router.get('/', (req, res) => { // credit page
     // ---- get user
-
 
     var rows = myModules.getRows(blogs, 3);
     // ---- Prepare data for page

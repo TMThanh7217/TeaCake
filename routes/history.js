@@ -8,7 +8,6 @@ var orderItemController = require("../controllers/orderItemController");
 
 router.get('/', (req, res) => { // cart page
     // ---- get user
-    var acc = req.app.get('current_account');
     
     orderController.getOrdersByUserId(req.app.get('current_account'))
     .then(orders => {

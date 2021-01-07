@@ -55,17 +55,20 @@ app.use(session({
 var Cart = require('./controllers/cartController');
 var notiController = require('./controllers/notiController');
 app.use((req, res, next) => {
-  res.locals.userAuthorization = req.app.get('userAuthorization');
-  var cart = new Cart(req.session.cart ? req.session.cart : {});
-  req.session.cart = cart;
-  res.locals.totalQuantity = cart.totalQuantity;
-
-  notiController
-    .getNotificationByID(req.app.get('current_account'))
-    .then(noti => {
-        res.locals.Notifications = noti
-    })
-  next();
+    res.locals.userAuthorization = req.app.get('userAuthorization');
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    req.session.cart = cart;
+    res.locals.totalQuantity = cart.totalQuantity;
+    
+    res.locals.Notifications = {};
+    if (req.app.get('current_account') != null) {
+        notiController
+            .getNotificationByID(req.app.get('current_account'))
+            .then(noti => {
+                res.locals.Notifications = noti
+            })
+    }
+    next();
 })
 
 app.use(express.static(__dirname + "/public")); // Public files
