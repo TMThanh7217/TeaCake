@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   RcmProduct.init({
-    ProductId: DataTypes.INTEGER
+    ProductId: DataTypes.INTEGER,
+    type: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'RcmProduct',

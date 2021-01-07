@@ -27,16 +27,16 @@
     <div class="card-body d-flex justify-content-center">
         {{#each rec_cakes}}
         <figure class="d-inline-block m-2">
-            <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2" onclick="document.location.href='products/{{this.id}}'">
-            <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+            <img src="{{Product.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2" onclick="document.location.href='products/{{this.id}}'">
+            <figcaption class="position-relative d-flex justify-content-center">{{Product.price}}$</figcaption>
         </figure>
         {{/each}}
     </div>
     <div class="card-body d-flex justify-content-center">
         {{#each rec_drinks}}
         <figure class="d-inline-block m-2">
-            <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2" onclick="document.location.href='products/{{this.id}}'">
-            <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+            <img src="{{Product.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2" onclick="document.location.href='products/{{this.id}}'">
+            <figcaption class="position-relative d-flex justify-content-center">{{Product.price}}$</figcaption>
         </figure>
         {{/each}}
     </div>

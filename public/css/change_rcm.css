@@ -20,3 +20,12 @@
 #cakes{
     display: none;
 }
+
+.close_ads{
+    border: none;
+    position: absolute;
+    left: 1140px;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+}

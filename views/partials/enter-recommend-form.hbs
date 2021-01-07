@@ -2,29 +2,31 @@
     <div class="changing-background" id="cakes">
         {{#each menu_cakes}}
         <figure class="d-inline-block m-2">
-            <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
-            <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+            <img src="{{src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+            <figcaption class="position-relative d-flex justify-content-center">{{price}}$</figcaption>
             <button type="button" id="{{id}}" onclick="ChoosenOne(event)" class="btn btn-lg btn-block btn-TeaCake btn-menu mt-3">Choose</button>
         </figure>
         {{/each}}
+        <button class="close_ads" onclick="cake_close()"><i class="fas fa-window-close"></i></button>
     </div>
 </div>
 <div class="d-flex justify-content-center">
     <div class="changing-background" id="drinks">
         {{#each menu_drinks}}
         <figure class="d-inline-block m-2">
-            <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
-            <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+            <img src="{{src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+            <figcaption class="position-relative d-flex justify-content-center">{{price}}$</figcaption>
             <button type="button" id="{{id}}" onclick="ChoosenOne(event)" class="btn btn-lg btn-block btn-TeaCake btn-menu mt-3">Choose</button>
         </figure>
         {{/each}}
+        <button class="close_ads" onclick="drink_close()"><i class="fas fa-window-close"></i></button>
     </div>
 </div>
 <div class="d-flex justify-content-center">
     {{#each rcm_cakes}}
     <figure class="d-inline-block m-2">
-        <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
-        <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+        <img src="{{Product.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+        <figcaption class="position-relative d-flex justify-content-center">{{Product.price}}$</figcaption>
         <button type="button" id="{{id}}" onclick="loadCakes(event)" class="btn btn-lg btn-block btn-TeaCake btn-menu mt-3">Change</button>
     </figure>
     {{/each}}
@@ -32,8 +34,8 @@
 <div class="d-flex justify-content-center">
     {{#each rcm_drinks}}
     <figure class="d-inline-block m-2">
-        <img src="{{this.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
-        <figcaption class="position-relative d-flex justify-content-center">{{this.price}}$</figcaption>
+        <img src="{{Product.src}}" class="img-thumbnail best_seller" style="width: 210px; height: 160px;" alt="Best_Seller_2">
+        <figcaption class="position-relative d-flex justify-content-center">{{Product.price}}$</figcaption>
         <button type="button" id="{{id}}" onclick="loadDrinks(event)" class="btn btn-lg btn-block btn-TeaCake btn-menu mt-3">Change</button>
     </figure>
     {{/each}}

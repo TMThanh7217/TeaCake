@@ -1,43 +1,33 @@
 [
     {
-    "ProductId":0
+    "ProductId":0,
+    "type": "cake"
     }, {
-    "ProductId":1
+    "ProductId":1,
+    "type": "cake"
     },{
-    "ProductId":2
+    "ProductId":2,
+    "type": "cake"
     }, {
-    "ProductId":3
+    "ProductId":3,
+    "type": "cake"
     }, {
-    "ProductId":4
+    "ProductId":4,
+    "type": "cake"
     }, {
-    "ProductId": 5
+    "ProductId": 17,
+    "type": "drink"
     }, {
-    "ProductId": 6
+    "ProductId": 18,
+    "type": "drink"
     }, {
-    "ProductId": 7
+    "ProductId": 19,
+    "type": "drink"
     }, {
-    "ProductId": 8
+    "ProductId": 25,
+    "type": "tea"
     }, {
-    "ProductId": 9
-    }, {
-    "ProductId": 10
-    }, {
-    "ProductId": 11
-    }, {
-    "ProductId": 12
-    }, {
-    "ProductId": 13
-    },{
-    "ProductId": 14
-    }, {
-    "ProductId": 15
-    }, {
-    "ProductId": 16
-    }, {
-    "ProductId": 17
-    }, {
-    "ProductId": 18
-    }, {
-    "ProductId": 19
+    "ProductId": 26,
+    "type": "tea"
     }
 ]
