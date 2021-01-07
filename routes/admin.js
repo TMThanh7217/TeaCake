@@ -66,6 +66,8 @@ router.get('/add_ads', (req, res) => {
     res.render('admin-add-ads', page_data);
 });
 
+router.use('/statistic', require('../routes/statistic'));
+
 // async function calTopBestSeller(typeee, num){
 //     models.Product
 //     .findAll({

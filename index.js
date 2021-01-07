@@ -170,7 +170,7 @@ app.use('/cart', require('./routes/cart')); // cart
 
 app.use('/history', require('./routes/history')); // history pages
 
-app.use('/statistic', require('./routes/statistic')); // history pages
+//app.use('/statistic', require('./routes/statistic')); // history pages
 
 app.use('/profile', require('./routes/profile')); // profile page
 
