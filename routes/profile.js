@@ -19,7 +19,6 @@ router.get('/', (req, res) => { // credit page
 });
 
 router.post('/get_infor_user', (req, res) => {   
-  
 
   var birthday = req.body.birthday;
   birthday = birthday.split("/");

@@ -223,4 +223,44 @@ router.post('/get_ads', function (req, res) {
     req.pipe(busboy);
 });
 
+function cal20BestSeller(){
+    models.Product
+    .findAll({
+        include: [OrderItems]
+    })
+    .then(products => {
+
+        for (let i = 0; i < products.length; i++) {
+            var tmp = 0;
+            if (products[i].OrderItems != null) {
+                for (let j = 0; j < products[i].OrderItems.length; j++) {
+                    tmp += products[i].OrderItems[j].quantity;
+                }
+            }
+            products[i].sold = tmp;
+        }
+
+        for (let i = 0; i < products.length; i++) {
+            var tmp = 0;
+            if (products[i].OrderItems != null) {
+                for (let j = 0; j < products[i].OrderItems.length; j++) {
+                    tmp += products[i].OrderItems[j].quantity;
+                }
+            }
+            products[i].sold = tmp;
+        }
+
+        return products
+    });
+}
+
+
+router.post('/get_rcm_product', function (req, res) {
+    id1 = req.body.id1;
+    id2 = req.body.id2;
+
+    console.log(id1);
+    console.log(id2);
+});
+
 module.exports = router;
