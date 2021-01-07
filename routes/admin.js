@@ -9,6 +9,12 @@ const Busboy = require('busboy');
 const controller = require('../controllers/adsController');
 
 router.get('/products', (req, res) => {
+    if (res.locals.userAuthorization != 2)
+    return res.render('error', {
+        title: "Authorization Error",
+        errMess: "You don't have permission to access this page!",
+        errTitle: "ACCESS DENIED"
+    })
     models.Product
     .findAll({raw: true})
     .then(products => {
@@ -30,6 +36,12 @@ router.get('/products', (req, res) => {
 })
 
 router.get('/products/add', (req, res) => {
+    if (res.locals.userAuthorization != 2)
+    return res.render('error', {
+        title: "Authorization Error",
+        errMess: "You don't have permission to access this page!",
+        errTitle: "ACCESS DENIED"
+    })
     res.locals.user = req.app.get('current user');
     let page_data = {
         title: "TeaCake - Admin"
@@ -38,7 +50,12 @@ router.get('/products/add', (req, res) => {
 })
 
 router.get('/add_ads', (req, res) => {
-    
+    if (res.locals.userAuthorization != 2)
+    return res.render('error', {
+        title: "Authorization Error",
+        errMess: "You don't have permission to access this page!",
+        errTitle: "ACCESS DENIED"
+    })
     let page_data = {
         title: "TeaCake - Admin"
     }
