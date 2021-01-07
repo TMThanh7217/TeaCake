@@ -14,10 +14,10 @@ function _getRows(data, cap) { // 1D array to 2D array and 2nd dim have size = c
 }
 
 router.get('/', (req, res) => { // menu page
-   
-    
+
+    console.log(req.query.order)
     productController
-    .getAll()
+    .getAll(req.query.order)
     .then(products => {
         // ---- get rows with each row have 3 products
         var rows_data = _getRows(products, 3);
@@ -43,7 +43,7 @@ router.get('/cakes', (req, res) => {
    
 
     productController
-    .getCakes()
+    .getCakes(req.query.order)
     .then(products => {
         var rows = _getRows(products, 3);
         
@@ -65,7 +65,7 @@ router.get('/teas', (req, res) => {
    
 
     productController
-    .getTeas()
+    .getTeas(req.query.order)
     .then(products => {
         var rows = _getRows(products, 3);
         
@@ -87,7 +87,7 @@ router.get('/drinks', (req, res) => {
    
 
     productController
-    .getDrinks()
+    .getDrinks(req.query.order)
     .then(products => {
         var rows = _getRows(products, 3);
         

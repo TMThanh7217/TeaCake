@@ -2,6 +2,7 @@
     {{#if cate}}
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 p-3">
+            <h4 class="bg-main p-2 d-flex align-items-center justify-content-center"><strong>Categories</strong></h4>
             {{#if (isMenuCate cate)}}
             <ul class="menu side-bar__menu bg-main">
                 <li class="item side-bar__menu__item side-bar__menu__item--active" onclick="document.location.href='/products'">
@@ -15,6 +16,21 @@
                 </li>
                 <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks'">
                     <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+            <h4 class="bg-main p-2 mt-5 d-flex align-items-center justify-content-center"><strong>Sort</strong><i class="fa fa-sort ml-2" aria-hidden="true"></i></h4>
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=0'">
+                    <a href="/products?order=0" class="side-bar__menu__item__link"><i class="fa fa-usd mr-2" aria-hidden="true"></i>Price</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=1'">
+                    <a href="/products?order=1" class="side-bar__menu__item__link"><i class="fa fa-sort-alpha-asc mr-2" aria-hidden="true"></i>Name</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=2'">
+                    <a href="/products?order=2" class="side-bar__menu__item__link"><i class="fa fa-heart mr-2" aria-hidden="true"></i>Like</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=3'">
+                    <a href="/products?order=3" class=   "side-bar__menu__item__link"><i class="fa fa-commenting mr-2" aria-hidden="true"></i>Comment</a>
                 </li>
             </ul>
             {{else if (isTeasCate cate)}}
@@ -32,6 +48,21 @@
                     <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
                 </li>
             </ul>
+            <h4 class="bg-main p-2 mt-5 d-flex align-items-center justify-content-center"><strong>Sort</strong><i class="fa fa-sort ml-2" aria-hidden="true"></i></h4>
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas?order=0'">
+                    <a href="/products/teas?order=0" class="side-bar__menu__item__link"><i class="fa fa-usd mr-2" aria-hidden="true"></i>Price</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas?order=1'">
+                    <a href="/products/teas?order=1" class="side-bar__menu__item__link"><i class="fa fa-sort-alpha-asc mr-2" aria-hidden="true"></i>Name</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas?order=2'">
+                    <a href="/products/teas?order=2" class="side-bar__menu__item__link"><i class="fa fa-heart mr-2" aria-hidden="true"></i>Like</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/teas?order=3'">
+                    <a href="/products/teas?order=3" class=   "side-bar__menu__item__link"><i class="fa fa-commenting mr-2" aria-hidden="true"></i>Comment</a>
+                </li>
+            </ul>
             {{else if (isCakesCate cate)}}
             <ul class="menu side-bar__menu bg-main">
                 <li class="item side-bar__menu__item" onclick="document.location.href='/products'">
@@ -45,6 +76,21 @@
                 </li>
                 <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks'">
                     <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
+                </li>
+            </ul>
+            <h4 class="bg-main p-2 mt-5 d-flex align-items-center justify-content-center"><strong>Sort</strong><i class="fa fa-sort ml-2" aria-hidden="true"></i></h4>
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes?order=0'">
+                    <a href="/products/cakes?order=0" class="side-bar__menu__item__link"><i class="fa fa-usd mr-2" aria-hidden="true"></i>Price</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes?order=1'">
+                    <a href="/products/cakes?order=1" class="side-bar__menu__item__link"><i class="fa fa-sort-alpha-asc mr-2" aria-hidden="true"></i>Name</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes?order=2'">
+                    <a href="/products/cakes?order=2" class="side-bar__menu__item__link"><i class="fa fa-heart mr-2" aria-hidden="true"></i>Like</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/cakes?order=3'">
+                    <a href="/products/drinks?order=3" class=   "side-bar__menu__item__link"><i class="fa fa-commenting mr-2" aria-hidden="true"></i>Comment</a>
                 </li>
             </ul>
             {{else if (isDrinksCate cate)}}
@@ -62,6 +108,21 @@
                     <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
                 </li>
             </ul>
+            <h4 class="bg-main p-2 mt-5 d-flex align-items-center justify-content-center"><strong>Sort</strong><i class="fa fa-sort ml-2" aria-hidden="true"></i></h4>
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks?order=0'">
+                    <a href="/products/drinks?order=0" class="side-bar__menu__item__link"><i class="fa fa-usd mr-2" aria-hidden="true"></i>Price</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks?order=1'">
+                    <a href="/products/drinks?order=1" class="side-bar__menu__item__link"><i class="fa fa-sort-alpha-asc mr-2" aria-hidden="true"></i>Name</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks?order=2'">
+                    <a href="/products/drinks?order=2" class="side-bar__menu__item__link"><i class="fa fa-heart mr-2" aria-hidden="true"></i>Like</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products/drinks?order=3'">
+                    <a href="/products/drinks?order=3" class=   "side-bar__menu__item__link"><i class="fa fa-commenting mr-2" aria-hidden="true"></i>Comment</a>
+                </li>
+            </ul>
             {{else}}
             <ul class="menu side-bar__menu bg-main">
                 <li class="item side-bar__menu__item" onclick="document.location.href='/products'">
@@ -77,7 +138,23 @@
                     <a href="/products/drinks" class=   "side-bar__menu__item__link">Drinks</a>
                 </li>
             </ul>
+            <h4 class="bg-main p-2 mt-5 d-flex align-items-center justify-content-center"><strong>Sort</strong><i class="fa fa-sort ml-2" aria-hidden="true"></i></h4>
+            <ul class="menu side-bar__menu bg-main">
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=0'">
+                    <a href="/products?order=0" class="side-bar__menu__item__link"><i class="fa fa-usd mr-2" aria-hidden="true"></i>Price</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=1'">
+                    <a href="/products?order=1" class="side-bar__menu__item__link"><i class="fa fa-sort-alpha-asc mr-2" aria-hidden="true"></i>Name</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=2'">
+                    <a href="/products?order=2" class="side-bar__menu__item__link"><i class="fa fa-heart mr-2" aria-hidden="true"></i>Like</a>
+                </li>
+                <li class="item side-bar__menu__item" onclick="document.location.href='/products?order=3'">
+                    <a href="/products?order=3" class=   "side-bar__menu__item__link"><i class="fa fa-commenting mr-2" aria-hidden="true"></i>Comment</a>
+                </li>
+            </ul>
             {{/if}}
+            
         </div>
         {{/if}}
 

@@ -6,51 +6,130 @@ const models = require('../models');
 const Product = models.Product;
 
 
-controller.getAll = () => {
+controller.getAll = (sort) => {
+    orderQuery = [];
+    switch (sort) {
+        case "1":
+            orderQuery = [["name", "ASC"]];
+            break;
+        case "2":
+            orderQuery = [["like", "DESC"]];
+            break;
+        case "4":
+            orderQuery = [["updatedAt", "DESC"]];
+            break;
+        case "0":
+            orderQuery = [["price", "ASC"]];
+            break;
+        default:
+            orderQuery = [["name", "ASC"]];
+            break;
+    }
     return new Promise((resolve, reject) => {
         Product
-            .findAll({raw : true})
+            .findAll({
+                raw : true,
+                order: orderQuery
+            })
             .then(products => resolve(products))
             .catch(error => reject(new Error(error))); 
     })
 }
 
-controller.getDrinks = () => {
+controller.getDrinks = (sort) => {
+    orderQuery = [];
+    switch (sort) {
+        case "1":
+            orderQuery = [["name", "ASC"]];
+            break;
+        case "2":
+            orderQuery = [["like", "DESC"]];
+            break;
+        case "4":
+            orderQuery = [["updatedAt", "DESC"]];
+            break;
+        case "0":
+            orderQuery = [["price", "ASC"]];
+            break;
+        default:
+            orderQuery = [["name", "ASC"]];
+            break;
+    }
     return new Promise((resolve, reject) => {
         Product
             .findAll({
                 where: {
                     type : "drink"
                 },
-                raw : true
+                raw : true,
+                order: orderQuery
             })
             .then(products => resolve(products))
             .catch(error => reject(new Error(error))); 
     })
 }
 
-controller.getCakes = () => {
+controller.getCakes = (sort) => {
+    orderQuery = [];
+    switch (sort) {
+        case "1":
+            orderQuery = [["name", "ASC"]];
+            break;
+        case "2":
+            orderQuery = [["like", "DESC"]];
+            break;
+        case "4":
+            orderQuery = [["updatedAt", "DESC"]];
+            break;
+        case "0":
+            orderQuery = [["price", "ASC"]];
+            break;
+        default:
+            orderQuery = [["name", "ASC"]];
+            break;
+    }
     return new Promise((resolve, reject) => {
         Product
             .findAll({
                 where: {
                     type : "cake"
                 },
-                raw : true
+                
+                raw : true,
+                order: orderQuery
             })
             .then(products => resolve(products))
             .catch(error => reject(new Error(error))); 
     })
 }
 
-controller.getTeas = () => {
+controller.getTeas = (sort) => {
+    orderQuery = [];
+    switch (sort) {
+        case "1":
+            orderQuery = [["name", "ASC"]];
+            break;
+        case "2":
+            orderQuery = [["like", "DESC"]];
+            break;
+        case "4":
+            orderQuery = [["updatedAt", "DESC"]];
+            break;
+        case "0":
+            orderQuery = [["price", "ASC"]];
+            break;
+        default:
+            orderQuery = [["name", "ASC"]];
+            break;
+    }
     return new Promise((resolve, reject) => {
         Product
             .findAll({
                 where: {
                     type : "tea"
                 },
-                raw : true
+                raw : true,
+                order: orderQuery
             })
             .then(products => resolve(products))
             .catch(error => reject(new Error(error))); 
