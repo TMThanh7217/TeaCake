@@ -60,13 +60,16 @@ app.use((req, res, next) => {
     req.session.cart = cart;
     res.locals.totalQuantity = cart.totalQuantity;
     
-    res.locals.Notifications = {};
+    
     if (req.app.get('current_account') != null) {
         notiController
             .getNotificationByID(req.app.get('current_account'))
             .then(noti => {
-                res.locals.Notifications = noti
+                res.locals.Notifications = noti;
             })
+    }
+    else {
+        res.locals.Notifications = {};
     }
     next();
 })

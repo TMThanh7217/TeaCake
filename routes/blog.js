@@ -8,7 +8,6 @@ var userController = require('../controllers/userController');
 
 router.get('/', (req, res) => { // credit page
     // ---- get user
-
     var rows = myModules.getRows(blogs, 3);
     // ---- Prepare data for page
     var page_data = {
